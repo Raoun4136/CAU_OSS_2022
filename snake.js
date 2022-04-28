@@ -17,13 +17,30 @@ function createApple(min,max){
 }
 let apple = [createApple(1,20),createApple(1,20)];
 let snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
+let xV = 0;
+let yV = 0;
 
 //game loop
 function drawGame(){
     clearScreen();
     drawSnake();
     drawApple();
+    changeSnakePosition();
     setTimeout(drawGame, 1000/difficulty);
+}
+
+function clearScreen(){
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);
+}
+document.body.addEventListener('keydown',keyDown);
+
+function changeSnakePosition(){
+    head = snake[0];
+    if ( ((head[0]+yV)!=apple[1])||((head[1]+xV)!=apple[0])){
+        snake.pop();
+    }
+    snake.unshift([head[0]+yV,head[1]+xV]);
 }
 
 function drawSnake(){
@@ -43,6 +60,29 @@ function drawApple(){
 function clearScreen(){
     ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);
+}
+
+function keyDown(event){
+    //keyboard left
+    if(event.keyCode == 37){
+        xV = -1;
+        yV = 0;
+    }
+    //keyboard up
+    if(event.keyCode == 38){
+        xV = 0;
+        yV = -1;
+    }
+    //keyboard right
+    if(event.keyCode == 39){
+        xV = 1;
+        yV = 0;
+    }
+    //keyboard down
+    if(event.keyCode == 40){
+        xV = 0;
+        yV = 1;
+    }
 }
 
 //init
