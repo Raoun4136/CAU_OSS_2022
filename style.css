@@ -1,0 +1,13 @@
+body{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+
+#game{
+    box-shadow: black 10px 10px 30px;
+}
