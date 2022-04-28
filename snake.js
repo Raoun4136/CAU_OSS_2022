@@ -12,12 +12,17 @@ let difficulty = EASY;
 let tileCount = 20;
 let tileSize = canvas.clientWidth/tileCount -2;
 
-var snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
+function createApple(min,max){
+    return Math.floor(Math.random()*(max-min+1))+min;
+}
+let apple = [createApple(1,20),createApple(1,20)];
+let snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
 
 //game loop
 function drawGame(){
     clearScreen();
     drawSnake();
+    drawApple();
     setTimeout(drawGame, 1000/difficulty);
 }
 
@@ -28,6 +33,12 @@ function drawSnake(){
     }
 
 }
+
+function drawApple(){
+    ctx.fillStyle = 'red';
+    ctx.fillRect(apple[0]*tileCount,apple[1]*tileCount,tileSize,tileSize);
+}
+
 //reset canvas
 function clearScreen(){
     ctx.fillStyle = 'black';
