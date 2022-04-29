@@ -1,3 +1,10 @@
+@font-face{ 
+    font-family: dot; 
+    src:url("./font/square-dot-matrix-webfont.woff"); 
+    src:local(※), url("./font/square-dot-matrix-webfont.woff") format(‘woff’);
+}
+
+
 body{
     display:flex;
     flex-direction:column;
@@ -7,7 +14,33 @@ body{
     overflow:hidden;
 }
 
-
 #game{
     box-shadow: black 10px 10px 30px;
+}
+
+#game_interface{
+    color:white;
+}
+#game_name{
+    font-family: dot;
+    font-size: 60px;
+    vertical-align: middle;
+    text-align: center;
+}
+#game_pause{
+    color:white;
+}
+.txt_interface{
+    font-size:small;
+    text-align:center;
+}
+.interface{
+    background-color:rgb(0, 0, 0);
+    color:white;
+    width: 400px;
+    height:400px;
+    box-shadow: black 10px 10px 30px;
+}
+.hide{
+    display:none;
 }

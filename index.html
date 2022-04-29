@@ -8,7 +8,30 @@
     <title>Snake Game</title>
 </head>
 <body>
-    <canvas id="game" width="400" height="400"></canvas>
+    <canvas id="game" width="400" height="400" class="hide"></canvas>
+    <div id="game_interface" class="interface">
+        <p id ="game_name">SNAKE GAME</p>
+        <p class ="txt_interface">PLAY</p>
+        <p class ="txt_interface">LOAD</p>
+        <p class ="txt_interface">RANKING</p>
+        <p class ="txt_interface">EXIT</p>
+        <!--
+            TODO copyright, up,right, spacebar
+            <p id ="copyright" class ="txt_interface">Press P to game</p>
+        -->
+        
+    </div>
+    <div id="game_pause" class="interface hide">
+        Paused
+        <br> have to do RESUME RESTART SAVE EXIT
+        <br> p to resume
+    </div>
+    <div id="game_load" class="interface hide">
+        <div id="load_data">load-data</div>
+    </div>
+    <div id="game_save" class="interface hide">
+        save It!
+    </div>
     <script src="snake.js"></script>
 </body>
 </html>
