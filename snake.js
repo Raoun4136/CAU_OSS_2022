@@ -7,19 +7,19 @@ const EXTREME = 15;
 const HARD = 10;
 const NORMAL = 5;
 const EASY = 3;
-
+//MAP SIZE
 const SMALL = 15;
 const MEDIUM = 20;
 const Large = 30;
 
-let difficulty = EASY;
-let tileCount = Large;
+let difficulty = NORMAL;
+let tileCount = SMALL;
 let tileSize = canvas.clientWidth/tileCount -2;
 
 function createApple(min,max){
     return Math.floor(Math.random()*(max-min+1))+min;
 }
-let apple = [createApple(1,20),createApple(1,20)];
+let apple = [createApple(1,tileCount),createApple(1,tileCount)];
 let snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
 let xV = 0;
 let yV = 0;
