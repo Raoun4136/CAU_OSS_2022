@@ -35,9 +35,9 @@ const start = new Date();
 function drawGame(){
     clearScreen();
     runningTime();
-    drawSnake();
     drawApple();
     changeSnakePosition();
+    drawSnake();
     setTimeout(drawGame, 1000/difficulty);
 }
 
