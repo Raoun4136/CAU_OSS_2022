@@ -15,7 +15,6 @@ const LARGE = 30;
 let difficulty = NORMAL;
 let tileCount = MEDIUM;
 let tileSize = canvas.clientWidth/tileCount;
-console.log(tileSize);
 
 function createApple(min,max){
     let randNum =  Math.floor(Math.random()*(max-min+1))+min;
@@ -26,15 +25,26 @@ let snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
 let xV = 0;
 let yV = 0;
 
+let time = 0;
+const start = new Date();
+let score = 0;
+
 //game loop
 function drawGame(){
     clearScreen();
+    runningTime();
     drawSnake();
     drawApple();
     changeSnakePosition();
     setTimeout(drawGame, 1000/difficulty);
 }
 
+function runningTime(){
+    const now = new Date();
+    time = now-start//
+    score += time
+    console.log(Math.floor(score))
+}
 function clearScreen(){
     ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);
@@ -46,7 +56,6 @@ function changeSnakePosition(){
     if ( ((head[0]+yV)!=apple[1])||((head[1]+xV)!=apple[0])){
         snake.pop();
     }
-    console.log("hello");
     snake.unshift([head[0]+yV,head[1]+xV]);
 }
 
