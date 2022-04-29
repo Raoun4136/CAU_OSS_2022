@@ -55,6 +55,7 @@ function gameRankingOn(){
     document.getElementById("game_save").classList.add("hide");
     document.getElementById("game_ranking").classList.remove("hide");
     document.getElementById("game_over").classList.add("hide");
+    viewRanking();
 }
 function gameOverOn(){
     document.getElementById("game").classList.add("hide");
