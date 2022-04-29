@@ -43,7 +43,7 @@ function runningTime(){
     const now = new Date();
     time = now-start//
     score += time
-    console.log(Math.floor(score))
+    console.log(Math.floor(score)/1000)
 }
 function clearScreen(){
     ctx.fillStyle = 'black';
