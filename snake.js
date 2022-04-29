@@ -7,14 +7,21 @@ const EXTREME = 15;
 const HARD = 10;
 const NORMAL = 5;
 const EASY = 3;
+//MAP SIZE
+const SMALL = 15;
+const MEDIUM = 40;
+const LARGE = 30;
+
 let difficulty = NORMAL;
+let tileCount = MEDIUM;
+let tileSize = canvas.clientWidth/tileCount;
+console.log(tileSize);
 
-//TILE
-let tileCount = 20;
-let tileSize;
-
-//OBJECT
-let apple = [createApple(1,20),createApple(1,20)];
+function createApple(min,max){
+    let randNum =  Math.floor(Math.random()*(max-min+1))+min;
+    return randNum;
+}
+let apple = [10,10];
 let snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
 
 //DIRECTION
@@ -27,17 +34,30 @@ let isGaming = false;
 //key down listener
 document.body.addEventListener('keydown',keyDown);
 
+let time = 0;
+let score = 0;
+let eatApple = 0;
+const start = new Date();
+
 //game loop
 function drawGame(){
     if(isGaming){
         clearScreen();
+        runningTime();
+        changeSnakePosition();
         drawSnake();
         drawApple();
-        changeSnakePosition();
+        
     }
     setTimeout(drawGame, 1000/difficulty);
 }
 
+function runningTime(){
+    const now = new Date();
+    time = Math.floor((now-start)/1000);
+    score = time+eatApple*50;
+    console.log(score)
+}
 function clearScreen(){
     ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);
@@ -52,13 +72,20 @@ function changeSnakePosition(){
     if ( ((head[0]+yV)!=apple[1])||((head[1]+xV)!=apple[0])){
         snake.pop();
     }
+    else {
+        console.log("eat apple");
+        eatApple+=1;
+    }
+    if ( ((head[0]+yV)<0)||((head[0]+yV)>40)||((head[1]+xV)<0)||((head[1]+xV)>40)){
+        alert("Game over");                    //exit code
+    }
     snake.unshift([head[0]+yV,head[1]+xV]);
 }
 
 function drawSnake(){
     for ( let s of snake ){
         ctx.fillStyle = 'green';
-        ctx.fillRect(s[1]*tileCount,s[0]*tileCount,tileSize,tileSize);
+        ctx.fillRect(s[1]*tileSize+1,s[0]*tileSize+1,tileSize-1,tileSize-1);
     }
 }
 
@@ -68,7 +95,7 @@ function createApple(min,max){
 
 function drawApple(){
     ctx.fillStyle = 'red';
-    ctx.fillRect(apple[0]*tileCount,apple[1]*tileCount,tileSize,tileSize);
+    ctx.fillRect(apple[0]*tileSize,apple[1]*tileSize,tileSize,tileSize);
 }
 
 //reset canvas
