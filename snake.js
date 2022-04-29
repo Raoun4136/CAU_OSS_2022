@@ -21,7 +21,7 @@ function createApple(min,max){
     let randNum =  Math.floor(Math.random()*(max-min+1))+min;
     return randNum;
 }
-let apple = [0,39];
+let apple = [0,0];
 let snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
 let xV = 0;
 let yV = 0;
