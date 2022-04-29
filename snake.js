@@ -46,6 +46,7 @@ function changeSnakePosition(){
     if ( ((head[0]+yV)!=apple[1])||((head[1]+xV)!=apple[0])){
         snake.pop();
     }
+    console.log("hello");
     snake.unshift([head[0]+yV,head[1]+xV]);
 }
 
