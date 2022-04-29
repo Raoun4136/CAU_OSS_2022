@@ -1,7 +1,7 @@
 @font-face{ 
     font-family: dot; 
-    src:url("../../font/square-dot-matrix-webfont.woff"); 
-    src:local(※), url("../../font/square-dot-matrix-webfont.woff") format(‘woff’);
+    src:url("/font/square-dot-matrix-webfont.woff"); 
+    src:local(※), url("/font/square-dot-matrix-webfont.woff") format(‘woff’);
 }
 
 
