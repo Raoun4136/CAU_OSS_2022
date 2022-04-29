@@ -1,4 +1,5 @@
 document.body.addEventListener('keydown',keyDown);
+let Player = 0;
 
 function keyDown(event){
     //keyboard left
@@ -65,5 +66,4 @@ function keyDown(event){
         gameOn();
         isGaming = true;
     }
-
 }
