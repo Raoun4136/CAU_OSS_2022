@@ -56,6 +56,9 @@ function changeSnakePosition(){
     if ( ((head[0]+yV)!=apple[1])||((head[1]+xV)!=apple[0])){
         snake.pop();
     }
+    if ( ((head[0]+yV)<0)||((head[0]+yV)>40)||((head[1]+xV)<0)||((head[1]+xV)>40)){
+        alert("Game over");                    //exit code
+    }
     snake.unshift([head[0]+yV,head[1]+xV]);
 }
 
