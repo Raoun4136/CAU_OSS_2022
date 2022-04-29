@@ -27,8 +27,9 @@ let xV = 0;
 let yV = 0;
 
 let time = 0;
-const start = new Date();
 let score = 0;
+let eatApple = 0;
+const start = new Date();
 
 //game loop
 function drawGame(){
@@ -42,9 +43,9 @@ function drawGame(){
 
 function runningTime(){
     const now = new Date();
-    time = now-start//
-    score += time
-    console.log(Math.floor(score)/1000)
+    time = Math.floor((now-start)/1000);
+    score = time+eatApple*50;
+    console.log(score)
 }
 function clearScreen(){
     ctx.fillStyle = 'black';
@@ -56,6 +57,10 @@ function changeSnakePosition(){
     head = snake[0];
     if ( ((head[0]+yV)!=apple[1])||((head[1]+xV)!=apple[0])){
         snake.pop();
+    }
+    else {
+        console.log("eat apple");
+        eatApple+=1;
     }
     if ( ((head[0]+yV)<0)||((head[0]+yV)>40)||((head[1]+xV)<0)||((head[1]+xV)>40)){
         alert("Game over");                    //exit code
