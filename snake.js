@@ -71,7 +71,7 @@ function changeSnakePosition(){
 function drawSnake(){
     for ( let s of snake ){
         ctx.fillStyle = 'green';
-        ctx.fillRect(s[1]*tileSize+1,s[0]*tileSize+1,tileSize-2,tileSize-1);
+        ctx.fillRect(s[1]*tileSize+1,s[0]*tileSize+1,tileSize-1,tileSize-1);
     }
 
 }
