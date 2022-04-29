@@ -19,11 +19,13 @@ let snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
 
 //DIRECTION
 let xV = 0;
-let yV = 0;
+let yV = -1;
 
 //CONTROL GAME
 let isGaming = false;
 
+//key down listener
+document.body.addEventListener('keydown',keyDown);
 
 //game loop
 function drawGame(){
@@ -40,7 +42,7 @@ function clearScreen(){
     ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);
 }
-document.body.addEventListener('keydown',keyDown);
+
 
 function changeSnakePosition(){
     head = snake[0];
@@ -55,7 +57,6 @@ function drawSnake(){
         ctx.fillStyle = 'green';
         ctx.fillRect(s[1]*tileCount,s[0]*tileCount,tileSize,tileSize);
     }
-
 }
 
 function createApple(min,max){
@@ -104,6 +105,7 @@ function keyDown(event){
     }
 }
 
+//start Game
 function drawUI(){
     console.log("draw something USER INTERFACE");
 }
