@@ -101,11 +101,16 @@ function keyDown(event){
     }
     //keyboard P
     if(event.keyCode == 80){
-        if(isGaming){
+        if(isGaming){ // Pause Game
             isGaming = false;
+            document.getElementById("game").classList.toggle("hide");
+            document.getElementById("game_pause").classList.toggle("hide");
         }
-        else{
+        else{ // Resume Game
             isGaming = true;
+            document.getElementById("game").classList.toggle("hide");
+            document.getElementById("game_pause").classList.add("hide");
+            document.getElementById("game_interface").classList.add("hide");
         }
     }
 }
@@ -113,6 +118,8 @@ function keyDown(event){
 //start Game
 function drawUI(){
     console.log("draw something USER INTERFACE");
+    document.getElementById("game").classList.toggle("hide");
+    document.getElementById("game_pause").classList.toggle("hide");
 }
 
 
