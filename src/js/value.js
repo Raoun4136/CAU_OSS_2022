@@ -32,4 +32,4 @@ let time = 0;
 let score = 0;
 let eatApple = 0;
 
-const start = new Date();
+let start = new Date();

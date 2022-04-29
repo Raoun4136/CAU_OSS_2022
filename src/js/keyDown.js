@@ -29,25 +29,23 @@ function keyDown(event){
     if(event.keyCode == 80){
         if(isGaming){ // Pause Game
             isGaming = false;
-            document.getElementById("game").classList.add("hide");
-            document.getElementById("game_pause").classList.remove("hide");
+            gamePauseOn();
         }
         else{ // Resume Game
             isGaming = true;
-            document.getElementById("game").classList.remove("hide");
-            document.getElementById("game_pause").classList.add("hide");
-            document.getElementById("game_interface").classList.add("hide");
+            gameOn();
         }
     }
-    //keyboard r
-    if(event.keyCode == 82){
-        //restart
+    //keyboard ESC
+    if(event.keyCode == 27){
+        //EXIT
         resetOptions();
         clearScreen();
     }
     // test- keyboard S
     if(event.keyCode == 83){
-        saveSnake(event, 0); //test
+        gameSaveOn();
+        //saveSnake(event, 0); //test
     }
 
 }

@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="./src/css/style.css">
     <title>Snake Game</title>
 </head>
 <body>
     <canvas id="game" width="800" height="800" class="hide"></canvas>
     <div id="game_interface" class="interface">
-        <p id ="game_name">SNAKE GAME</p>
+        <p class ="subject">SNAKE GAME</p>
         <p class ="txt_interface">PLAY</p>
         <p class ="txt_interface">LOAD</p>
         <p class ="txt_interface">RANKING</p>
@@ -22,7 +22,7 @@
         
     </div>
     <div id="game_pause" class="interface hide">
-        Paused
+        <p class ="subject">Paused</p>
         <br> have to do RESUME RESTART SAVE EXIT
         <br> p to resume
     </div>
@@ -30,17 +30,28 @@
         <div id="load_data">load-data</div>
     </div>
     <div id="game_save" class="interface hide">
-        save It!
+        <h2 class ="subject">SAVE</h2>
+        <form class ="txt_interface" id="save_name">
+            <input
+                required
+                maxlength="15"
+                type="text"
+                placeholder="What is your name?"
+            />
+            <input type="submit" value="SAVE" />
+        </form>
+        <p class ="txt_interface">PRESS ESC TO EXIT</p>
     </div>
 
-    <script src="/src/js/value.js"></script>
-    <script src="/src/js/apple.js"></script>
-    <script src="/src/js/screen.js"></script>
-    <script src="/src/js/snake.js"></script>
-    <script src="/src/js/resetGame.js"></script>
-    <script src="/src/js/saveLoad.js"></script>
-    <script src="/src/js/keyDown.js"></script>
-    <script src="/src/js/initGame.js"></script>
+    <script src="./src/js/value.js"></script>
+    <script src="./src/js/divToggle.js"></script>
+    <script src="./src/js/apple.js"></script>
+    <script src="./src/js/screen.js"></script>
+    <script src="./src/js/snake.js"></script>
+    <script src="./src/js/resetGame.js"></script>
+    <script src="./src/js/saveLoad.js"></script>
+    <script src="./src/js/keyDown.js"></script>
+    <script src="./src/js/initGame.js"></script>
     
 </body>
 </html>

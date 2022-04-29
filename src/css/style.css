@@ -21,7 +21,7 @@ body{
 #game_interface{
     color:white;
 }
-#game_name{
+.subject{
     font-family: dot;
     font-size: 60px;
     vertical-align: middle;
@@ -43,4 +43,8 @@ body{
 }
 .hide{
     display:none;
+}
+
+#save_name{
+    text-align : center;
 }
