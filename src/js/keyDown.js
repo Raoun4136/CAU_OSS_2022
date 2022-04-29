@@ -28,12 +28,13 @@ function keyDown(event){
     //keyboard P
     if(event.keyCode == 80){
         if(isGaming){ // Pause Game
-            isGaming = false;
             gamePauseOn();
+            isGaming = false;
+            
         }
         else{ // Resume Game
-            isGaming = true;
             gameOn();
+            isGaming = true;
         }
     }
     //keyboard ESC
