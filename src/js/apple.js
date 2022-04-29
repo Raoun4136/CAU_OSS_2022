@@ -8,12 +8,12 @@ function drawApple(){
 }
 
 function createRandomApple(){
-    apple_y = createApple(1,39);
-    apple_x = createApple(1,39);
+    apple_y = createApple(0,39);
+    apple_x = createApple(0,39);
     for ( let s of snake){
         while ( apple_y===s[0] && apple_x===s[1]){
-            apple_y = createApple(1,39);
-            apple_x = createApple(1,39);  
+            apple_y = createApple(0,39);
+            apple_x = createApple(0,39);  
         }
     }
     apple = [apple_y,apple_x];
