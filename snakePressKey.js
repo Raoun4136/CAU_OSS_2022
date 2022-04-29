@@ -11,8 +11,8 @@ const playState = 0;    // 현재 상태가 play 중인지 pause 인지 pause �
 const savePlayer = 0;   // 저장된 플레이어
 function saveSnake(event, savePlayer)
 {
-    localStorage.setItem(savePlayer,JSON.stringify({name : "고정훈", Score : "1", snakeArray : snake, apple : apple}));  //새로운 div 창에서 입력된 값 저장
-    savePlayer++;
+    localStorage.setItem(savePlayer,JSON.stringify({name : "고정훈", Score : score, snakeArray : snake, apple : apple}));  //새로운 div 창에서 입력된 값 저장
+    savePlayer += 1;
     /* to do : savePlayer가 무한대로 늘어날순없으니 최대 저장 갯수를 정하던가 선택한 칸에 저장하도록 하던가 */
     if(savePlayer==5)
         savePlayer -= 5;        //일단 5칸 넘어가면 가장 오래된 기록부터 지우기
