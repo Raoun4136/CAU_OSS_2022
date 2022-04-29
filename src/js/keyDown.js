@@ -48,10 +48,26 @@ function keyDown(event){
     }
     // test- keyboard S
     if(event.keyCode == 83){
-        saveSnake(event, Player); //test
+        let saveData = [];
+        let i = 0;
+        for (c in JSON.parse(localStorage.getItem("saveData"+i)))
+        {
+            saveData.push(c);
+            i++;
+        }
+        let savePlayer = saveData.length;
+        saveSnake(event, savePlayer); //test
     }
     // test - keyboard T
     if(event.keyCode == 84){
-        viewRanking(3);
+        let rankData = [];
+        let i = 0;
+        for (c in JSON.parse(localStorage.getItem("rankData"+i)))
+        {
+            rankData.push(c);
+            i++;
+        }
+        let rankPlayer = rankData.length;
+        viewRanking(rankPlayer, rankData);
     }
 }

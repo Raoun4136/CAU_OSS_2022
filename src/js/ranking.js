@@ -2,11 +2,8 @@ function storeRanking(){
     localStorage.setItem("ranking"+rankPlayer, JSON.stringify({name : "고정훈", Score : score, snakeArray : snake, apple : apple})); //name 을 getbyelement 로
 }
 
-function viewRanking(){
-    var rankData = [];
-    for (i = 0; i < rank_num; i++){
-        rankData.push(JSON.parse(localStorage.getItem("ranking"+i)));
-    }
+function viewRanking(rankPlayer, rankData){
+    console.log(rankPlayer);
     console.log(rank_num);
     console.log(rankData);
     // rankData.sort(function(a,b){
