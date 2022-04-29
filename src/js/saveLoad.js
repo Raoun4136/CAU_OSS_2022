@@ -1,4 +1,4 @@
-document.getElementById("save_name").addEventListener("submit",saveSnake(savePlayer));
+document.getElementById("save_name").addEventListener("submit",saveSnake());
 
 function saveSnake()
 {
