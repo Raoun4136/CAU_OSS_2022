@@ -7,25 +7,32 @@ const EXTREME = 15;
 const HARD = 10;
 const NORMAL = 5;
 const EASY = 3;
+let difficulty = NORMAL;
 
-let difficulty = EASY;
+//TILE
 let tileCount = 20;
 let tileSize = canvas.clientWidth/tileCount -2;
 
-function createApple(min,max){
-    return Math.floor(Math.random()*(max-min+1))+min;
-}
+//OBJECT
 let apple = [createApple(1,20),createApple(1,20)];
 let snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
+
+//DIRECTION
 let xV = 0;
 let yV = 0;
 
+//CONTROL GAME
+let isGaming = false;
+
+
 //game loop
 function drawGame(){
-    clearScreen();
-    drawSnake();
-    drawApple();
-    changeSnakePosition();
+    if(isGaming){
+        clearScreen();
+        drawSnake();
+        drawApple();
+        changeSnakePosition();
+    }
     setTimeout(drawGame, 1000/difficulty);
 }
 
@@ -49,6 +56,10 @@ function drawSnake(){
         ctx.fillRect(s[1]*tileCount,s[0]*tileCount,tileSize,tileSize);
     }
 
+}
+
+function createApple(min,max){
+    return Math.floor(Math.random()*(max-min+1))+min;
 }
 
 function drawApple(){
@@ -83,7 +94,22 @@ function keyDown(event){
         xV = 0;
         yV = 1;
     }
+    if(event.keyCode == 80){
+        if(isGaming){
+            isGaming = false;
+        }
+        else{
+            isGaming = true;
+        }
+    }
 }
 
+function drawUI(){
+    //console.log("draw something USER INTERFACE");
+}
+
+
 //init
+clearScreen();
+drawUI();
 drawGame();
