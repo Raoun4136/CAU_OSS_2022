@@ -40,12 +40,29 @@ function keyDown(event){
     if(event.keyCode == 27){
         //EXIT
         resetOptions();
+        gameInterfaceOn();
         clearScreen();
     }
     // test- keyboard S
     if(event.keyCode == 83){
         gameSaveOn();
-        //saveSnake(event, 0); //test
+    }
+
+    // keyboard L
+    if(event.keyCode == 76){
+        gameLoadOn();
+    }
+
+    //keyboard K
+    if(event.keyCode == 75){
+        gameRankingOn();
+    }
+
+    //keyboard R
+    if(event.keyCode == 82){
+        resetOptions();
+        gameOn();
+        isGaming = true;
     }
 
 }

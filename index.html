@@ -23,14 +23,18 @@
     </div>
     <div id="game_pause" class="interface hide">
         <p class ="subject">Paused</p>
-        <br> have to do RESUME RESTART SAVE EXIT
-        <br> p to resume
+        <p class ="txt_interface">RESUME</p>
+        <p class ="txt_interface">RESTART</p>
+        <p class ="txt_interface">SAVE</p>
+        <p class ="txt_interface">EXIT</p>
+        <p class ="txt_interface">P to resume</p>
     </div>
     <div id="game_load" class="interface hide">
-        <div id="load_data">load-data</div>
+        <p class ="subject">LOAD</p>
+        <div id="txt_load"></div>
     </div>
     <div id="game_save" class="interface hide">
-        <h2 class ="subject">SAVE</h2>
+        <p class ="subject">SAVE</p>
         <form class ="txt_interface" id="save_name">
             <input
                 required
@@ -41,6 +45,14 @@
             <input type="submit" value="SAVE" />
         </form>
         <p class ="txt_interface">PRESS ESC TO EXIT</p>
+    </div>
+    <div id="game_ranking" class="interface hide">
+        <p class ="subject">RANKING</p>
+        <div id="txt_ranking"></div>
+    </div>
+    <div id="game_over" class="interface hide">
+        <p class ="subject">GAME OVER</p>
+        <p class ="txt_interface">your score : <span id="txt_score"></span></p>
     </div>
 
     <script src="./src/js/value.js"></script>

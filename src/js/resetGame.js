@@ -11,6 +11,5 @@ function resetOptions(){
     yV = -1;
     //TODO make function to set option
     //TODO error for 1000ms drawGmae();
-    console.log("hi");
-    gameInterfaceOn();
+
 }
