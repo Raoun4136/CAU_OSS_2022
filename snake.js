@@ -105,7 +105,7 @@ function keyDown(event){
 }
 
 function drawUI(){
-    //console.log("draw something USER INTERFACE");
+    console.log("draw something USER INTERFACE");
 }
 
 
