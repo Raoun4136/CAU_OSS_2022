@@ -1,7 +1,7 @@
 //reset Options to restart
 function resetOptions(){
     isGaming = false;
-    apple = [createApple(1,20),createApple(1,20)];
+    apple = [createApple(1,39),createApple(1,39)];
     snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
     xV = 0;
     yV = -1;

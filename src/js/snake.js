@@ -6,6 +6,7 @@ function changeSnakePosition(){
     else {
         console.log("eat apple");
         eatApple+=1;
+        createRandomApple();
     }
     if ( ((head[0]+yV)<0)||((head[0]+yV)>40)||((head[1]+xV)<0)||((head[1]+xV)>40)){
         alert("Game over");                    //exit code
