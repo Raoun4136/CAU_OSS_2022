@@ -8,8 +8,12 @@ const HARD = 10;
 const NORMAL = 5;
 const EASY = 3;
 
+const SMALL = 15;
+const MEDIUM = 20;
+const Large = 30;
+
 let difficulty = EASY;
-let tileCount = 20;
+let tileCount = Large;
 let tileSize = canvas.clientWidth/tileCount -2;
 
 function createApple(min,max){
