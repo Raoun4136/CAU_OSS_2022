@@ -11,7 +11,7 @@ let difficulty = NORMAL;
 
 //TILE
 let tileCount = 20;
-let tileSize = canvas.clientWidth/tileCount -2;
+let tileSize;
 
 //OBJECT
 let apple = [createApple(1,20),createApple(1,20)];
@@ -43,6 +43,9 @@ function clearScreen(){
     ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);
 }
 
+function countTileSize(){
+    tileSize = canvas.clientWidth/tileCount-2;
+}
 
 function changeSnakePosition(){
     head = snake[0];
@@ -72,6 +75,7 @@ function drawApple(){
 function clearScreen(){
     ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);
+    countTileSize();
 }
 
 function keyDown(event){
@@ -103,27 +107,24 @@ function keyDown(event){
     if(event.keyCode == 80){
         if(isGaming){ // Pause Game
             isGaming = false;
-            document.getElementById("game").classList.toggle("hide");
-            document.getElementById("game_pause").classList.toggle("hide");
+            document.getElementById("game").classList.add("hide");
+            document.getElementById("game_pause").classList.remove("hide");
         }
         else{ // Resume Game
             isGaming = true;
-            document.getElementById("game").classList.toggle("hide");
+            document.getElementById("game").classList.remove("hide");
             document.getElementById("game_pause").classList.add("hide");
             document.getElementById("game_interface").classList.add("hide");
         }
     }
+
+    
 }
 
-//start Game
-function drawUI(){
-    console.log("draw something USER INTERFACE");
-    document.getElementById("game").classList.toggle("hide");
-    document.getElementById("game_pause").classList.toggle("hide");
+//init Game
+function initGame(){
+    clearScreen();
+    drawGame();
 }
 
-
-//init
-clearScreen();
-drawUI();
-drawGame();
+initGame();

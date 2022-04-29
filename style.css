@@ -21,6 +21,7 @@ body{
 
 .interface{
     background-color:rgb(0, 0, 0);
+    color:white;
     width: 400px;
     height:400px;
     box-shadow: black 10px 10px 30px;
