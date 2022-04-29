@@ -17,9 +17,8 @@ function changeSnakePosition(){
             console.log(s);
         }
     }
-    if (isConflict==1 || ((head[0]+yV)<0)||((head[0]+yV)>40)||((head[1]+xV)<0)||((head[1]+xV)>40)){
-        alert("Game over");
-        //game_over();                    //exit code
+    if (isConflict==1 || ((head[0]+yV)<0)||((head[0]+yV)>=40)||((head[1]+xV)<0)||((head[1]+xV)>=40)){
+        alert("Game over");                    //exit code
     }
     snake.unshift([head[0]+yV,head[1]+xV]);
 }
