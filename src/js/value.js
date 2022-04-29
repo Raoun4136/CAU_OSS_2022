@@ -18,7 +18,7 @@ let tileCount = MEDIUM;
 let tileSize = canvas.clientWidth/tileCount;
 
 
-let apple = [10,10];
+let apple = [createApple(0,39),createApple(0,39)];
 let snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
 
 //DIRECTION
