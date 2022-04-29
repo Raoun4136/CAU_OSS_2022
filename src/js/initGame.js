@@ -4,10 +4,4 @@ function initGame(){
     drawGame();
 }
 
-function gameOver(){
-    gameOverOn();
-    isGaming = false;
-    console.log(score);
-}
-
 initGame();
