@@ -117,9 +117,24 @@ function keyDown(event){
             document.getElementById("game_interface").classList.add("hide");
         }
     }
+    //keyboard r
+    if(event.keyCode == 82){
+        //restart
+        resetOptions();
+        clearScreen();
+    }
 
-    
+
 }
+
+//reset Options to restart
+function resetOptions(){
+    isGaming = false;
+    document.getElementById("game").classList.add("hide");
+    document.getElementById("game_pause").classList.add("hide");
+    document.getElementById("game_interface").classList.remove("hide");
+}
+
 
 //init Game
 function initGame(){
