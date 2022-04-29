@@ -9,17 +9,19 @@ const NORMAL = 5;
 const EASY = 3;
 //MAP SIZE
 const SMALL = 15;
-const MEDIUM = 20;
-const Large = 30;
+const MEDIUM = 40;
+const LARGE = 30;
 
 let difficulty = NORMAL;
-let tileCount = SMALL;
-let tileSize = canvas.clientWidth/tileCount -2;
+let tileCount = MEDIUM;
+let tileSize = canvas.clientWidth/tileCount;
+console.log(tileSize);
 
 function createApple(min,max){
-    return Math.floor(Math.random()*(max-min+1))+min;
+    let randNum =  Math.floor(Math.random()*(max-min+1))+min;
+    return randNum;
 }
-let apple = [createApple(1,tileCount),createApple(1,tileCount)];
+let apple = [0,39];
 let snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
 let xV = 0;
 let yV = 0;
@@ -50,14 +52,14 @@ function changeSnakePosition(){
 function drawSnake(){
     for ( let s of snake ){
         ctx.fillStyle = 'green';
-        ctx.fillRect(s[1]*tileCount,s[0]*tileCount,tileSize,tileSize);
+        ctx.fillRect(s[1]*tileSize+1,s[0]*tileSize+1,tileSize-2,tileSize-1);
     }
 
 }
 
 function drawApple(){
     ctx.fillStyle = 'red';
-    ctx.fillRect(apple[0]*tileCount,apple[1]*tileCount,tileSize,tileSize);
+    ctx.fillRect(apple[0]*tileSize,apple[1]*tileSize,tileSize,tileSize);
 }
 
 //reset canvas
