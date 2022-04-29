@@ -18,7 +18,10 @@ let tileCount = MEDIUM;
 let tileSize = canvas.clientWidth/tileCount;
 let initial_x = Math.floor(Math.random()*(40));
 let initial_y= Math.floor(Math.random()*(40));
-
+while(initial_x===Math.round(tileCount/2)&&initial_y===Math.round(tileCount/2)){
+    initial_x= Math.floor(Math.random()*(40));
+    initial_y= Math.floor(Math.random()*(40));
+}
 let apple = [initial_y,initial_x];
 let snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
 
