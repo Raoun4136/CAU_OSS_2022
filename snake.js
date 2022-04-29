@@ -15,6 +15,7 @@ const LARGE = 30;
 let difficulty = NORMAL;
 let tileCount = MEDIUM;
 let tileSize = canvas.clientWidth/tileCount;
+console.log(tileSize);
 
 function createApple(min,max){
     let randNum =  Math.floor(Math.random()*(max-min+1))+min;
