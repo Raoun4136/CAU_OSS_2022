@@ -7,6 +7,7 @@ function changeSnakePosition(){
     else {
         console.log("eat apple");
         eatApple+=1;
+        createRandomApple();
     }
     for(let s of snake)
     {
