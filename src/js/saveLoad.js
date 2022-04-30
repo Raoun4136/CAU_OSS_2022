@@ -67,9 +67,9 @@ function resetSaveData(){
 function loadOption(){
     let index = 1 // load 창에서 받은 player index값
     const object = JSON.parse(localStorage.getItem("saveData"+index));
-    let savedSnakeArr = object.snakeArray;
+    let savedSnakeArr = object.snake;
     let savedAppleArr = object.apple;
-    let savedScore = object.Score;
+    let savedScore = object.score;
     console.log("savedSnakeArr = " + savedSnakeArr);
     console.log("savedAppleArr = " + savedAppleArr);
     console.log("savedScore = " + savedScore);
