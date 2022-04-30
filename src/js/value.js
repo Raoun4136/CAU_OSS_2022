@@ -44,3 +44,4 @@ let save_x = 0;
 let rank_x = 0;
 //load
 const loadDiv = document.querySelector("#game_load");
+const rankDiv = document.querySelector("#game_ranking");

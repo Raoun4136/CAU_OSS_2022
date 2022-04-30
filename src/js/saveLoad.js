@@ -1,4 +1,5 @@
 document.querySelector("#save_name").addEventListener("submit",saveSnake);
+document.querySelector("#btn_resetSave").addEventListener("click",resetSaveData);
 
 function saveSnake()
 {
@@ -57,4 +58,8 @@ function deleteSave(event){
 
     localStorage.removeItem(li.id);
     loadSnake();
+}
+
+function resetSaveData(){
+    //TODO reset Save Data
 }

@@ -48,3 +48,7 @@ body{
 #save_name{
     text-align : center;
 }
+
+.btn_reset{
+    color:white;
+}

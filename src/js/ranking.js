@@ -1,5 +1,5 @@
 document.querySelector("#rank_name").addEventListener("submit",storeRanking);
-
+document.querySelector("#btn_resetRank").addEventListener("click",resetRankData);
 
 function storeRanking(){
     let i = 0;
@@ -18,6 +18,7 @@ function storeRanking(){
 }
 
 function viewRanking(){
+    resetDrawRank();
     rankData = [];
     let i = 0;
     while(localStorage.getItem("rankData"+i)){
@@ -68,4 +69,26 @@ function sortJson(){
             return -1;
         }
     }
+}
+
+function resetDrawRank(){
+    document.querySelector("#txt_ranking").remove();
+
+    let div = document.createElement("div");
+    let ul = document.createElement("ul");
+
+    div.id = "txt_ranking";
+    ul.id = "rank_list";
+    
+    div.appendChild(ul);
+    rankDiv.appendChild(div);
+}
+
+function resetRankData(){
+    let i = 0;
+    while(localStorage.getItem("rankData"+i)){
+        localStorage.removeItem("rankData"+i);
+        i++;
+    }
+    viewRanking();
 }
