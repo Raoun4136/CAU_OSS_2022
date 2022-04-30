@@ -12,10 +12,10 @@
     <canvas id="game" width="800" height="800" class="hide"></canvas>
     <div id="game_interface" class="interface">
         <p class ="subject">SNAKE GAME</p>
-        <p class ="txt_interface">PLAY</p>
-        <p class ="txt_interface">LOAD</p>
-        <p class ="txt_interface">RANKING</p>
-        <p class ="txt_interface">EXIT</p>
+        <p class ="txt_interface">PLAY (Press P)</p>
+        <p class ="txt_interface">LOAD (Press L)</p>
+        <p class ="txt_interface">RANKING (Press K)</p>
+        <p class ="txt_interface">EXIT (Press ESC)</p>
         <!--
             TODO copyright, up,right, spacebar
             <p id ="copyright" class ="txt_interface">Press P to game</p>
@@ -24,11 +24,10 @@
     </div>
     <div id="game_pause" class="interface hide">
         <p class ="subject">Paused</p>
-        <p class ="txt_interface">RESUME</p>
-        <p class ="txt_interface">RESTART</p>
-        <p class ="txt_interface">SAVE</p>
-        <p class ="txt_interface">EXIT</p>
-        <p class ="txt_interface">P to resume</p>
+        <p class ="txt_interface">RESUME (Press P)</p>
+        <p class ="txt_interface">RESTART (Press R)</p>
+        <p class ="txt_interface">SAVE (Press S)</p>
+        <p class ="txt_interface">EXIT (Press ESC)</p>
     </div>
     <div id="game_load" class="interface hide">
         <p class ="subject">LOAD</p>
@@ -51,7 +50,9 @@
     </div>
     <div id="game_ranking" class="interface hide">
         <p class ="subject">RANKING</p>
-        <div id="txt_ranking"></div>
+        <div id="txt_ranking">
+            <ul id ="rank_list"></ul>
+        </div>
     </div>
     <div id="game_over" class="interface hide">
         <p class ="subject">GAME OVER</p>

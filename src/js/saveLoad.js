@@ -24,7 +24,7 @@ function loadSnake() {
         if(!localStorage.getItem("saveData"+i)) continue;
         let loadList = document.querySelector("#txt_load");
         let li = document.createElement("li");
-        li.id = i;
+        li.id = "saveData"+i;
         let span = document.createElement("span");
         span.innerText = localStorage.getItem("saveData"+i);
         let button = document.createElement("button");
@@ -33,7 +33,6 @@ function loadSnake() {
         li.appendChild(span);
         li.appendChild(button);
         loadList.appendChild(li);
-        i++;
     }
 }
 
@@ -50,7 +49,6 @@ function resetDrawLoad(){
 function deleteSave(event){
     let li = event.target.parentElement;
     li.remove();
-    localStorage.removeItem("saveData"+li.id);
-    console.log()
+    localStorage.removeItem(li.id);
     loadSnake();
 }
