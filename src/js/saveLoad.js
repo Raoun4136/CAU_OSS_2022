@@ -1,29 +1,77 @@
-let save_x = 0;
-document.getElementById("save_name").addEventListener("submit",saveSnake);
-
-
+document.querySelector("#save_name").addEventListener("submit",saveSnake);
+document.querySelector("#btn_resetSave").addEventListener("click",resetSaveData);
 
 function saveSnake()
 {
-    //test
     let i = 0;
-    while(localStorage.getItem("saveData"+i))
-    {
+    while(localStorage.getItem("saveData"+i)){
         i++;
     }
-    console.log("score = "+ score);
-    localStorage.setItem("saveData"+((i+save_x)%5),JSON.stringify({name : document.querySelector('form').querySelector('input').value, Score : score, snakeArray : snake, apple : apple}));  //새로운 div 창에서 입력된 값 저장
+    localStorage.setItem("saveData"+((i+save_x)%5),JSON.stringify({
+        name : document.querySelector('#save_name').querySelector('input').value, 
+        score : score, 
+        snake : snake, 
+        apple : apple, 
+        date : start,
+        time : time
+    }));
     save_x++;
-    /* to do : savePlayer가 무한대로 늘어날순없으니 최대 저장 갯수를 정하던가 선택한 칸에 저장하도록 하던가 */
-
 }
-function loadSnake()
-{
+
+function loadSnake() {
+    resetDrawLoad();
     let i =0;
-    while(localStorage.getItem("saveData"+i))
-    {
-        console.log((i+1)+"번째"+"LOAD DATA");
-        console.log(localStorage.getItem("saveData"+i));
-        i++;
+    for(i; i<5;i++){
+        if(!localStorage.getItem("saveData"+i)) continue;
+        let loadList = document.querySelector("#txt_load");
+        let li = document.createElement("li");
+        let span = document.createElement("span");
+        let button = document.createElement("button");
+
+        li.id = "saveData"+i;
+        span.innerText = localStorage.getItem("saveData"+i);
+        button.innerText = "❌";
+        button.addEventListener("click",deleteSave);
+
+        li.appendChild(span);
+        li.appendChild(button);
+        loadList.appendChild(li);
     }
 }
+
+function resetDrawLoad(){
+    document.querySelector("#txt_load").remove();
+
+    let div = document.createElement("div");
+    let ul = document.createElement("ul");
+
+    div.id = "txt_load";
+    ul.id = "load_list";
+    
+    div.appendChild(ul);
+    loadDiv.appendChild(div);
+}
+
+function deleteSave(event){
+    let li = event.target.parentElement;
+    li.remove();
+
+    localStorage.removeItem(li.id);
+    loadSnake();
+}
+
+function resetSaveData(){
+    //TODO reset Save Data
+}
+
+function loadOption(){
+    let index = 1 // load 창에서 받은 player index값
+    const object = JSON.parse(localStorage.getItem("saveData"+index));
+    let savedSnakeArr = object.snakeArray;
+    let savedAppleArr = object.apple;
+    let savedScore = object.Score;
+    console.log("savedSnakeArr = " + savedSnakeArr);
+    console.log("savedAppleArr = " + savedAppleArr);
+    console.log("savedScore = " + savedScore);
+}
+loadOption();

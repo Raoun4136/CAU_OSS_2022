@@ -1,7 +1,7 @@
 @font-face{ 
     font-family: dot; 
-    src:url("/font/square-dot-matrix-webfont.woff"); 
-    src:local(※), url("/font/square-dot-matrix-webfont.woff") format(‘woff’);
+    src: url(../../font/square-dot-matrix-webfont.woff) format("woff"),
+        url(../../font/Square-Dot-Matrix.ttf) format("truetype");
 }
 
 
@@ -47,4 +47,8 @@ body{
 
 #save_name{
     text-align : center;
+}
+
+.btn_reset{
+    color:white;
 }

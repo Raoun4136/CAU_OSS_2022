@@ -1,6 +1,8 @@
 function gameOver(){
     gameOverOn();
     isGaming = false;
-    console.log(score);
-    storeRanking();
+    isGameOver = true;
+    isAble = true;
+    let txt_score = document.querySelector("#txt_score");
+    txt_score.innerHTML = score;
 }

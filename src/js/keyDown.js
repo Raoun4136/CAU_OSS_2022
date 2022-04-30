@@ -28,42 +28,79 @@ function keyDown(event){
     }
     //keyboard P
     if(event.keyCode == 80){
+        if(isGameOver) return;
         if(isGaming){ // Pause Game
             gamePauseOn();
             isGaming = false;
             
         }
         else{ // Resume Game
+            if(isSaving)return;
+            if(isLoading)return;
+            if(isRanking)return;
             gameOn();
             isGaming = true;
+            isStarted = true;
         }
     }
     //keyboard ESC
     if(event.keyCode == 27){
         //EXIT
+        isStarted = false;
+        isGameOver = false;
         resetOptions();
         gameInterfaceOn();
         clearScreen();
     }
-    // test- keyboard S
+    // keyboard S
     if(event.keyCode == 83){
-        gameSaveOn();
+        if(isGaming) return;
+        if(!isStarted) return;
+        if(isGameOver) return;
+        if(isSaving){ // Back to pause
+            isSaving = false;
+            gamePauseOn();
+        }
+        else{ // Save game
+            isSaving = true;
+            gameSaveOn();
+        }
+        //TODO How to make keyCode InActive when entering Name "S,R"?
     }
 
     // keyboard L
     if(event.keyCode == 76){
-        gameLoadOn();
+        if(isStarted) return;
+        if(isGameOver) return;
+        if(isLoading){ // Back to interface
+            isLoading = false;
+            gameInterfaceOn();
+        }
+        else{ // Load game
+            isLoading = true;
+            gameLoadOn();
+        }
     }
 
     //keyboard K
     if(event.keyCode == 75){
-        gameRankingOn();
+        if(isStarted) return;
+        if(isGameOver) return;
+        if(isRanking){ // Back to interface
+            isRanking = false;
+            gameInterfaceOn();
+        }
+        else{ // View Ranking
+            isRanking = true;
+            gameRankingOn();
+        }
     }
 
     //keyboard R
     if(event.keyCode == 82){
+        if(!isStarted) return;
         resetOptions();
-        gameOn();
         isGaming = true;
+        gameOn();
     }
 }

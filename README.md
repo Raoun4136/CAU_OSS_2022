@@ -4,12 +4,26 @@ projects for opensource-SW-project 2022-1
 
 # USER MANUAL - EDITING
 
-Press P to start/pause
-Press L to load data
-Press S to save data
-Press ESC to EXIT game
-Press K to see Ranking
-Press R to restart
+### YOU CAN ENTER ESC ALWAYS
+
+    Press ESC to EXIT game (always)
+
+### YOU CAN ENTER P,L,K IN FIRST GAME PAGE
+
+    Press P to start
+    Press L to load data
+    Press K to see Ranking
+
+### YOU CAN ENTER P,R IN GAME
+
+    Press P to pause
+    Press R to restart
+
+### YOU CAN ENTER P,S,R IN PAUSED
+
+    Press P to resume
+    Press S to save data
+    Press R to restart
 
 # How to run
 
