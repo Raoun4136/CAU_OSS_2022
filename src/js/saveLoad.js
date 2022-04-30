@@ -26,4 +26,12 @@ function loadSnake()
         console.log(localStorage.getItem("saveData"+i));
         i++;
     }
+    let index = 1 // load 창에서 받은 player index값
+    const object = JSON.parse(localStorage.getItem("saveData"+index));
+    let savedSnakeArr = object.snakeArray;
+    let savedAppleArr = object.apple;
+    let savedScore = object.Score;
+    console.log("savedSnakeArr = " + savedSnakeArr);
+    console.log("savedAppleArr = " + savedAppleArr);
+    console.log("savedScore = " + savedScore);
 }
