@@ -4,7 +4,7 @@ function changeSnakePosition(){
  
     head = snake[0];
     let isConflict = 0;
-    if ( ((head[0]+yV)!=apple[1])||((head[1]+xV)!=apple[0])){
+    if ( ((head[0]+yV)!=apple[0])||((head[1]+xV)!=apple[1])){
         snake.pop();
     }
     else {

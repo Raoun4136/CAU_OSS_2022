@@ -4,7 +4,7 @@ function createApple(min,max){
 
 function drawApple(){
     ctx.fillStyle = 'red';
-    ctx.fillRect(apple[0]*tileSize,apple[1]*tileSize,tileSize,tileSize);
+    ctx.fillRect(apple[1]*tileSize,apple[0]*tileSize,tileSize,tileSize);
 }
 
 function createRandomApple(){
