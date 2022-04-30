@@ -24,12 +24,14 @@ function loadSnake() {
         if(!localStorage.getItem("saveData"+i)) continue;
         let loadList = document.querySelector("#txt_load");
         let li = document.createElement("li");
-        li.id = "saveData"+i;
         let span = document.createElement("span");
-        span.innerText = localStorage.getItem("saveData"+i);
         let button = document.createElement("button");
+
+        li.id = "saveData"+i;
+        span.innerText = localStorage.getItem("saveData"+i);
         button.innerText = "❌";
         button.addEventListener("click",deleteSave);
+
         li.appendChild(span);
         li.appendChild(button);
         loadList.appendChild(li);
@@ -38,10 +40,13 @@ function loadSnake() {
 
 function resetDrawLoad(){
     document.getElementById("txt_load").remove();
+    
     let div = document.createElement("div");
-    div.id = "txt_load";
     let ul = document.createElement("ul");
+
+    div.id = "txt_load";
     ul.id = "load_list";
+    
     div.appendChild(ul);
     loadDiv.appendChild(div);
 }
@@ -49,6 +54,7 @@ function resetDrawLoad(){
 function deleteSave(event){
     let li = event.target.parentElement;
     li.remove();
+
     localStorage.removeItem(li.id);
     loadSnake();
 }
