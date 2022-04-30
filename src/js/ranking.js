@@ -1,4 +1,5 @@
-let rank_x = 0;
+document.querySelector("#rank_name").addEventListener("submit",storeRanking);
+
 
 function storeRanking(){
     let i = 0;
@@ -6,11 +7,12 @@ function storeRanking(){
         i++;
     }
     localStorage.setItem("rankData"+i,JSON.stringify({
-        name : "jh", 
+        name : document.querySelector('#rank_name').querySelector('input').value, 
         score : score, 
         snake : snake, 
         apple : apple, 
-        date : start
+        date : start,
+        time : time
     }));
     rank_x++;
 }

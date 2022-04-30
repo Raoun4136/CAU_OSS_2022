@@ -57,6 +57,15 @@
     <div id="game_over" class="interface hide">
         <p class ="subject">GAME OVER</p>
         <p class ="txt_interface">your score : <span id="txt_score"></span></p>
+        <form class ="txt_interface" id="rank_name">
+            <input
+                required
+                maxlength="15"
+                type="text"
+                placeholder="What is your name?"
+            />
+            <input type="submit" value="SAVE" id="rank_btn" />
+        </form>
     </div>
 
     <script src="./src/js/value.js"></script>

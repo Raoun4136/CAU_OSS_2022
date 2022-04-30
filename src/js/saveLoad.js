@@ -1,18 +1,18 @@
-document.getElementById("save_name").addEventListener("submit",saveSnake);
+document.querySelector("#save_name").addEventListener("submit",saveSnake);
 
 function saveSnake()
 {
-    //test
     let i = 0;
     while(localStorage.getItem("saveData"+i)){
         i++;
     }
     localStorage.setItem("saveData"+((i+save_x)%5),JSON.stringify({
-        name : document.querySelector('form').querySelector('input').value, 
+        name : document.querySelector('#save_name').querySelector('input').value, 
         score : score, 
         snake : snake, 
         apple : apple, 
-        date : start
+        date : start,
+        time : time
     }));
     save_x++;
 }
@@ -39,8 +39,8 @@ function loadSnake() {
 }
 
 function resetDrawLoad(){
-    document.getElementById("txt_load").remove();
-    
+    document.querySelector("#txt_load").remove();
+
     let div = document.createElement("div");
     let ul = document.createElement("ul");
 

@@ -40,5 +40,7 @@ let start = new Date();
 
 //save
 let save_x = 0;
+//rank
+let rank_x = 0;
 //load
 const loadDiv = document.querySelector("#game_load");
