@@ -10,11 +10,16 @@ function drawApple(){
 function createRandomApple(){
     apple_y = createApple(0,39);
     apple_x = createApple(0,39);
-    for ( let s of snake){
-        while ( apple_y===s[0] && apple_x===s[1]){
-            apple_y = createApple(0,39);
-            apple_x = createApple(0,39);  
+    let i =0;
+    while (i<snake.length){
+        if( apple_y===snake[i][0] && apple_x===snake[i][1]){
+                console.log("apple conflict",apple_y,apple_x);
+                apple_y = createApple(0,39);
+                apple_x = createApple(0,39);  
+                console.log(apple_y,apple_x);
+                i=0;
         }
+        i+=1
     }
     apple = [apple_y,apple_x];
 }
