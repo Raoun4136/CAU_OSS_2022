@@ -37,3 +37,8 @@ let score = 0;
 let eatApple = 0;
 
 let start = new Date();
+
+//save
+let save_x = 0;
+//load
+const loadDiv = document.querySelector("#game_load");

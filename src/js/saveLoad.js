@@ -1,29 +1,56 @@
-let save_x = 0;
 document.getElementById("save_name").addEventListener("submit",saveSnake);
-
-
 
 function saveSnake()
 {
     //test
     let i = 0;
-    while(localStorage.getItem("saveData"+i))
-    {
+    while(localStorage.getItem("saveData"+i)){
         i++;
     }
-    console.log("score = "+ score);
-    localStorage.setItem("saveData"+((i+save_x)%5),JSON.stringify({name : document.querySelector('form').querySelector('input').value, Score : score, snakeArray : snake, apple : apple}));  //새로운 div 창에서 입력된 값 저장
+    localStorage.setItem("saveData"+((i+save_x)%5),JSON.stringify({
+        name : document.querySelector('form').querySelector('input').value, 
+        score : score, 
+        snake : snake, 
+        apple : apple, 
+        date : start
+    }));
     save_x++;
-    /* to do : savePlayer가 무한대로 늘어날순없으니 최대 저장 갯수를 정하던가 선택한 칸에 저장하도록 하던가 */
-
 }
-function loadSnake()
-{
+
+function loadSnake() {
+    resetDrawLoad();
     let i =0;
-    while(localStorage.getItem("saveData"+i))
-    {
-        console.log((i+1)+"번째"+"LOAD DATA");
-        console.log(localStorage.getItem("saveData"+i));
+    for(i; i<5;i++){
+        if(!localStorage.getItem("saveData"+i)) continue;
+        let loadList = document.querySelector("#txt_load");
+        let li = document.createElement("li");
+        li.id = i;
+        let span = document.createElement("span");
+        span.innerText = localStorage.getItem("saveData"+i);
+        let button = document.createElement("button");
+        button.innerText = "❌";
+        button.addEventListener("click",deleteSave);
+        li.appendChild(span);
+        li.appendChild(button);
+        loadList.appendChild(li);
         i++;
     }
+}
+
+function resetDrawLoad(){
+    document.getElementById("txt_load").remove();
+    let div = document.createElement("div");
+    div.id = "txt_load";
+    let ul = document.createElement("ul");
+    ul.id = "load_list";
+    div.appendChild(ul);
+    loadDiv.appendChild(div);
+}
+
+function deleteSave(event){
+    let li = event.target.parentElement;
+    li.remove();
+    localStorage.removeItem("saveData"+li.id);
+    console.log()
+    loadSnake();
 }
