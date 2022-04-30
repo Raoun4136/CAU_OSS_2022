@@ -36,6 +36,7 @@ function gameLoadOn(){
     document.getElementById("game_save").classList.add("hide");
     document.getElementById("game_ranking").classList.add("hide");
     document.getElementById("game_over").classList.add("hide");
+    loadSnake();
 }
 
 function gameSaveOn(){

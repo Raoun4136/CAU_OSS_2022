@@ -19,16 +19,23 @@ function viewRanking(){
         rankData.push(JSON.parse(localStorage.getItem("rankData"+i)));
         i++;
     }
-    console.log(rankData);
+    i--;
+    let k = 1;
     rankData.sort(sortJson());
-    console.log(rankData);
+    while (i >= 0)
+    {
+        console.log((k)+"위");
+        console.log(rankData[k-1]);
+        i--;
+        k++;
+    }
 }
 
 function sortJson(){
     return function(a,b){
-        if (a.Score > b.Score){
+        if (a.Score < b.Score){
             return 1;
-        } else if (a.Score <= b.Score){
+        } else if (a.Score >= b.Score){
             return -1;
         }
     }

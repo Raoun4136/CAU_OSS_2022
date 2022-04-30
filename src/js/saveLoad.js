@@ -19,8 +19,11 @@ function saveSnake()
 }
 function loadSnake()
 {
-    // if(event.keyCode == 76) { // L눌렀을 때
-    //     // 저장된 div 부르고 div 인덱스로 가져오기 -> savePlayer 가 인덱스
-    //     localStorage.getItem(savePlayer);
-    // }
+    let i =0;
+    while(localStorage.getItem("saveData"+i))
+    {
+        console.log((i+1)+"번째"+"LOAD DATA");
+        console.log(localStorage.getItem("saveData"+i));
+        i++;
+    }
 }
