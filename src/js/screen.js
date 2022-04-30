@@ -6,14 +6,13 @@ function clearScreen(){
 }
 
 function countTileSize(){
-    tileSize = canvas.clientWidth/tileCount-2;
+    tileSize = canvas.clientWidth/tileCount;
 }
 
 function runningTime(){
     const now = new Date();
     time = Math.floor((now-start)/1000);
     score = time+eatApple*50;
-    console.log(score)
 }
 
 //game loop

@@ -46,7 +46,6 @@ function gameSaveOn(){
     document.getElementById("game_save").classList.remove("hide");
     document.getElementById("game_ranking").classList.add("hide");
     document.getElementById("game_over").classList.add("hide");
-    saveSnake();
 }
 function gameRankingOn(){
     document.getElementById("game").classList.add("hide");

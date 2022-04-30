@@ -1,14 +1,25 @@
+let rank_x = 0;
+
 function storeRanking(){
-    localStorage.setItem("ranking"+rankPlayer, JSON.stringify({name : "고정훈", Score : score, snakeArray : snake, apple : apple})); //name 을 getbyelement 로
+    let i = 0;
+    while(localStorage.getItem("rankData"+i))
+    {
+        i++;
+    }
+    console.log(i+(rank_x%5));
+    localStorage.setItem("rankData"+((i+rank_x)%5),JSON.stringify({name : "jh", Score : score, snakeArray : snake, apple : apple}));  //새로운 div 창에서 입력된 값 저장
+    rank_x++;
 }
 
-function viewRanking(rankPlayer, rankData){
-    console.log(rankPlayer);
-    console.log(rank_num);
+function viewRanking(){
+    rankData = [];
+    let i = 0;
+    while(localStorage.getItem("rankData"+i))
+    {
+        rankData.push(JSON.parse(localStorage.getItem("rankData"+i)));
+        i++;
+    }
     console.log(rankData);
-    // rankData.sort(function(a,b){
-    //     return parseFloat(b.score) - parseFloat(a.score);
-    // });
     rankData.sort(sortJson());
     console.log(rankData);
 }
