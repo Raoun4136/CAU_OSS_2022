@@ -1,4 +1,5 @@
 document.body.addEventListener('keydown',keyDown);
+let Player = 0;
 
 function keyDown(event){
     //keyboard left
@@ -47,7 +48,10 @@ function keyDown(event){
     }
     // test- keyboard S
     if(event.keyCode == 83){
-        saveSnake(event, 0); //test
+        saveSnake(); //test
     }
-
+    // test - keyboard T
+    if(event.keyCode == 84){
+        viewRanking();
+    }
 }

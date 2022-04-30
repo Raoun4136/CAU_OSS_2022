@@ -10,7 +10,7 @@
 <body>
     <canvas id="game" width="800" height="800" class="hide"></canvas>
     <div id="game_interface" class="interface">
-        <p id ="game_name">SNAKE GAME</p>
+        <p class ="subject">SNAKE GAME</p>
         <p class ="txt_interface">PLAY</p>
         <p class ="txt_interface">LOAD</p>
         <p class ="txt_interface">RANKING</p>
@@ -22,18 +22,43 @@
         
     </div>
     <div id="game_pause" class="interface hide">
-        Paused
-        <br> have to do RESUME RESTART SAVE EXIT
-        <br> p to resume
+        <p class ="subject">Paused</p>
+        <p class ="txt_interface">RESUME</p>
+        <p class ="txt_interface">RESTART</p>
+        <p class ="txt_interface">SAVE</p>
+        <p class ="txt_interface">EXIT</p>
+        <p class ="txt_interface">P to resume</p>
     </div>
     <div id="game_load" class="interface hide">
-        <div id="load_data">load-data</div>
+        <p class ="subject">LOAD</p>
+        <div id="txt_load"></div>
     </div>
     <div id="game_save" class="interface hide">
-        save It!
+        <p class ="subject">SAVE</p>
+        <form class ="txt_interface" id="save_name">
+            <input
+                required
+                maxlength="15"
+                type="text"
+                placeholder="What is your name?"
+            />
+            <input type="submit" value="SAVE" />
+        </form>
+        <p class ="txt_interface">PRESS ESC TO EXIT</p>
+    </div>
+    <div id="game_ranking" class="interface hide">
+        <p class ="subject">RANKING</p>
+        <div id="txt_ranking"></div>
+    </div>
+    <div id="game_over" class="interface hide">
+        <p class ="subject">GAME OVER</p>
+        <p class ="txt_interface">your score : <span id="txt_score"></span></p>
     </div>
 
     <script src="./src/js/value.js"></script>
+    <script src="./src/js/ranking.js"></script>
+    <script src="./src/js/divToggle.js"></script>
+    <script src="./src/js/gameOver.js"></script>
     <script src="./src/js/apple.js"></script>
     <script src="./src/js/screen.js"></script>
     <script src="./src/js/snake.js"></script>
