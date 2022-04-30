@@ -6,8 +6,7 @@ function storeRanking(){
     {
         i++;
     }
-    console.log(i+(rank_x%5));
-    localStorage.setItem("rankData"+((i+rank_x)%5),JSON.stringify({name : "jh", Score : score, snakeArray : snake, apple : apple}));  //새로운 div 창에서 입력된 값 저장
+    localStorage.setItem("rankData"+i,JSON.stringify({name : "jh", Score : score, snakeArray : snake, apple : apple}));  //새로운 div 창에서 입력된 값 저장
     rank_x++;
 }
 
