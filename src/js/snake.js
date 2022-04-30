@@ -12,12 +12,6 @@ function changeSnakePosition(){
         eatApple+=1;
         createRandomApple();
     }
-<<<<<<< HEAD
-    if ( ((head[0]+yV)<0)||((head[0]+yV)>40)||((head[1]+xV)<0)||((head[1]+xV)>40)){
-        // alert("Game over");                    //exit code
-        storeRanking();
-        rank_num++;
-=======
 
     for(let s of snake)
     {
@@ -31,7 +25,6 @@ function changeSnakePosition(){
        //gameOver();
         alert("Game over");                    //exit test code
         storeRanking();
->>>>>>> 60ac1723127beade566b357fdb4dcfacd20f87de
     }
     snake.unshift([head[0]+yV,head[1]+xV]);
 }
