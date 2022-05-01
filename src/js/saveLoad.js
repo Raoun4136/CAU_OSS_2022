@@ -46,7 +46,6 @@ function loadSnake() {
         spanApple.innerText = loadData.eatApple;
         spanDay.innerText = loadData.day;
         spanDateTime.innerText = loadData.datetime;
-        spanName.innerText = loadData.name;
 
         button.innerText = "❌";
         button.classList.add("btn_delete");
@@ -75,6 +74,33 @@ function resetDrawLoad(){
     
     div.appendChild(ul);
     loadDiv.appendChild(div);
+
+    let rankList = document.querySelector("#load_list");
+    let li = document.createElement("li");
+    let spanName = document.createElement("span");
+    let spanScore = document.createElement("span");
+    let spanTime = document.createElement("span");
+    let spanApple = document.createElement("span");
+    let spanDay = document.createElement("span");
+    let spanDateTime = document.createElement("span");
+    let spanDelete = document.createElement("span");
+
+    spanName.innerText = "NAME";
+    spanScore.innerText = "SCORE";
+    spanTime.innerText = "TIME";
+    spanApple.innerText = "APPLE";
+    spanDay.innerText = "DAY";
+    spanDateTime.innerText = "DAYTIME";
+    spanDelete.innerText = "DEL";
+
+    li.appendChild(spanName);
+    li.appendChild(spanScore);
+    li.appendChild(spanTime);
+    li.appendChild(spanApple);
+    li.appendChild(spanDay);
+    li.appendChild(spanDateTime);
+    li.appendChild(spanDelete);
+    rankList.appendChild(li);
 }
 
 function deleteSave(event){

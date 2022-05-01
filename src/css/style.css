@@ -72,22 +72,27 @@ body{
     margin-top : 140px;
 }
 .hr_rank_load{
-    width:400px;
+    width:500px;
 }
+
+
+
+/** RANKING, LOAD CSS **/
 #txt_ranking, #txt_load{
-    width:400px;
+    width:500px;
     font-size : 14px;
     text-align : center;
     margin : 10px auto;
 }
 
-#txt_ranking li {
+#txt_ranking li, #txt_load li{
     display:flex;
     flex-direction: row;
     justify-content: space-around;
     margin-bottom : 5px;
 }
-#txt_ranking li:first-child {
+
+#txt_ranking li:first-child, #txt_load li:first-child{
     margin-bottom: 15px;
 }
 /**Rank**/
@@ -95,29 +100,34 @@ body{
     width:40px;
 }
 /**Name**/
-#txt_ranking li span:nth-child(2){
+#txt_ranking li span:nth-child(2), #txt_load li span:nth-child(1){
     width:80px;
 }
 /**Score**/
-#txt_ranking li span:nth-child(3){
-    width:50px;
+#txt_ranking li span:nth-child(3), #txt_load li span:nth-child(2){
+    width:48px;
 }
 /**Time**/
-#txt_ranking li span:nth-child(4){
-    width:40px;
+#txt_ranking li span:nth-child(4), #txt_load li span:nth-child(3){
+    width:35px;
 }
 /**Apple**/
-#txt_ranking li span:nth-child(5){
-    width:50px;
+#txt_ranking li span:nth-child(5), #txt_load li span:nth-child(4){
+    width:45px;
 }
 /**Day**/
-#txt_ranking li span:nth-child(6){
-    width:70px;
-}
-/**Time**/
-#txt_ranking li span:nth-child(7){
+#txt_ranking li span:nth-child(6), #txt_load li span:nth-child(5){
     width:80px;
 }
+/**Time**/
+#txt_ranking li span:nth-child(7), #txt_load li span:nth-child(6){
+    width:90px;
+}
+/**button**/
+#txt_load li span:nth-child(7){
+    width : 30px;
+}
+
 
 .hide{
     display:none;

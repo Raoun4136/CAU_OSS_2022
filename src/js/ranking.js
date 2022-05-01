@@ -32,6 +32,7 @@ function viewRanking(){
     rankData.sort(sortJson());
     while (i >= 0){
         let rankList = document.querySelector("#rank_list");
+        
         let li = document.createElement("li");
         let spanRank = document.createElement("span");
         let spanName = document.createElement("span");
