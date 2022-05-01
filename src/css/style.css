@@ -17,6 +17,9 @@ body{
 #game_score{
     color:rgb(0, 0, 0);
 }
+#pause_info{
+    margin-top:20px;
+}
 .subject{
     font-family: dot;
     font-size: 80px;

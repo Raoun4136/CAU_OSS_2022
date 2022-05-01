@@ -3,10 +3,10 @@ const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
 //DIFFICULTY
-const EXTREME = 15;
-const HARD = 10;
-const NORMAL = 5;
-const EASY = 3;
+const HARD = 15;
+const NORMAL = 10;
+const EASY = 5;
+const VERYEASY = 3;
 
 //MAP SIZE
 const SMALL = 15;

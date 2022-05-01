@@ -9,12 +9,12 @@
     <title>Snake Game</title>
 </head>
 <body>
+    
+    <div id="game_score">
+        score : <span id="txt_score"></span>
+    </div>
     <div id="game_screen">
-        <div id="game_score">
-            score : <span id="txt_score"></span>
-        </div>
         <canvas id="game" width="800" height="800" class="hide"></canvas>
-        
     </div>
     <div id="game_interface" class="interface">
         <p class ="subject">SNAKE GAME</p>
@@ -102,7 +102,7 @@
         <hr class = "txt_hr">
         <p class ="txt_interface txt_foot">PRESS ESC TO EXIT</p>
     </div>
-
+    <span id="pause_info">Press P to Pause Game</span>
     <script src="./src/js/value.js"></script>
     <script src="./src/js/screen.js"></script>
     <script src="./src/js/ranking.js"></script>
