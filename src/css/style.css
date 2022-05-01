@@ -37,26 +37,19 @@ body{
 }
 .txt_interface{
     font-size:14px;
-    text-align:left;
+    text-align:center;
     margin : 10px auto;
 }
-.txt_interface:first-child{
-    margin-top : 20px;
-}
-.txt_interface:last-child{
-    margin-bottom : 20px;
+.txt_left{
+    text-align:left;
 }
 .txt_interface span:nth-child(2n){
     float:right;
     color:green;
 }
-.txt_save_info{
-    font-size : 11px;
-    margin-top : 20px;
-    text-align:center;
-}
+
 .input_form{
-    margin : 20px auto;
+    margin : 10px auto;
     border-radius:10px;
     background-color: rgb(233,233,233);
     width:200px;
@@ -66,12 +59,64 @@ body{
 .input_form:focus{
     outline:1px red solid;
 }
-
+.txt_foot{
+    font-size : 11px;
+    margin-top : 20px;
+    text-align:center;
+}
 .txt_hr{
     width:270px;
+    margin:20px auto;
 }
 #save_hr1{
     margin-top : 140px;
+}
+.hr_rank_load{
+    width:400px;
+}
+#txt_ranking, #txt_load{
+    width:400px;
+    font-size : 14px;
+    text-align : center;
+    margin : 10px auto;
+}
+
+#txt_ranking li {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom : 5px;
+}
+#txt_ranking li:first-child {
+    margin-bottom: 15px;
+}
+/**Rank**/
+#txt_ranking li span:nth-child(1){
+    width:40px;
+}
+/**Name**/
+#txt_ranking li span:nth-child(2){
+    width:80px;
+}
+/**Score**/
+#txt_ranking li span:nth-child(3){
+    width:50px;
+}
+/**Time**/
+#txt_ranking li span:nth-child(4){
+    width:40px;
+}
+/**Apple**/
+#txt_ranking li span:nth-child(5){
+    width:50px;
+}
+/**Day**/
+#txt_ranking li span:nth-child(6){
+    width:70px;
+}
+/**Time**/
+#txt_ranking li span:nth-child(7){
+    width:80px;
 }
 
 .hide{
@@ -80,8 +125,32 @@ body{
 #save_name{
     text-align : center;
 }
+.btn_div{
+    margin:auto;
+    width:800px;
+}
 .btn_reset{
+    width:100px;
+    margin:auto;
+    display:block;
+    color:rgb(255, 0, 0);
+    border-radius:5px;
+    border : 1px rgb(255, 0, 0) solid;
+    padding : 2px 5px;
+    font-size : 10px;
+}
+.btn_reset:hover{
+    cursor:pointer;
     color:white;
+    background-color:red;
+    border:1px rgb(255, 255, 255) solid;
+}
+.btn_delete{
+    cursor:pointer;
+    border:1px solid red;
+}
+.btn_delete:hover {
+    background-color:white;
 }
 
 /* Save Button CSS */

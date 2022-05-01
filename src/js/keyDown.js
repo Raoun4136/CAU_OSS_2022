@@ -49,6 +49,9 @@ function keyDown(event){
             if(isSaving)return;
             if(isLoading)return;
             if(isRanking)return;
+            if(!isStarted){
+                start = new Date(); // date update when game start
+            }
             gameOn();
             isGaming = true;
             isStarted = true;
@@ -114,6 +117,7 @@ function keyDown(event){
     //keyboard R
     if(event.keyCode == 82){
         if(!isStarted) return;
+        if(isGameOver) return;
         resetOptions();
         isGaming = true;
         gameOn();

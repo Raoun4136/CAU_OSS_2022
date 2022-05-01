@@ -12,8 +12,10 @@ function saveSnake()
         score : score, 
         snake : snake, 
         apple : apple, 
-        date : start,
-        time : time
+        eatApple : eatApple,
+        day : start.toLocaleDateString(),
+        datetime : start.toLocaleTimeString(),
+        time: time
     }));
     save_x++;
 }
@@ -23,17 +25,40 @@ function loadSnake() {
     let i =0;
     for(i; i<5;i++){
         if(!localStorage.getItem("saveData"+i)) continue;
+        let loadData = JSON.parse(localStorage.getItem("saveData"+i));
         let loadList = document.querySelector("#txt_load");
+
         let li = document.createElement("li");
-        let span = document.createElement("span");
+        let spanName = document.createElement("span");
+        let spanScore = document.createElement("span");
+        let spanTime = document.createElement("span");
+        let spanApple = document.createElement("span");
+        let spanDay = document.createElement("span");
+        let spanDateTime = document.createElement("span");
         let button = document.createElement("button");
 
+
         li.id = "saveData"+i;
-        span.innerText = localStorage.getItem("saveData"+i);
+
+        spanName.innerText = loadData.name;
+        spanScore.innerText = loadData.score;
+        spanTime.innerText = loadData.time;
+        spanApple.innerText = loadData.eatApple;
+        spanDay.innerText = loadData.day;
+        spanDateTime.innerText = loadData.datetime;
+        spanName.innerText = loadData.name;
+
         button.innerText = "❌";
+        button.classList.add("btn_delete");
         button.addEventListener("click",deleteSave);
 
-        li.appendChild(span);
+        console.log(loadData);
+        li.appendChild(spanName);
+        li.appendChild(spanScore);
+        li.appendChild(spanTime);
+        li.appendChild(spanApple);
+        li.appendChild(spanDay);
+        li.appendChild(spanDateTime);
         li.appendChild(button);
         loadList.appendChild(li);
     }
@@ -62,6 +87,7 @@ function deleteSave(event){
 
 function resetSaveData(){
     //TODO reset Save Data
+    alert("구현중입니다.");
 }
 
 function loadOption(){

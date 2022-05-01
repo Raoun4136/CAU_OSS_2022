@@ -11,8 +11,10 @@ function storeRanking(){
         score : score, 
         snake : snake, 
         apple : apple, 
-        date : start,
-        time : time
+        eatApple : eatApple,
+        day : start.toLocaleDateString(),
+        datetime : start.toLocaleTimeString(),
+        time: time
     }));
     rank_x++;
 }
@@ -36,22 +38,25 @@ function viewRanking(){
         let spanScore = document.createElement("span");
         let spanTime = document.createElement("span");
         let spanApple = document.createElement("span");
-        let spanDate = document.createElement("span");
+        let spanDay = document.createElement("span");
+        let spanDateTime = document.createElement("span");
 
         li.id="rankData"+i;
         spanRank.innerText = (k)+"위";
         spanName.innerText = rankData[k-1].name;
         spanScore.innerText = rankData[k-1].score;
         spanTime.innerText = rankData[k-1].time;
-        spanApple.innerText = rankData[k-1].apple;
-        spanDate.innerText = rankData[k-1].date;
+        spanApple.innerText = rankData[k-1].eatApple;
+        spanDay.innerText = rankData[k-1].day;
+        spanDateTime.innerText = rankData[k-1].datetime;
 
         li.appendChild(spanRank);
         li.appendChild(spanName);
         li.appendChild(spanScore);
         li.appendChild(spanTime);
         li.appendChild(spanApple);
-        li.appendChild(spanDate);
+        li.appendChild(spanDay);
+        li.appendChild(spanDateTime);
         rankList.appendChild(li);
 
         //test console
@@ -82,6 +87,34 @@ function resetDrawRank(){
     
     div.appendChild(ul);
     rankDiv.appendChild(div);
+
+    let rankList = document.querySelector("#rank_list");
+    let li = document.createElement("li");
+    let spanRank = document.createElement("span");
+    let spanName = document.createElement("span");
+    let spanScore = document.createElement("span");
+    let spanTime = document.createElement("span");
+    let spanApple = document.createElement("span");
+    let spanDay = document.createElement("span");
+    let spanDateTime = document.createElement("span");
+
+    spanRank.innerText = "RANK";
+    spanName.innerText = "NAME";
+    spanScore.innerText = "SCORE";
+    spanTime.innerText = "TIME";
+    spanApple.innerText = "APPLE";
+    spanDay.innerText = "DAY";
+    spanDateTime.innerText = "DAYTIME";
+
+    li.appendChild(spanRank);
+    li.appendChild(spanName);
+    li.appendChild(spanScore);
+    li.appendChild(spanTime);
+    li.appendChild(spanApple);
+    li.appendChild(spanDay);
+    li.appendChild(spanDateTime);
+    rankList.appendChild(li);
+
 }
 
 function resetRankData(){
