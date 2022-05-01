@@ -16,7 +16,7 @@
         <canvas id="game" width="800" height="800" class="hide"></canvas>
         
     </div>
-    <div id="game_interface" class="interface">
+    <div id="game_interface" class="interface hide">
         <p class ="subject">SNAKE GAME</p>
         <hr class = "txt_hr">
         <div class ="txt_div">
@@ -32,7 +32,7 @@
         -->
         
     </div>
-    <div id="game_pause" class="interface hide">
+    <div id="game_pause" class="interface ">
         <p class ="subject">Paused</p>
         <hr class = "txt_hr">
         <div class ="txt_div">
@@ -53,16 +53,18 @@
     </div>
     <div id="game_save" class="interface hide">
         <p class ="subject">SAVE</p>
+        <hr id="save_hr1"class = "txt_hr">
         <form class ="txt_interface" id="save_name">
-            <input
+            <input autofocus = "autofocus" class="input_form"
                 required
                 maxlength="15"
                 type="text"
                 placeholder="What is your name?"
             />
-            <input type="submit" value="SAVE" id="save_btn" />
+            <input class ="input_btn" type="submit" value="SAVE" id="save_btn" />
         </form>
-        <p class ="txt_interface">PRESS S TO EXIT</p>
+        <hr class = "txt_hr">
+        <p class ="txt_interface txt_save_info">PRESS S TO EXIT</p>
     </div>
     <div id="game_ranking" class="interface hide">
         <p class ="subject">RANKING</p>
@@ -77,13 +79,13 @@
         <p class ="txt_interface">PRESS ESC TO EXIT</p>
         <p class ="txt_interface">your score : <span id="gameOver_score"></span></p>
         <form class ="txt_interface" id="rank_name">
-            <input
+            <input class="input_form"
                 required
                 maxlength="15"
                 type="text"
                 placeholder="What is your name?"
             />
-            <input type="submit" value="SAVE" id="rank_btn" />
+            <input class ="input_btn" type="submit" value="SAVE" id="rank_btn" />
         </form>
     </div>
 

@@ -3,8 +3,6 @@
     src: url(../../font/square-dot-matrix-webfont.woff) format("woff"),
         url(../../font/Square-Dot-Matrix.ttf) format("truetype");
 }
-
-
 body{
     display:flex;
     flex-direction:column;
@@ -13,7 +11,6 @@ body{
     height:100vh;
     overflow:hidden;
 }
-
 #game{
     box-shadow: black 10px 10px 30px;
 }
@@ -53,17 +50,90 @@ body{
     float:right;
     color:green;
 }
+.txt_save_info{
+    font-size : 11px;
+    margin-top : 20px;
+    text-align:center;
+}
+.input_form{
+    margin : 20px auto;
+    border-radius:10px;
+    background-color: rgb(233,233,233);
+    width:200px;
+    height:30px;
+    padding-left : 15px;
+}
+.input_form:focus{
+    outline:1px red solid;
+}
+
 .txt_hr{
     width:270px;
 }
+#save_hr1{
+    margin-top : 140px;
+}
+
 .hide{
     display:none;
 }
-
 #save_name{
     text-align : center;
 }
-
 .btn_reset{
     color:white;
+}
+
+/* Save Button CSS */
+.input_btn {
+    width: 50px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    color: #3c4043;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    text-transform: none;
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+    touch-action: manipulation;
+    will-change: transform,opacity;
+
+}
+
+.input_btn:hover {
+    background: #F6F9FE;
+    color: #174ea6;
+}
+
+.input_btn:active {
+    box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+    outline: none;
+}
+
+.input_btn:focus {
+    outline: none;
+    border: 2px solid #4285f4;
+}
+
+.input_btn:not(:disabled) {
+    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.input_btn:not(:disabled):hover {
+    box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+}
+
+.input_btn:not(:disabled):focus {
+    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.input_btn:not(:disabled):active {
+    box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+}
+
+.input_btn:disabled {
+    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
 }
