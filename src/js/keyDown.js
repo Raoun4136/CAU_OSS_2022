@@ -1,28 +1,39 @@
 document.body.addEventListener('keydown',keyDown);
 let Player = 0;
 
+
+
 function keyDown(event){
     //keyboard left
     if(event.keyCode == 37){
         if(xV == 1) return;
+        if(isSnakeChanged) return;
+        isSnakeChanged = true;
         xV = -1;
         yV = 0;
     }
     //keyboard up
     if(event.keyCode == 38){
         if(yV == 1) return;
+        if(isSnakeChanged) return;
+        isSnakeChanged = true;
         xV = 0;
         yV = -1;
+        
     }
     //keyboard right
     if(event.keyCode == 39){
         if(xV == -1) return;
+        if(isSnakeChanged) return;
+        isSnakeChanged = true;
         xV = 1;
         yV = 0;
     }
     //keyboard down
     if(event.keyCode == 40){
         if(yV == -1) return;
+        if(isSnakeChanged) return;
+        isSnakeChanged = true;
         xV = 0;
         yV = 1;
     }
@@ -47,7 +58,10 @@ function keyDown(event){
     if(event.keyCode == 27){
         //EXIT
         isStarted = false;
+        isSaving = false;
         isGameOver = false;
+        isLoading = false;
+        isRanking = false;
         resetOptions();
         gameInterfaceOn();
         clearScreen();

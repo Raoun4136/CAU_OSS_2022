@@ -32,3 +32,6 @@ function drawSnake(){
     }
 }
 
+function isSnakeChanged(){
+    
+}

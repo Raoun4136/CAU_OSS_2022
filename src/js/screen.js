@@ -22,6 +22,7 @@ function drawGame(){
         runningTime();
         changeSnakePosition();
         drawSnake();
+        isSnakeChanged = false;
         drawApple();
         
     }
