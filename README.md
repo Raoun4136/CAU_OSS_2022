@@ -2,7 +2,7 @@
 
 projects for opensource-SW-project 2022-1
 
-# USER MANUAL - EDITING
+# USER MANUAL
 
 ### YOU CAN ENTER ESC ALWAYS
 
@@ -23,6 +23,7 @@ projects for opensource-SW-project 2022-1
 
     Press P to resume
     Press S to save data
+        -> ISSUE / Can't enter S & R
     Press R to restart
 
 # How to run
@@ -37,3 +38,29 @@ $ git clone https://github.com/Raoun4136/CAU_OSS_2022.git
 # PLAY GAME
 
 https://cseosssnakegame.netlify.app/
+
+
+# TREE
+```
+├── font                                # font
+│   ├── Square-Dot-Matrix.ttf           # ttf
+│   ├── square-dot-matrix-webfont.woff  # woff
+├── src                                 # 
+│   ├── css                             # css
+│   │   ├── style.css                   #
+│   │ 	├── t-normalize.css             # css 초기화
+│   ├── js                              # js
+│   │   ├── apple.js                    # 
+│   │ 	├── divToggle.js                # gameScreen Div들을 toggle하는 함수
+│   │ 	├── gameOver.js                 # 
+│   │ 	├── initGame.js                 # main JS 첫 시작함수
+│   │   ├── keyDown.js                  # keyDown 함수
+│   │ 	├── ranking.js                  # 
+│   │ 	├── resetGame.js                # resetOption
+│   │ 	├── saveLoad.js                 # 
+│   │ 	├── screen.js                   # 
+│   │ 	├── snake.js                    #
+│   │ 	├── value.js                    #
+├── index.html                          # default html
+└── README.md
+```
