@@ -14,7 +14,9 @@ function storeRanking(){
         eatApple : eatApple,
         day : start.toLocaleDateString(),
         datetime : start.toLocaleTimeString(),
-        time: time
+        time: parseInt(time)+parseInt(loadTime),
+        xV : xV,
+        yV: yV
     }));
     rank_x++;
 }
@@ -32,7 +34,7 @@ function viewRanking(){
     rankData.sort(sortJson());
     while (i >= 0){
         let rankList = document.querySelector("#rank_list");
-        
+
         let li = document.createElement("li");
         let spanRank = document.createElement("span");
         let spanName = document.createElement("span");
@@ -61,7 +63,7 @@ function viewRanking(){
         rankList.appendChild(li);
 
         //test console
-        console.log(rankData[k-1]);
+        //console.log(rankData[k-1]);
         i--;
         k++;
     }
@@ -69,9 +71,9 @@ function viewRanking(){
 
 function sortJson(){
     return function(a,b){
-        if (a.Score < b.Score){
+        if (a.score < b.score){
             return 1;
-        } else if (a.Score >= b.Score){
+        } else if (a.score >= b.score){
             return -1;
         }
     }

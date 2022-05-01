@@ -1,6 +1,8 @@
 document.querySelector("#save_name").addEventListener("submit",saveSnake);
 document.querySelector("#btn_resetSave").addEventListener("click",resetSaveData);
 
+
+
 function saveSnake()
 {
     let i = 0;
@@ -15,7 +17,9 @@ function saveSnake()
         eatApple : eatApple,
         day : start.toLocaleDateString(),
         datetime : start.toLocaleTimeString(),
-        time: time
+        time: parseInt(time)+parseInt(loadTime),
+        xV: xV,
+        yV: yV
     }));
     save_x++;
 }
@@ -39,6 +43,7 @@ function loadSnake() {
 
 
         li.id = "saveData"+i;
+        li.addEventListener("click",loadGame);
 
         spanName.innerText = loadData.name;
         spanScore.innerText = loadData.score;
@@ -51,7 +56,8 @@ function loadSnake() {
         button.classList.add("btn_delete");
         button.addEventListener("click",deleteSave);
 
-        console.log(loadData);
+        //test console
+        //console.log(loadData);
         li.appendChild(spanName);
         li.appendChild(spanScore);
         li.appendChild(spanTime);
@@ -116,13 +122,36 @@ function resetSaveData(){
     alert("구현중입니다.");
 }
 
-function loadOption(){
-    let index = 0; // load 창에서 받은 player index값
-    const object = JSON.parse(localStorage.getItem("saveData"+index));
-    let savedSnakeArr = object.snake;
-    let savedAppleArr = object.apple;
-    let savedScore = object.score;
-    console.log("savedSnakeArr = " + savedSnakeArr);
-    console.log("savedAppleArr = " + savedAppleArr);
-    console.log("savedScore = " + savedScore);
+function loadGame(event){
+    if(!loadOption(event)) return;
+    clearScreen();
+    isGaming = true;
+    isStarted = true;
+    isSaving = false;
+    isGameOver = false;
+    isLoading = false;
+    isRanking = false;
+    isSnakeChanged = false;
+
+    gameOn();
+}
+
+function loadOption(event){
+    let load = JSON.parse(localStorage.getItem(event.path[1].id));
+    if (load == null){
+        load = JSON.parse(localStorage.getItem(event.path[0].id));
+        if(load == null){
+            return 0;
+        }
+    }
+    apple = load.apple;
+    snake = load.snake;
+    eatApple = load.eatApple;
+    loadTime = load.time;
+    start = new Date();
+    score = load.score;
+    xV = load.xV;
+    yV = load.yV;
+    
+    return true;
 }

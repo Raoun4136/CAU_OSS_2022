@@ -2,7 +2,6 @@
 function initGame(){
     clearScreen();
     drawGame();
-    gameLoadOn();
     // localStorage.clear();
 }
 

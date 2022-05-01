@@ -90,6 +90,7 @@ body{
     flex-direction: row;
     justify-content: space-around;
     margin-bottom : 5px;
+    padding: 3px 2px;
 }
 
 #txt_ranking li:first-child, #txt_load li:first-child{
@@ -126,6 +127,11 @@ body{
 /**button**/
 #txt_load li span:nth-child(7){
     width : 30px;
+}
+/**hover**/
+#txt_ranking li:not(:first-child):hover, #txt_load li:not(:first-child):hover{
+    cursor : pointer;
+    background-color: #3c4043;
 }
 
 

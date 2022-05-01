@@ -45,6 +45,7 @@ let rank_x = 0;
 //load
 const loadDiv = document.querySelector("#load_location");
 const rankDiv = document.querySelector("#rank_location");
+let loadTime = 0;
 
 //control key
 let isStarted = false;
