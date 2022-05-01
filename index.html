@@ -9,13 +9,23 @@
     <title>Snake Game</title>
 </head>
 <body>
-    <canvas id="game" width="800" height="800" class="hide"></canvas>
+    <div id="game_screen">
+        <div id="game_score">
+            score : <span id="txt_score"></span>
+        </div>
+        <canvas id="game" width="800" height="800" class="hide"></canvas>
+        
+    </div>
     <div id="game_interface" class="interface">
         <p class ="subject">SNAKE GAME</p>
-        <p class ="txt_interface">PLAY (Press P)</p>
-        <p class ="txt_interface">LOAD (Press L)</p>
-        <p class ="txt_interface">RANKING (Press K)</p>
-        <p class ="txt_interface">EXIT (Press ESC)</p>
+        <hr class = "txt_hr">
+        <div class ="txt_div">
+            <p class ="txt_interface"><span>PLAY</span><span>[P]</span></p>
+            <p class ="txt_interface"><span>LOAD</span><span>[L]</span></p>
+            <p class ="txt_interface"><span>RANKING</span><span>[K]</span></p>
+            <p class ="txt_interface"><span>EXIT</span><span>[ESC]</span></p>
+        </div>
+        <hr class = "txt_hr">
         <!--
             TODO copyright, up,right, spacebar
             <p id ="copyright" class ="txt_interface">Press P to game</p>
@@ -24,10 +34,14 @@
     </div>
     <div id="game_pause" class="interface hide">
         <p class ="subject">Paused</p>
-        <p class ="txt_interface">RESUME (Press P)</p>
-        <p class ="txt_interface">RESTART (Press R)</p>
-        <p class ="txt_interface">SAVE (Press S)</p>
-        <p class ="txt_interface">EXIT (Press ESC)</p>
+        <hr class = "txt_hr">
+        <div class ="txt_div">
+            <p class ="txt_interface"><span>RESUME</span><span>[P]</span></p>
+            <p class ="txt_interface"><span>RESTART</span><span>[R]</span></p>
+            <p class ="txt_interface"><span>SAVE</span><span>[S]</span></p>
+            <p class ="txt_interface"><span>EXIT</span><span>[ESC]</span></p>
+        </div>
+        <hr class = "txt_hr">
     </div>
     <div id="game_load" class="interface hide">
         <p class ="subject">LOAD</p>
@@ -61,7 +75,7 @@
     <div id="game_over" class="interface hide">
         <p class ="subject">GAME OVER</p>
         <p class ="txt_interface">PRESS ESC TO EXIT</p>
-        <p class ="txt_interface">your score : <span id="txt_score"></span></p>
+        <p class ="txt_interface">your score : <span id="gameOver_score"></span></p>
         <form class ="txt_interface" id="rank_name">
             <input
                 required

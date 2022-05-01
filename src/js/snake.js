@@ -31,7 +31,3 @@ function drawSnake(){
         ctx.fillRect(s[1]*tileSize+1,s[0]*tileSize+1,tileSize-1,tileSize-1);
     }
 }
-
-function isSnakeChanged(){
-    
-}

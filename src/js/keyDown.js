@@ -63,6 +63,7 @@ function keyDown(event){
         isLoading = false;
         isRanking = false;
         resetOptions();
+        drawScore();
         gameInterfaceOn();
         clearScreen();
     }

@@ -14,7 +14,9 @@ function runningTime(){
     time = Math.floor((now-start)/1000);
     score = time+eatApple*50;
 }
-
+function drawScore(){
+    document.querySelector("#txt_score").innerText = score;
+}
 //game loop
 function drawGame(){
     if(isGaming){
@@ -24,7 +26,7 @@ function drawGame(){
         drawSnake();
         isSnakeChanged = false;
         drawApple();
-        
+        drawScore();
     }
     setTimeout(drawGame, 1000/difficulty);
 }
