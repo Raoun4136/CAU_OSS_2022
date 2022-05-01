@@ -43,8 +43,9 @@ let save_x = 0;
 //rank
 let rank_x = 0;
 //load
-const loadDiv = document.querySelector("#game_load");
-const rankDiv = document.querySelector("#game_ranking");
+const loadDiv = document.querySelector("#load_location");
+const rankDiv = document.querySelector("#rank_location");
+let loadTime = 0;
 
 //control key
 let isStarted = false;
@@ -52,3 +53,5 @@ let isSaving = false;
 let isGameOver = false;
 let isLoading = false;
 let isRanking = false;
+
+let isSnakeChanged = false;

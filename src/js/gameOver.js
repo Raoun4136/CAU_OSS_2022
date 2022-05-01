@@ -3,6 +3,6 @@ function gameOver(){
     isGaming = false;
     isGameOver = true;
     isAble = true;
-    let txt_score = document.querySelector("#txt_score");
-    txt_score.innerHTML = score;
+    let gameOver_score = document.querySelector("#gameOver_score");
+    gameOver_score.innerHTML = score;
 }

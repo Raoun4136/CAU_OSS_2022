@@ -1,6 +1,8 @@
 document.querySelector("#save_name").addEventListener("submit",saveSnake);
 document.querySelector("#btn_resetSave").addEventListener("click",resetSaveData);
 
+
+
 function saveSnake()
 {
     let i = 0;
@@ -12,8 +14,12 @@ function saveSnake()
         score : score, 
         snake : snake, 
         apple : apple, 
-        date : start,
-        time : time
+        eatApple : eatApple,
+        day : start.toLocaleDateString(),
+        datetime : start.toLocaleTimeString(),
+        time: parseInt(time)+parseInt(loadTime),
+        xV: xV,
+        yV: yV
     }));
     save_x++;
 }
@@ -23,17 +29,41 @@ function loadSnake() {
     let i =0;
     for(i; i<5;i++){
         if(!localStorage.getItem("saveData"+i)) continue;
+        let loadData = JSON.parse(localStorage.getItem("saveData"+i));
         let loadList = document.querySelector("#txt_load");
+
         let li = document.createElement("li");
-        let span = document.createElement("span");
+        let spanName = document.createElement("span");
+        let spanScore = document.createElement("span");
+        let spanTime = document.createElement("span");
+        let spanApple = document.createElement("span");
+        let spanDay = document.createElement("span");
+        let spanDateTime = document.createElement("span");
         let button = document.createElement("button");
 
+
         li.id = "saveData"+i;
-        span.innerText = localStorage.getItem("saveData"+i);
+        li.addEventListener("click",loadGame);
+
+        spanName.innerText = loadData.name;
+        spanScore.innerText = loadData.score;
+        spanTime.innerText = loadData.time;
+        spanApple.innerText = loadData.eatApple;
+        spanDay.innerText = loadData.day;
+        spanDateTime.innerText = loadData.datetime;
+
         button.innerText = "❌";
+        button.classList.add("btn_delete");
         button.addEventListener("click",deleteSave);
 
-        li.appendChild(span);
+        //test console
+        //console.log(loadData);
+        li.appendChild(spanName);
+        li.appendChild(spanScore);
+        li.appendChild(spanTime);
+        li.appendChild(spanApple);
+        li.appendChild(spanDay);
+        li.appendChild(spanDateTime);
         li.appendChild(button);
         loadList.appendChild(li);
     }
@@ -50,6 +80,33 @@ function resetDrawLoad(){
     
     div.appendChild(ul);
     loadDiv.appendChild(div);
+
+    let rankList = document.querySelector("#load_list");
+    let li = document.createElement("li");
+    let spanName = document.createElement("span");
+    let spanScore = document.createElement("span");
+    let spanTime = document.createElement("span");
+    let spanApple = document.createElement("span");
+    let spanDay = document.createElement("span");
+    let spanDateTime = document.createElement("span");
+    let spanDelete = document.createElement("span");
+
+    spanName.innerText = "NAME";
+    spanScore.innerText = "SCORE";
+    spanTime.innerText = "TIME";
+    spanApple.innerText = "APPLE";
+    spanDay.innerText = "DAY";
+    spanDateTime.innerText = "DAYTIME";
+    spanDelete.innerText = "DEL";
+
+    li.appendChild(spanName);
+    li.appendChild(spanScore);
+    li.appendChild(spanTime);
+    li.appendChild(spanApple);
+    li.appendChild(spanDay);
+    li.appendChild(spanDateTime);
+    li.appendChild(spanDelete);
+    rankList.appendChild(li);
 }
 
 function deleteSave(event){
@@ -62,15 +119,39 @@ function deleteSave(event){
 
 function resetSaveData(){
     //TODO reset Save Data
+    alert("구현중입니다.");
 }
 
-function loadOption(){
-    let index = 0; // load 창에서 받은 player index값
-    const object = JSON.parse(localStorage.getItem("saveData"+index));
-    let savedSnakeArr = object.snake;
-    let savedAppleArr = object.apple;
-    let savedScore = object.score;
-    console.log("savedSnakeArr = " + savedSnakeArr);
-    console.log("savedAppleArr = " + savedAppleArr);
-    console.log("savedScore = " + savedScore);
+function loadGame(event){
+    if(!loadOption(event)) return;
+    clearScreen();
+    isGaming = true;
+    isStarted = true;
+    isSaving = false;
+    isGameOver = false;
+    isLoading = false;
+    isRanking = false;
+    isSnakeChanged = false;
+
+    gameOn();
+}
+
+function loadOption(event){
+    let load = JSON.parse(localStorage.getItem(event.path[1].id));
+    if (load == null){
+        load = JSON.parse(localStorage.getItem(event.path[0].id));
+        if(load == null){
+            return 0;
+        }
+    }
+    apple = load.apple;
+    snake = load.snake;
+    eatApple = load.eatApple;
+    loadTime = load.time;
+    start = new Date();
+    score = load.score;
+    xV = load.xV;
+    yV = load.yV;
+    
+    return true;
 }

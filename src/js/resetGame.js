@@ -5,6 +5,7 @@ function resetOptions(){
     snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
     time = 0;
     score = 0;
+    loadTime = 0;
     eatApple = 0;
     start = new Date();
     xV = 0;
