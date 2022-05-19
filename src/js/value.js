@@ -9,11 +9,11 @@ const EASY = 5;
 const VERYEASY = 3;
 
 //MAP SIZE
-const SMALL = 15;
+const SMALL = 20;
 const MEDIUM = 40;
-const LARGE = 30;
+const LARGE = 60;
 
-let difficulty = NORMAL;
+let difficulty = VERYEASY;
 let tileCount = MEDIUM;
 let tileSize = canvas.clientWidth/tileCount;
 let initial_x = Math.floor(Math.random()*(40));
