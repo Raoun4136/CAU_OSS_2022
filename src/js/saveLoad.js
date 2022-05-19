@@ -119,7 +119,10 @@ function deleteSave(event){
 
 function resetSaveData(){
     //TODO reset Save Data
-    alert("구현중입니다.");
+    let i = 0;
+    for (i; i< 5; i++)
+        localStorage.removeItem("saveData"+i);
+    loadSnake();  
 }
 
 function loadGame(event){
