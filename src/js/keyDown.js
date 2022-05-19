@@ -49,13 +49,20 @@ function keyDown(event){
             if(isSaving)return;
             if(isLoading)return;
             if(isRanking)return;
-            if(!isStarted){
-                start = new Date(); // date update when game start
-            }
-            gameOn();
-            isGaming = true;
-            isStarted = true;
+            selectModeOn();
         }
+    }
+    //keyboard 1 (in Player mode select)
+    if(event.keyCode == 49){
+        if(isGameOver) return;
+        if(isGaming) return;
+        else{
+        if(!isStarted){
+            start = new Date(); // date update when game start
+        }
+        gameOn();
+    }
+
     }
     //keyboard ESC
     if(event.keyCode == 27){

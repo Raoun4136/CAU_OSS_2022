@@ -53,5 +53,6 @@ let isSaving = false;
 let isGameOver = false;
 let isLoading = false;
 let isRanking = false;
+let isSelect = false;
 
 let isSnakeChanged = false;
