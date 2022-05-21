@@ -4,17 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/t-normalize.css" />
     <link rel="stylesheet" href="./src/css/style.css">
     <title>Snake Game</title>
 </head>
 <body>
-    <canvas id="game" width="800" height="800" class="hide"></canvas>
+    
+    <div id="game_score">
+        score : <span id="txt_score"></span>
+    </div>
+    <div id="game_screen">
+        <canvas id="game" width="800" height="800" class="interface hide"></canvas>
+    </div>
     <div id="game_interface" class="interface">
         <p class ="subject">SNAKE GAME</p>
-        <p class ="txt_interface">PLAY</p>
-        <p class ="txt_interface">LOAD</p>
-        <p class ="txt_interface">RANKING</p>
-        <p class ="txt_interface">EXIT</p>
+        <hr class = "txt_hr">
+        <div class ="txt_div">
+            <p class ="txt_interface txt_left"><span>PLAY</span><span>[P]</span></p>
+            <p class ="txt_interface txt_left"><span>LOAD</span><span>[L]</span></p>
+            <p class ="txt_interface txt_left"><span>RANKING</span><span>[K]</span></p>
+            <p class ="txt_interface txt_left"><span>EXIT</span><span>[ESC]</span></p>
+        </div>
+        <hr class = "txt_hr">
+        <!--
+            TODO copyright, up,right, spacebar
+            <p id ="copyright" class ="txt_interface">Press P to game</p>
+        -->
+        
+    </div>
+    <div id="game_select_playerMode_interface" class="interface hide">
+        <p class ="subject">SNAKE GAME</p>
+        <hr class = "txt_hr">
+        <div class ="txt_div">
+            <p class ="txt_interface txt_left"><span>1 PLAYER MODE</span><span>[1]</span></p>
+            <p class ="txt_interface txt_left"><span>2 PLAYER MODE</span><span>[2]</span></p>
+            
+        </div>
+        <hr class = "txt_hr">
         <!--
             TODO copyright, up,right, spacebar
             <p id ="copyright" class ="txt_interface">Press P to game</p>
@@ -23,38 +49,75 @@
     </div>
     <div id="game_pause" class="interface hide">
         <p class ="subject">Paused</p>
-        <p class ="txt_interface">RESUME</p>
-        <p class ="txt_interface">RESTART</p>
-        <p class ="txt_interface">SAVE</p>
-        <p class ="txt_interface">EXIT</p>
-        <p class ="txt_interface">P to resume</p>
+        <hr class = "txt_hr">
+        <div class ="txt_div">
+            <p class ="txt_interface txt_left"><span>RESUME</span><span>[P]</span></p>
+            <p class ="txt_interface txt_left"><span>RESTART</span><span>[R]</span></p>
+            <p class ="txt_interface txt_left"><span>SAVE</span><span>[S]</span></p>
+            <p class ="txt_interface txt_left"><span>EXIT</span><span>[ESC]</span></p>
+        </div>
+        <hr class = "txt_hr">
     </div>
     <div id="game_load" class="interface hide">
         <p class ="subject">LOAD</p>
-        <div id="txt_load"></div>
+        <div class = "btn_div">
+            <button id="btn_resetSave" class="btn_reset">RESET SAVE</button>
+        </div>
+        <hr class = "txt_hr hr_rank_load">
+        <div id="load_location">
+            <div id="txt_load">
+                <ul id="load_list"></ul>
+            </div>
+        </div>
+        <hr class = "txt_hr hr_rank_load">
+        <p class ="txt_interface txt_foot">PRESS L TO EXIT</p>
     </div>
     <div id="game_save" class="interface hide">
         <p class ="subject">SAVE</p>
+        <hr id="save_hr1"class = "txt_hr">
         <form class ="txt_interface" id="save_name">
-            <input
+            <input autofocus = "autofocus" class="input_form"
                 required
-                maxlength="15"
+                maxlength="6"
                 type="text"
                 placeholder="What is your name?"
             />
-            <input type="submit" value="SAVE" id="save_btn" />
+            <input class ="input_btn" type="submit" value="SAVE" id="save_btn" />
         </form>
-        <p class ="txt_interface">PRESS ESC TO EXIT</p>
+        <hr class = "txt_hr">
+        <p class ="txt_interface txt_foot">PRESS S TO EXIT</p>
     </div>
     <div id="game_ranking" class="interface hide">
         <p class ="subject">RANKING</p>
-        <div id="txt_ranking"></div>
+        <div class = "btn_div">
+            <button id="btn_resetRank" class="btn_reset">RESET RANK</button>
+        </div>
+        <hr class = "txt_hr hr_rank_load">
+        <div id="rank_location">
+            <div id="txt_ranking">
+                <ul id ="rank_list"></ul>
+            </div>
+        </div>
+        <hr class = "txt_hr hr_rank_load">
+        <p class ="txt_interface txt_foot">PRESS K to EXIT</p>
     </div>
     <div id="game_over" class="interface hide">
         <p class ="subject">GAME OVER</p>
-        <p class ="txt_interface">your score : <span id="txt_score"></span></p>
+        <p class ="txt_interface">your score : <span id="gameOver_score"></span></p>
+        <hr class = "txt_hr">
+        <form class ="txt_interface" id="rank_name">
+            <input class="input_form"
+                required
+                maxlength="6"
+                type="text"
+                placeholder="What is your name?"
+            />
+            <input class ="input_btn" type="submit" value="SAVE" id="rank_btn" />
+        </form>
+        <hr class = "txt_hr">
+        <p class ="txt_interface txt_foot">PRESS ESC TO EXIT</p>
     </div>
-
+    <span id="pause_info">Press P to Pause Game</span>
     <script src="./src/js/value.js"></script>
     <script src="./src/js/screen.js"></script>
     <script src="./src/js/ranking.js"></script>

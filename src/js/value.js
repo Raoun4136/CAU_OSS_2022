@@ -3,17 +3,17 @@ const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
 //DIFFICULTY
-const EXTREME = 15;
-const HARD = 10;
-const NORMAL = 5;
-const EASY = 3;
+const HARD = 15;
+const NORMAL = 10;
+const EASY = 5;
+const VERYEASY = 3;
 
 //MAP SIZE
-const SMALL = 15;
+const SMALL = 20;
 const MEDIUM = 40;
-const LARGE = 30;
+const LARGE = 60;
 
-let difficulty = NORMAL;
+let difficulty = VERYEASY;
 let tileCount = MEDIUM;
 let tileSize = canvas.clientWidth/tileCount;
 let initial_x = Math.floor(Math.random()*(40));
@@ -37,3 +37,22 @@ let score = 0;
 let eatApple = 0;
 
 let start = new Date();
+
+//save
+let save_x = 0;
+//rank
+let rank_x = 0;
+//load
+const loadDiv = document.querySelector("#load_location");
+const rankDiv = document.querySelector("#rank_location");
+let loadTime = 0;
+
+//control key
+let isStarted = false;
+let isSaving = false;
+let isGameOver = false;
+let isLoading = false;
+let isRanking = false;
+let isSelect = false;
+
+let isSnakeChanged = false;

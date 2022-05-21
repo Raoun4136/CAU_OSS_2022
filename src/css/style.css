@@ -1,10 +1,8 @@
 @font-face{ 
     font-family: dot; 
-    src:url("/font/square-dot-matrix-webfont.woff"); 
-    src:local(※), url("/font/square-dot-matrix-webfont.woff") format(‘woff’);
+    src: url(../../font/square-dot-matrix-webfont.woff) format("woff"),
+        url(../../font/Square-Dot-Matrix.ttf) format("truetype");
 }
-
-
 body{
     display:flex;
     flex-direction:column;
@@ -13,26 +11,21 @@ body{
     height:100vh;
     overflow:hidden;
 }
-
 #game{
     box-shadow: black 10px 10px 30px;
 }
-
-#game_interface{
-    color:white;
+#game_score{
+    color:rgb(0, 0, 0);
+}
+#pause_info{
+    margin-top:20px;
 }
 .subject{
     font-family: dot;
-    font-size: 60px;
+    font-size: 80px;
+    margin : 120px 0px 120px 0px;
     vertical-align: middle;
     text-align: center;
-}
-#game_pause{
-    color:white;
-}
-.txt_interface{
-    font-size:small;
-    text-align:center;
 }
 .interface{
     background-color:rgb(0, 0, 0);
@@ -41,10 +34,194 @@ body{
     height:800px;
     box-shadow: black 10px 10px 30px;
 }
+.txt_div{
+    width:170px;
+    margin:auto;
+}
+.txt_interface{
+    font-size:14px;
+    text-align:center;
+    margin : 10px auto;
+}
+.txt_left{
+    text-align:left;
+}
+.txt_interface span:nth-child(2n){
+    float:right;
+    color:green;
+}
+
+.input_form{
+    margin : 10px auto;
+    border-radius:10px;
+    background-color: rgb(233,233,233);
+    width:200px;
+    height:30px;
+    padding-left : 15px;
+}
+.input_form:focus{
+    outline:1px red solid;
+}
+.txt_foot{
+    font-size : 11px;
+    margin-top : 20px;
+    text-align:center;
+}
+.txt_hr{
+    width:270px;
+    margin:20px auto;
+}
+#save_hr1{
+    margin-top : 140px;
+}
+.hr_rank_load{
+    width:500px;
+}
+
+
+
+/** RANKING, LOAD CSS **/
+#txt_ranking, #txt_load{
+    width:500px;
+    font-size : 14px;
+    text-align : center;
+    margin : 10px auto;
+}
+
+#txt_ranking li, #txt_load li{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom : 5px;
+    padding: 3px 2px;
+}
+
+#txt_ranking li:first-child, #txt_load li:first-child{
+    margin-bottom: 15px;
+}
+/**Rank**/
+#txt_ranking li span:nth-child(1){
+    width:40px;
+}
+/**Name**/
+#txt_ranking li span:nth-child(2), #txt_load li span:nth-child(1){
+    width:80px;
+}
+/**Score**/
+#txt_ranking li span:nth-child(3), #txt_load li span:nth-child(2){
+    width:48px;
+}
+/**Time**/
+#txt_ranking li span:nth-child(4), #txt_load li span:nth-child(3){
+    width:35px;
+}
+/**Apple**/
+#txt_ranking li span:nth-child(5), #txt_load li span:nth-child(4){
+    width:45px;
+}
+/**Day**/
+#txt_ranking li span:nth-child(6), #txt_load li span:nth-child(5){
+    width:80px;
+}
+/**Time**/
+#txt_ranking li span:nth-child(7), #txt_load li span:nth-child(6){
+    width:90px;
+}
+/**button**/
+#txt_load li span:nth-child(7){
+    width : 30px;
+}
+/**hover**/
+#txt_ranking li:not(:first-child):hover, #txt_load li:not(:first-child):hover{
+    cursor : pointer;
+    background-color: #3c4043;
+}
+
+
 .hide{
     display:none;
 }
-
 #save_name{
     text-align : center;
+}
+.btn_div{
+    margin:auto;
+    width:800px;
+}
+.btn_reset{
+    width:100px;
+    margin:auto;
+    display:block;
+    color:rgb(255, 0, 0);
+    border-radius:5px;
+    border : 1px rgb(255, 0, 0) solid;
+    padding : 2px 5px;
+    font-size : 10px;
+}
+.btn_reset:hover{
+    cursor:pointer;
+    color:white;
+    background-color:red;
+    border:1px rgb(255, 255, 255) solid;
+}
+.btn_delete{
+    cursor:pointer;
+    border:1px solid red;
+}
+.btn_delete:hover {
+    background-color:white;
+}
+
+/* Save Button CSS */
+.input_btn {
+    width: 50px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    border-style: none;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    color: #3c4043;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    text-transform: none;
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+    touch-action: manipulation;
+    will-change: transform,opacity;
+
+}
+
+.input_btn:hover {
+    background: #F6F9FE;
+    color: #174ea6;
+}
+
+.input_btn:active {
+    box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+    outline: none;
+}
+
+.input_btn:focus {
+    outline: none;
+    border: 2px solid #4285f4;
+}
+
+.input_btn:not(:disabled) {
+    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.input_btn:not(:disabled):hover {
+    box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+}
+
+.input_btn:not(:disabled):focus {
+    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.input_btn:not(:disabled):active {
+    box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+}
+
+.input_btn:disabled {
+    box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
 }
