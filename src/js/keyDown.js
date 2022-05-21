@@ -69,15 +69,9 @@ function keyDown(event){
     //keyboard ESC
     if(event.keyCode == 27){
         //EXIT
-        isStarted = false;
-        isSaving = false;
-        isGameOver = false;
-        isLoading = false;
-        isRanking = false;
-        resetOptions();
-        drawScore();
-        gameInterfaceOn();
-        clearScreen();
+        var confirmflag = confirm("Are you want to exit?");
+        if(confirmflag)
+            window.close();
     }
     // keyboard S
     if(event.keyCode == 83){
