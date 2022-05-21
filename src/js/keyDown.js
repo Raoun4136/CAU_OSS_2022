@@ -41,9 +41,9 @@ function keyDown(event){
     //keyboard ESC
     if(event.keyCode == 27){
         //EXIT
-        resetOptions();
-        gameInterfaceOn();
-        clearScreen();
+        var confirmflag = confirm("Are you want to exit?");
+        if(confirmflag)
+            window.close();
     }
     // test- keyboard S
     if(event.keyCode == 83){
