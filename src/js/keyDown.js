@@ -1,7 +1,4 @@
 document.body.addEventListener('keydown',keyDown);
-let Player = 0;
-
-
 
 function keyDown(event){
     //keyboard left
@@ -41,16 +38,25 @@ function keyDown(event){
     if(event.keyCode == 80){
         if(isGameOver) return;
         if(isGaming){ // Pause Game
-            gamePauseOn();
             isGaming = false;
-            
+            isPaused = true;
+            gamePauseOn();
         }
         else{ // Resume Game
             if(isSaving)return;
             if(isLoading)return;
             if(isRanking)return;
+            if(isPaused){
+                isPaused = false;
+                isGaming = true;
+                gameOn();
+                return;
+            }
+            else{
             isSelect = true;
+            console.log("here");
             selectModeOn();            
+            }
         }
     }
     //keyboard 1 (in Player mode select)
@@ -66,12 +72,30 @@ function keyDown(event){
         }
         
     }
+    if(event.keyCode == 50){
+        if(isSelect){
+            if(!isStarted){
+                start = new Date();
+            }
+            isSelect = false;
+            isGaming = true;
+            isStarted = true;
+            var p1 = new Player(snake,0,-1);
+            var p2 = new Player(snake,0,1);
+        }
+    }
     //keyboard ESC
     if(event.keyCode == 27){
         //EXIT
-        var confirmflag = confirm("Are you want to exit?");
-        if(confirmflag)
-            window.close();
+        isStarted = false;
+        isSaving = false;
+        isGameOver = false;
+        isLoading = false;
+        isRanking = false;
+        resetOptions();
+        drawScore();
+        gameInterfaceOn();
+        clearScreen();
     }
     // keyboard S
     if(event.keyCode == 83){
