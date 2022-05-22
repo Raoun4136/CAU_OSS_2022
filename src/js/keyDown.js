@@ -68,6 +68,7 @@ function keyDown(event){
             isSelect = false;
             isGaming = true;
             isStarted = true;
+            isPlayer = true;
             gameOn();
         }
         
@@ -80,8 +81,22 @@ function keyDown(event){
             isSelect = false;
             isGaming = true;
             isStarted = true;
+            isPlayer = true;
             var p1 = new Player(snake,0,-1);
             var p2 = new Player(snake,0,1);
+        }
+    }
+    //keyboard 3 ( in Auto Play mode select)
+    if(event.keyCode == 51){
+        if(isSelect){
+            if(!isStarted){
+                start = new Date(); // date update when game start
+            }
+            isSelect = false;
+            isGaming = true;
+            isStarted = true;
+            isAuto = true;
+            gameOn();
         }
     }
     //keyboard ESC
