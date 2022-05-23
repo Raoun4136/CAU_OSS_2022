@@ -8,8 +8,8 @@ function resetOptions(){
     loadTime = 0;
     eatApple = 0;
     start = new Date();
-    xV = 0;
-    yV = -1;
+    players[0].xV = 0;
+    players[0].yV = -1;
     //TODO make function to set option
     //TODO error for 1000ms drawGmae();
 
