@@ -1,5 +1,5 @@
-function Player(SNAKE, XLocation, YLocation){
-    this.snake = SNAKE;
+function Player(startPosition, XLocation, YLocation){
+    this.snake = [startPosition];
     this.xV = XLocation;
     this.yV = YLocation;
 }

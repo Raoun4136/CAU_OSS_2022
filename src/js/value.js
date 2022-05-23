@@ -24,6 +24,8 @@ while(initial_x===Math.round(tileCount/2)&&initial_y===Math.round(tileCount/2)){
 }
 let apple = [initial_y,initial_x];
 let snake = [[Math.floor(tileCount/2),Math.floor(tileCount/2)]];
+let snake_startPosition = [Math.floor(tileCount/2),Math.floor(tileCount/2)];
+
 
 //DIRECTION
 let xV = 0;

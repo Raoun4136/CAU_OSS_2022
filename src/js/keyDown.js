@@ -81,9 +81,8 @@ function keyDown(event){
             isSelect = false;
             isGaming = true;
             isStarted = true;
-            var p1 = new Player(snake,0,-1);
-            var p2 = new Player(snake,0,1);
-            console.log(p1.snake[0]);
+            var p1 = new Player(snake_startPosition,0,-1);
+            var p2 = new Player(snake_startPosition,0,1);
         }
     }
     //keyboard M
