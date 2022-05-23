@@ -12,14 +12,14 @@ function saveSnake()
     localStorage.setItem("saveData"+((i+save_x)%5),JSON.stringify({
         name : document.querySelector('#save_name').querySelector('input').value, 
         score : score, 
-        snake : snake, 
+        snake : p1.snake, 
         apple : apple, 
         eatApple : eatApple,
         day : start.toLocaleDateString(),
         datetime : start.toLocaleTimeString(),
         time: parseInt(time)+parseInt(loadTime),
-        xV: xV,
-        yV: yV
+        xV: p1.xV,
+        yV: p1.yV
     }));
     save_x++;
 }
@@ -148,13 +148,13 @@ function loadOption(event){
         }
     }
     apple = load.apple;
-    snake = load.snake;
+    p1.snake = load.snake;
     eatApple = load.eatApple;
     loadTime = load.time;
     start = new Date();
     score = load.score;
-    xV = load.xV;
-    yV = load.yV;
+    p1.xV = load.xV;
+    p1.yV = load.yV;
     
     return true;
 }

@@ -28,6 +28,7 @@ function drawGame(){
         isSnakeChanged = false;
         drawApple();
         drawScore();
+        
     }
     setTimeout(drawGame, 1000/difficulty);
 }
