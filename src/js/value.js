@@ -32,6 +32,7 @@ let yV = -1;
 //CONTROL GAME
 let isGaming = false;
 let isPaused = false;
+let is1Player = true;
 
 let time = 0;
 let score = 0;

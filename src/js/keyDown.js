@@ -67,6 +67,7 @@ function keyDown(event){
             isSelect = false;
             isGaming = true;
             isStarted = true;
+            console.log(snake[0]);
             gameOn();
         }
         
@@ -82,21 +83,29 @@ function keyDown(event){
             isStarted = true;
             var p1 = new Player(snake,0,-1);
             var p2 = new Player(snake,0,1);
-            console.log(p1.yV+" and "+p2.yV);
+            console.log(p1.snake[0]);
         }
     }
-    //keyboard ESC
-    if(event.keyCode == 27){
-        //EXIT
+    //keyboard M
+    if(event.keyCode == 77){
         isStarted = false;
         isSaving = false;
+        isPaused = false;
         isGameOver = false;
         isLoading = false;
         isRanking = false;
+        isSelect = true;
         resetOptions();
         drawScore();
         gameInterfaceOn();
         clearScreen();
+    }
+    //keyboard ESC
+    if(event.keyCode == 27){
+        //EXIT
+        var confirmflag = confirm("Are you want to exit?");
+        if(confirmflag)
+            window.close();
     }
     // keyboard S
     if(event.keyCode == 83){
