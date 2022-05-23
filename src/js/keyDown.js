@@ -126,17 +126,8 @@ function keyDown(event){
     }
     //keyboard M
     if(event.keyCode == 77){
-        isStarted = false;
-        isSaving = false;
-        isPaused = false;
-        isGameOver = false;
-        isLoading = false;
-        isRanking = false;
-        isSelect = true;
-        resetOptions();
-        drawScore();
-        gameInterfaceOn();
-        clearScreen();
+        if(isPaused)
+            window.location.reload();
     }
     //keyboard ESC
     if(event.keyCode == 27){
