@@ -21,7 +21,6 @@ function drawScore(){
 //game loop
 function drawGame(){
     if(isGaming){
-        if(is1Player){
         clearScreen();
         runningTime();
         changeSnakePosition();
@@ -29,13 +28,7 @@ function drawGame(){
         isSnakeChanged = false;
         drawApple();
         drawScore();
-        }
-        else{
-            clearScreen();
-            runningTime(); 
-            drawApple();
-            drawScore();
-        }
+        
     }
     setTimeout(drawGame, 1000/difficulty);
 }
