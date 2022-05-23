@@ -39,7 +39,7 @@ let score = 0;
 let eatApple = 0;
 
 let start = new Date();
-
+let pauseTime = 0;
 //save
 let save_x = 0;
 //rank

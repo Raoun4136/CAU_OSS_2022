@@ -74,6 +74,7 @@ function keyDown(event){
         if(isGaming){ // Pause Game
             isGaming = false;
             isPaused = true;
+            pauseOnTime = new Date();
             gamePauseOn();
         }
         else{ // Resume Game
@@ -83,6 +84,8 @@ function keyDown(event){
             if(isPaused){
                 isPaused = false;
                 isGaming = true;
+                pauseOffTime = new Date();
+                pauseTime += (pauseOffTime - pauseOnTime);
                 gameOn();
                 return;
             }

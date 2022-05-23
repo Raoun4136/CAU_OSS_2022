@@ -12,7 +12,7 @@ function countTileSize(){
 
 function runningTime(){
     const now = new Date();
-    time = Math.floor((now-start)/1000);
+    time = Math.floor((now-start-pauseTime)/1000);
     score = time+eatApple*50;
 }
 function drawScore(){
