@@ -54,7 +54,6 @@ function keyDown(event){
             }
             else{
             isSelect = true;
-            console.log("here");
             selectModeOn();            
             }
         }
@@ -72,16 +71,18 @@ function keyDown(event){
         }
         
     }
+     //keyboard 2 (in Player mode select)
     if(event.keyCode == 50){
         if(isSelect){
             if(!isStarted){
-                start = new Date();
+                start = new Date(); // date update when game start
             }
             isSelect = false;
             isGaming = true;
             isStarted = true;
             var p1 = new Player(snake,0,-1);
             var p2 = new Player(snake,0,1);
+            console.log(p1.yV+" and "+p2.yV);
         }
     }
     //keyboard ESC
