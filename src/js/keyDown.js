@@ -102,7 +102,7 @@ function keyDown(event){
                 start = new Date(); // date update when game start
             }
             PLAYER_NUM=1;
-            players[0] = new Player(snake_startPosition,0,-1);
+            players[0] = new Player(snake_startPosition,0,-1,apple_startPosition);
             setGameScreen();
             isSelect = false;
             isGaming = true;
@@ -118,8 +118,8 @@ function keyDown(event){
                 start = new Date(); // date update when game start
             }
             PLAYER_NUM = 2;
-            players[0]= new Player([0,0],0,1);
-            players[1] = new Player([39,79],0,-1);
+            players[0]= new Player([0,0],0,1,apple_startPosition);
+            players[1] = new Player([39,79],0,-1,[apple_startPosition[1],apple_startPosition[0]]);
             setGameScreen();
             isSelect = false;
             isGaming = true;

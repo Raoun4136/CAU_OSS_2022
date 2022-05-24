@@ -10,7 +10,7 @@ function storeRanking(){
         name : document.querySelector('#rank_name').querySelector('input').value, 
         score : score, 
         snake : players[0].snake, 
-        apple : apple, 
+        apple : players[0].apple, 
         eatApple : eatApple,
         day : start.toLocaleDateString(),
         datetime : start.toLocaleTimeString(),

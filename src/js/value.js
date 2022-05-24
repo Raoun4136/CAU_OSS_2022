@@ -37,7 +37,7 @@ while(initial_x===Math.round(tileCount/2)&&initial_y===Math.round(tileCount/2)){
     initial_x= Math.floor(Math.random()*(40));
     initial_y= Math.floor(Math.random()*(40));
 }
-let apple = [initial_y,initial_x];
+let apple_startPosition = [initial_y,initial_x];
 let snake_startPosition = [Math.floor(tileCount/2),Math.floor(tileCount/2)];
 
 

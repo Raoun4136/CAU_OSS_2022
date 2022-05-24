@@ -4,8 +4,9 @@ function createApple(min,max){
 
 function drawApple(){
     ctx.fillStyle = 'red';
-    ctx.fillRect(apple[1]*tileSize,apple[0]*tileSize,tileSize,tileSize);
+    ctx.fillRect(players[0].apple[1]*tileSize,players[0].apple[0]*tileSize,tileSize,tileSize);
 }
+
 
 function createRandomApple(){
     apple_y = createApple(0,(canvas.clientHeight/tileSize)-1);
@@ -21,5 +22,5 @@ function createRandomApple(){
         }
         i+=1
     }
-    apple = [apple_y,apple_x];
+    players[0].apple = [apple_y,apple_x];
 }

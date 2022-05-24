@@ -1,8 +1,8 @@
 //reset Options to restart,exit,init
 function resetOptions(){
     isGaming = false;
-    apple = [createApple(1,39),createApple(1,39)];
-    snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
+    player[0].apple = [createApple(1,39),createApple(1,39)];
+    player[0].snake = [[Math.round(tileCount/2),Math.round(tileCount/2)]]
     time = 0;
     score = 0;
     loadTime = 0;
