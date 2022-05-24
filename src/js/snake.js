@@ -2,13 +2,30 @@ function changeSnakePosition(){
 
     head = players[0].snake[0];
     let isConflict = 0;
+    if(PLAYER_NUM==1)
+    {
     if ( ((head[0]+players[0].yV)!=players[0].apple[0])||((head[1]+players[0].xV)!=players[0].apple[1])){    
         players[0].snake.pop();
     }
     else {
         console.log("eat apple");
         eatApple+=1;
-        createRandomApple();
+        createRandomApple(players[0]);
+    }
+    }
+    if(PLAYER_NUM==2)
+    {
+        if((head[0]+players[0].yV==players[0].apple[0])&&(head[1]+players[0].xV==players[0].apple[1]))
+        {
+            eatApple+=1;
+            createRandomApple(players[0]);
+        }
+        else if((head[0]+players[0].yV==players[1].apple[0])&&(head[1]+players[0].xV==players[1].apple[1]))
+        {
+            eatApple+=1;
+            createRandomApple(players[1]);
+        }
+        else players[0].snake.pop();
     }
 
     for(let s of players[0].snake)
@@ -36,14 +53,17 @@ function changeSnakePosition(){
     if(PLAYER_NUM==2){
         head = players[1].snake[0];
     let isConflict = 0;
-    if ( ((head[0]+players[1].yV)!=players[0].apple[0])||((head[1]+players[1].xV)!=players[0].apple[1])){
-        players[1].snake.pop();
-    }
-    else {
-        console.log("eat apple");
-        eatApple+=1;
-        createRandomApple();
-    }
+    if((head[0]+players[1].yV==players[0].apple[0])&&(head[1]+players[1].xV==players[0].apple[1]))
+        {
+            eatApple+=1;
+            createRandomApple(players[0]);
+        }
+        else if((head[0]+players[1].yV==players[1].apple[0])&&(head[1]+players[1].xV==players[1].apple[1]))
+        {
+            eatApple+=1;
+            createRandomApple(players[1]);
+        }
+        else players[1].snake.pop();
 
     for(let s of players[0].snake)
     {

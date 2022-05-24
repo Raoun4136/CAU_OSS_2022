@@ -9,8 +9,9 @@ function drawApple(){
 }
 
 
-function createRandomApple(){
+function createRandomApple(player){
     apple_y = createApple(0,(canvas.clientHeight/tileSize)-1);
+    console.log(canvas.clientWidth+"!!");
     apple_x = createApple(0,(canvas.clientWidth/tileSize)-1);
     let i =0;
     while (i<players[0].snake.length){
@@ -23,5 +24,5 @@ function createRandomApple(){
         }
         i+=1
     }
-    players[0].apple = [apple_y,apple_x];
+    player.apple = [apple_y,apple_x];
 }

@@ -118,9 +118,12 @@ function keyDown(event){
                 start = new Date(); // date update when game start
             }
             PLAYER_NUM = 2;
-            players[0]= new Player([0,0],0,1,apple_startPosition);
-            players[1] = new Player([39,79],0,-1,[apple_startPosition[1],apple_startPosition[0]]);
             setGameScreen();
+            players[0]= new Player([0,0],0,1,[-1,-1]);
+            players[1] = new Player([39,79],0,-1,[-2,-2]);
+            createRandomApple(players[0]);
+            createRandomApple(players[1]);
+            
             isSelect = false;
             isGaming = true;
             isStarted = true;
