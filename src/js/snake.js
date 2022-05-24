@@ -18,6 +18,7 @@ function changeSnakePosition(){
             isConflict =1;
         }
     }
+    if(!is1Player){
     for(let s of players[1].snake)
     {
         if( (head[0]+players[0].yV == s[0]) && (head[1]+players[0].xV==s[1])) 
@@ -25,6 +26,8 @@ function changeSnakePosition(){
             isConflict =1;
         }
     }
+    }
+
     if (isConflict==1 || ((head[0]+players[0].yV)<0)||((head[0]+players[0].yV)>=40)||((head[1]+players[0].xV)<0)||((head[1]+players[0].xV)>=40)){
         gameOver();
     }
