@@ -54,7 +54,8 @@ function isOptimal(direction){
 
 // Default logic, to apple
 function autoDirection(){
-    head = snake[0]
+    head = snake[0];
+    let subDirections=[];
     if (yV===0){ directions = [[0,1],[0,-1],[1,0],[-1,0]]; }
     else {  directions = [[1,0],[-1,0],[0,1],[0,-1]]; }
     // 최적 경로
@@ -67,13 +68,25 @@ function autoDirection(){
             }
         }
         if(isBlock===0){
-            yV = d[0];
-            xV = d[1];
-            if (isOptimal(d)) { return ; }
+            subDirections.push([d[0],d[1]]);
+            if (isOptimal(d)) { 
+                yV = d[0];
+                xV = d[1];
+                return ; }
         }
         
     }
-    
+    // 구불구불하게 optimal하지 않은 길 선택
+    let minWeight=MEDIUM*2;
+    for ( sub of subDirections){
+        if ( minWeight>Math.abs(apple[0]-sub[0])+Math.abs(apple[1]-sub[1])){
+            minWeight = Math.abs(apple[0]-sub[0])+Math.abs(apple[1]-sub[1]);
+            yV = sub[0];
+            xV = sub[1];
+        }
+
+    }
+    // 돌아가는 방향에 벽이 있므면 다시 돌려주는 로직 필요
 }
 
 function testApple(){
