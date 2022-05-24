@@ -5,6 +5,7 @@ function createApple(min,max){
 function drawApple(){
     ctx.fillStyle = 'red';
     ctx.fillRect(players[0].apple[1]*tileSize,players[0].apple[0]*tileSize,tileSize,tileSize);
+    if(PLAYER_NUM==2)ctx.fillRect(players[1].apple[1]*tileSize,players[1].apple[0]*tileSize,tileSize,tileSize);
 }
 
 
