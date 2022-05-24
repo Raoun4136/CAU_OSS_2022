@@ -101,7 +101,9 @@ function keyDown(event){
             if(!isStarted){
                 start = new Date(); // date update when game start
             }
+            PLAYER_NUM=1;
             players[0] = new Player(snake_startPosition,0,-1);
+            setGameScreen();
             isSelect = false;
             isGaming = true;
             isStarted = true;
@@ -115,10 +117,11 @@ function keyDown(event){
             if(!isStarted){
                 start = new Date(); // date update when game start
             }
-            players[0]= new Player([10,20],0,-1);
-            players[1] = new Player([30,20],0,1);
+            PLAYER_NUM = 2;
+            players[0]= new Player([0,0],0,1);
+            players[1] = new Player([39,79],0,-1);
+            setGameScreen();
             isSelect = false;
-            is1Player = false;
             isGaming = true;
             isStarted = true;
             gameOn();
