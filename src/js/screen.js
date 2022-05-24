@@ -7,7 +7,7 @@ function clearScreen(){
 }
 
 function countTileSize(){
-    tileSize = canvas.clientWidth/tileCount;
+    tileSize = canvas.clientHeight/tileCount;
 }
 
 function runningTime(){

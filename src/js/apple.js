@@ -8,14 +8,14 @@ function drawApple(){
 }
 
 function createRandomApple(){
-    apple_y = createApple(0,39);
-    apple_x = createApple(0,39);
+    apple_y = createApple(0,(canvas.clientHeight/tileSize)-1);
+    apple_x = createApple(0,(canvas.clientWidth/tileSize)-1);
     let i =0;
-    while (i<p1.snake.length){
-        if( apple_y===p1.snake[i][0] && apple_x===p1.snake[i][1]){
+    while (i<players[0].snake.length){
+        if( apple_y===players[0].snake[i][0] && apple_x===players[0].snake[i][1]){
                 console.log("apple conflict",apple_y,apple_x);
-                apple_y = createApple(0,39);
-                apple_x = createApple(0,39);  
+                apple_y = createApple(0,(canvas.clientHeight/tileSize)-1);
+                apple_x = createApple(0,(canvas.clientWidth/tileSize)-1);  
                 console.log(apple_y,apple_x);
                 i=0;
         }
