@@ -69,6 +69,7 @@ function keyDown(event){
             isGaming = true;
             isStarted = true;
             isPlayer = true;
+            isAuto = false;
             gameOn();
         }
         
@@ -82,6 +83,7 @@ function keyDown(event){
             isGaming = true;
             isStarted = true;
             isPlayer = true;
+            isAuto = false;
             var p1 = new Player(snake,0,-1);
             var p2 = new Player(snake,0,1);
         }

@@ -35,6 +35,9 @@ function gamePauseOn(){
     document.getElementById("game_select_playerMode_interface").classList.add("hide");
     document.getElementById("game").classList.add("hide");
     document.getElementById("game_pause").classList.remove("hide");
+    if(isAuto){
+        document.getElementById("game_pause").getElementsByClassName("save")[0].classList.add("hide");
+    }
     document.getElementById("game_interface").classList.add("hide");
     document.getElementById("game_load").classList.add("hide");
     document.getElementById("game_save").classList.add("hide");
