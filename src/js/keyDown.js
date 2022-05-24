@@ -35,46 +35,45 @@ function keyDown(event){
         players[0].yV = 1;
     }
     //keyboard left
-    if(event.keyCode == 83){
     if(event.keyCode == 65){
+    if(PLAYER_NUM==2){        
         if(players[1].xV == 1) return;
         if(isSnakeChanged) return;
         isSnakeChanged = true;
         players[1].xV = -1;
         players[1].yV = 0;
-        }
+    }
     }
     //keyboard up
-    if(event.keyCode == 83){
     if(event.keyCode == 87){
+    if(PLAYER_NUM==2){
         if(players[1].yV == 1) return;
         if(isSnakeChanged) return;
         isSnakeChanged = true;
         players[1].xV = 0;
         players[1].yV = -1;
         
-        }
+    }
     }
     //keyboard right
-    if(event.keyCode == 83){
     if(event.keyCode == 68){
+    if(PLAYER_NUM==2){
         if(players[1].xV == -1) return;
         if(isSnakeChanged) return;
         isSnakeChanged = true;
         players[1].xV = 1;
         players[1].yV = 0;
-        }
+    }
     }
     //keyboard down
     if(event.keyCode == 83){
-        if(PLAYER_NUM==2)
-        {
+    if(PLAYER_NUM==2){
         if(players[1].yV == -1) return;
         if(isSnakeChanged) return;
         isSnakeChanged = true;
         players[1].xV = 0;
         players[1].yV = 1;
-        }
+    }
     }
 
     //keyboard P

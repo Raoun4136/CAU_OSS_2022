@@ -46,7 +46,16 @@ function changeSnakePosition(){
     }
 
     if (isConflict==1 || ((head[0]+players[0].yV)<0)||((head[0]+players[0].yV)>=(canvas.clientHeight/tileSize))||((head[1]+players[0].xV)<0)||((head[1]+players[0].xV)>=(canvas.clientWidth/tileSize))){
-        gameOver();
+        if(PLAYER_NUM==1){
+            gameOver();
+        }
+        if(PLAYER_NUM==2)
+        {
+            let Winner = document.querySelector("#Winner");
+            Winner.innerHTML = "Player 2";
+            WinnerOn();
+            isPaused=true;
+        }
     }
     players[0].snake.unshift([head[0]+players[0].yV,head[1]+players[0].xV]);
 
@@ -80,7 +89,16 @@ function changeSnakePosition(){
         }
     }
     if (isConflict==1 || ((head[0]+players[1].yV)<0)||((head[0]+players[1].yV)>=(canvas.clientHeight/tileSize))||((head[1]+players[1].xV)<0)||((head[1]+players[1].xV)>=(canvas.clientWidth/tileSize))){
-        gameOver();
+        if(PLAYER_NUM==1){
+            gameOver();
+        }
+        if(PLAYER_NUM==2)
+        {
+            let Winner = document.querySelector("#Winner");
+            Winner.innerHTML = "Player 1";
+            WinnerOn();
+            isPaused=true;
+        }
     }
     players[1].snake.unshift([head[0]+players[1].yV,head[1]+players[1].xV]);
 
