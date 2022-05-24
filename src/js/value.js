@@ -13,7 +13,7 @@ const SMALL = 20;
 const MEDIUM = 40;
 const LARGE = 60;
 
-let difficulty = NORMAL;
+let difficulty = HARD;
 let tileCount = MEDIUM;
 let tileSize = canvas.clientWidth/tileCount;
 let initial_x = Math.floor(Math.random()*(40));
@@ -22,13 +22,13 @@ while(initial_x===Math.round(tileCount/2)&&initial_y===Math.round(tileCount/2)){
     initial_x= Math.floor(Math.random()*(40));
     initial_y= Math.floor(Math.random()*(40));
 }
-let apple = [initial_y,initial_x];
+let apple = [Math.floor(tileCount/2)+10,Math.floor(tileCount/2)];
 let snake = [[Math.floor(tileCount/2),Math.floor(tileCount/2)]];
 
 //DIRECTION
 let xV = 0;
 let yV = -1;
-
+let directions = [[1,0],[-1,0],[0,1],[0,-1]];
 //CONTROL GAME
 let isGaming = false;
 let isPaused = false;
