@@ -13,7 +13,7 @@ function saveSnake()
         name : document.querySelector('#save_name').querySelector('input').value, 
         score : score, 
         snake : players[0].snake, 
-        apple : apple, 
+        apple : players[0].apple, 
         eatApple : eatApple,
         day : start.toLocaleDateString(),
         datetime : start.toLocaleTimeString(),
@@ -147,7 +147,7 @@ function loadOption(event){
             return 0;
         }
     }
-    apple = load.apple;
+    players[0].apple = load.apple;
     players[0].snake = load.snake;
     eatApple = load.eatApple;
     loadTime = load.time;
