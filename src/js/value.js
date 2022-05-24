@@ -13,7 +13,7 @@ const SMALL = 20;
 const MEDIUM = 40;
 const LARGE = 60;
 
-let difficulty = VERYEASY;
+let difficulty = NORMAL;
 let tileCount = MEDIUM;
 let tileSize = canvas.clientWidth/tileCount;
 let initial_x = Math.floor(Math.random()*(40));

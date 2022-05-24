@@ -1,6 +1,6 @@
 function changeSnakePosition(){
     if (isAuto){
-        createRandomDirection();
+        autoDirection();
     }
     head = snake[0];
     let isConflict = 0;
@@ -34,11 +34,29 @@ function drawSnake(){
     }
 }
 
-function createRandomDirection(){
-    let rand1 = Math.floor(Math.random()*2);
-    let rand2 = (rand1===0)? 1 : 0;
-    let negative1 = (-1)**Math.floor(Math.random()*2);
-    let negative2 = (-1)**Math.floor(Math.random()*2);
-    xV = rand1*negative1;
-    yV = rand2*negative2;
+// Default logic, to apple
+function autoDirection(){
+    let head = snake[0]
+    
+    // autoDirection으로 전적인 방향 결정, 역 방향 조건문 추가
+
+    if (head[0] < apple[0]){
+        yV=1;
+        xV=0;
+    }
+    if (head[0] > apple[0]){
+        yV=-1;
+        xV=0;
+    }
+    if (head[1] < apple[1]){
+        yV=0;
+        xV=1;
+    }
+    if (head[1] > apple[1]){
+        yV=0;
+        xV=-1;
+    }
+    
+    // 몸을 피해서
+    
 }
