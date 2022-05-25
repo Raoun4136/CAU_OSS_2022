@@ -1,7 +1,6 @@
 function changeSnakePosition(){
     if (isAuto){
         autoDirection();
-        
     }
     head = snake[0];
     let isConflict = 0;
@@ -53,15 +52,19 @@ function isOptimal(direction){
     return false;
 }
 
-// Default logic, to apple
+// Default logic to apple
 function autoDirection(){
     head = snake[0];
     let subDirections=[];
     if (yV===0){ directions = [[0,1],[0,-1],[1,0],[-1,0]]; }
     else {  directions = [[1,0],[-1,0],[0,1],[0,-1]]; }
-    // 최적 경로
-    for ( let d of directions){ //[1,0], [-1,0]==B,  
+
+    // Search optimize direction
+    for ( let d of directions){
         let isBlock=0;
+        if (head[0]+d[0]<0 || head[0]+d[0]>39 || head[1]+d[1]<0 || head[1]+d[1]>39){
+            continue;
+        }
         for ( let s of snake){
             if( (s[0]=== head[0]+d[0]) && (s[1]===head[1]+d[1])){
                 isBlock+=1;
@@ -77,8 +80,8 @@ function autoDirection(){
         }
         
     }
-    console.log(subDirections);
-    // 구불구불하게 optimal하지 않은 길 선택
+    
+    // block 가중치 반영
     let minWeight=MEDIUM*2;
     for ( sub of subDirections){
         if ( minWeight>Math.abs(apple[0]-(head[0]+sub[0]))+Math.abs(apple[1]-(head[1]+sub[1]))){
@@ -87,7 +90,9 @@ function autoDirection(){
             xV = sub[1];
         }
     }
-    // 돌아가는 방향에 벽이 있므면 다시 돌려주는 로직 필요
+    console.log(yV,xV);
+    // 돌아가는 방향에 벽이 있므면 다시 돌려주는 로직 필요 
+    
 }
 
 function testApple(){
