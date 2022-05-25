@@ -1,7 +1,7 @@
 function changeSnakePosition(){
     if (isAuto){
         autoDirection();
-        console.log(yV,xV);
+        
     }
     head = snake[0];
     let isConflict = 0;
@@ -59,7 +59,7 @@ function autoDirection(){
     if (yV===0){ directions = [[0,1],[0,-1],[1,0],[-1,0]]; }
     else {  directions = [[1,0],[-1,0],[0,1],[0,-1]]; }
     // 최적 경로
-    for ( let d of directions){
+    for ( let d of directions){ //[1,0], [-1,0]==B,  
         let isBlock=0;
         for ( let s of snake){
             if( (s[0]=== head[0]+d[0]) && (s[1]===head[1]+d[1])){
@@ -76,15 +76,15 @@ function autoDirection(){
         }
         
     }
+    console.log(subDirections);
     // 구불구불하게 optimal하지 않은 길 선택
     let minWeight=MEDIUM*2;
     for ( sub of subDirections){
-        if ( minWeight>Math.abs(apple[0]-sub[0])+Math.abs(apple[1]-sub[1])){
-            minWeight = Math.abs(apple[0]-sub[0])+Math.abs(apple[1]-sub[1]);
+        if ( minWeight>Math.abs(apple[0]-(head[0]+sub[0]))+Math.abs(apple[1]-(head[1]+sub[1]))){
+            minWeight = Math.abs(apple[0]-(head[1]+sub[1]))+Math.abs(apple[1]-(head[1]+sub[1]));
             yV = sub[0];
             xV = sub[1];
         }
-
     }
     // 돌아가는 방향에 벽이 있므면 다시 돌려주는 로직 필요
 }
