@@ -51,6 +51,20 @@ function isOptimal(direction){
     }
     return false;
 }
+function isConflictWall(h, d){
+    if (h[0]+d[0]<0 || h[0]+d[0]>39 || h[1]+d[1]<0 || h[1]+d[1]>39){ return true;
+    }
+    return false;
+}
+
+function isConflictSnake(snakeBody,h,d){
+    for ( let s of snakeBody){
+        if( (s[0]=== h[0]+d[0]) && (s[1]===h[1]+d[1])){
+            return true;
+        }
+    }
+    return false;
+}
 
 // Default logic to apple
 function autoDirection(){
@@ -60,39 +74,39 @@ function autoDirection(){
     else {  directions = [[1,0],[-1,0],[0,1],[0,-1]]; }
 
     // Search optimize direction
-    for ( let d of directions){
+    for ( let dir of directions){
         let isBlock=0;
-        if (head[0]+d[0]<0 || head[0]+d[0]>39 || head[1]+d[1]<0 || head[1]+d[1]>39){
+        if (isConflictWall(head,dir)){
             continue;
         }
-        for ( let s of snake){
-            if( (s[0]=== head[0]+d[0]) && (s[1]===head[1]+d[1])){
-                isBlock+=1;
-                break;
-            }
+        if (isConflictSnake(snake,head,dir)){ 
+            isBlock+=1;
+
         }
         if(isBlock===0){
-            subDirections.push([d[0],d[1]]);
-            if (isOptimal(d)) { 
-                yV = d[0];
-                xV = d[1];
+            subDirections.push([dir[0],dir[1]]);
+            if (isOptimal(dir)) { 
+                yV = dir[0];
+                xV = dir[1];
                 return ; }
         }
         
     }
     
+    
     // block 가중치 반영
     let minWeight=MEDIUM*2;
     for ( sub of subDirections){
+
         if ( minWeight>Math.abs(apple[0]-(head[0]+sub[0]))+Math.abs(apple[1]-(head[1]+sub[1]))){
             minWeight = Math.abs(apple[0]-(head[1]+sub[1]))+Math.abs(apple[1]-(head[1]+sub[1]));
             yV = sub[0];
             xV = sub[1];
         }
-    }
-    console.log(yV,xV);
+    
     // 돌아가는 방향에 벽이 있므면 다시 돌려주는 로직 필요 
     
+    }
 }
 
 function testApple(){
