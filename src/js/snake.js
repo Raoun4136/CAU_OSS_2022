@@ -156,7 +156,7 @@ function isConflictSnake(snakeBody,h,d){
 // Default logic to apple
 function autoDirection(){
     let subDirections=[];
-    if (yV===0){ directions = [[0,1],[0,-1],[1,0],[-1,0]]; }
+    if (players[0].yV===0){ directions = [[0,1],[0,-1],[1,0],[-1,0]]; }
     else {  directions = [[1,0],[-1,0],[0,1],[0,-1]]; }
 
     // Search optimize direction
