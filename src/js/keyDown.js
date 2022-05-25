@@ -115,7 +115,8 @@ function keyDown(event){
             isSelect = false;
             isGaming = true;
             isStarted = true;
-            isPlayer = true;
+            is1Player = true;
+            is2Player = false;
             isAuto = false;
             gameOn();
         }
@@ -135,7 +136,8 @@ function keyDown(event){
             isSelect = false;
             isGaming = true;
             isStarted = true;
-            isPlayer = true;
+            is1Player = false;
+            is2Player = true;
             isAuto = false;
             gameOn();
             countTileSize();
@@ -155,7 +157,8 @@ function keyDown(event){
             players[0]= new Player(snake_startPosition,0,-1,apple_startPosition);
             isSelect = false;
             isGaming = true;
-            isStarted = true;
+            is1Player = false;
+            is2Player = false;
             isAuto = true;
             gameOn();
         }

@@ -70,6 +70,7 @@ let isLoading = false;
 let isRanking = false;
 let isSelect = false;
 let isAuto = false;
-let isPlayer = false;
+let is1Player = false;
+let is2Player = false;
 
 let isSnakeChanged = false;
