@@ -50,7 +50,7 @@ function gamePauseOn(){
     document.getElementById("game").classList.add("hide");
     document.getElementById("game_for2p").classList.add("hide");
     document.getElementById("game_pause").classList.remove("hide");
-    if(isAuto){
+    if(isAuto || is2Player){
         document.getElementById("game_pause").getElementsByClassName("save")[0].classList.add("hide");
     }
     document.getElementById("game_interface").classList.add("hide");
