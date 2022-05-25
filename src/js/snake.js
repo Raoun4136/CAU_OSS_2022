@@ -37,16 +37,17 @@ function drawSnake(){
 }
 
 function isOptimal(direction){
+
     if ((head[0] < apple[0]) ){
         if(direction.join("") === [1,0].join("")){return true;}
     }
-    else if ((head[0] > apple[0]) ){
+    if ((head[0] > apple[0]) ){
         if(direction.join("") === [-1,0].join("")){return true;}
     }
-    else if ((head[1] < apple[1]) ){
+    if ((head[1] < apple[1]) ){
         if(direction.join("") === [0,1].join("")){return true;}
     }
-    else if ((head[1] > apple[1]) ){
+    if ((head[1] > apple[1]) ){
         if(direction.join("") === [0,-1].join("")){return true;}
     }
     return false;
