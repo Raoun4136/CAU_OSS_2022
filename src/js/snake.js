@@ -1,52 +1,139 @@
 function changeSnakePosition(){
+    head = players[0].snake[0];
     if (isAuto){
         autoDirection();
     }
-    head = snake[0];
+    
     let isConflict = 0;
-    if ( ((head[0]+yV)!=apple[0])||((head[1]+xV)!=apple[1])){
-        snake.pop();
+    if(PLAYER_NUM==1)
+    {
+    if ( ((head[0]+players[0].yV)!=players[0].apple[0])||((head[1]+players[0].xV)!=players[0].apple[1])){    
+        players[0].snake.pop();
     }
     else {
         console.log("eat apple");
         eatApple+=1;
         //testApple();
-        createRandomApple();
+        createRandomApple(players[0]);
+    }
+    }
+    if(PLAYER_NUM==2)
+    {
+        if((head[0]+players[0].yV==players[0].apple[0])&&(head[1]+players[0].xV==players[0].apple[1]))
+        {
+            eatApple+=1;
+            createRandomApple(players[0]);
+        }
+        else if((head[0]+players[0].yV==players[1].apple[0])&&(head[1]+players[0].xV==players[1].apple[1]))
+        {
+            eatApple+=1;
+            createRandomApple(players[1]);
+        }
+        else players[0].snake.pop();
     }
 
-    for(let s of snake)
+    for(let s of players[0].snake)
     {
-        if( (head[0]+yV == s[0]) && (head[1]+xV==s[1])) 
+        if( (head[0]+players[0].yV == s[0]) && (head[1]+players[0].xV==s[1])) 
         {
             isConflict =1;
-            console.log(s);
         }
     }
-    if (isConflict==1 || ((head[0]+yV)<0)||((head[0]+yV)>=40)||((head[1]+xV)<0)||((head[1]+xV)>=40)){
-        gameOver();
+        if(PLAYER_NUM==2){
+        for(let s of players[1].snake)
+        {
+            if( (head[0]+players[0].yV == s[0]) && (head[1]+players[0].xV==s[1])) 
+            {
+                isConflict =1;
+            }
+        }
+        }
+    
+        if (isConflict==1 || ((head[0]+players[0].yV)<0)||((head[0]+players[0].yV)>=(canvas.clientHeight/tileSize))||((head[1]+players[0].xV)<0)||((head[1]+players[0].xV)>=(canvas.clientWidth/tileSize))){
+            if(PLAYER_NUM==1){
+                gameOver();
+            }
+            if(PLAYER_NUM==2)
+            {
+                let Winner = document.querySelector("#Winner");
+                Winner.innerHTML = "Player 2";
+                WinnerOn();
+                isPaused=true;
+            }
+        }
+        players[0].snake.unshift([head[0]+players[0].yV,head[1]+players[0].xV]);
+    
+        if(PLAYER_NUM==2){
+            head = players[1].snake[0];
+        let isConflict = 0;
+        if((head[0]+players[1].yV==players[0].apple[0])&&(head[1]+players[1].xV==players[0].apple[1]))
+            {
+                eatApple+=1;
+                createRandomApple(players[0]);
+            }
+            else if((head[0]+players[1].yV==players[1].apple[0])&&(head[1]+players[1].xV==players[1].apple[1]))
+            {
+                eatApple+=1;
+                createRandomApple(players[1]);
+            }
+            else players[1].snake.pop();
+    
+        for(let s of players[0].snake)
+        {
+            if( (head[0]+players[1].yV == s[0]) && (head[1]+players[1].xV==s[1])) 
+            {
+                isConflict =1;
+            }
+        }
+        for(let s of players[1].snake)
+        {
+            if( (head[0]+players[1].yV == s[0]) && (head[1]+players[1].xV==s[1])) 
+            {
+                isConflict =1;
+            }
+        }
+        if (isConflict==1 || ((head[0]+players[1].yV)<0)||((head[0]+players[1].yV)>=(canvas.clientHeight/tileSize))||((head[1]+players[1].xV)<0)||((head[1]+players[1].xV)>=(canvas.clientWidth/tileSize))){
+            if(PLAYER_NUM==1){
+                gameOver();
+            }
+            if(PLAYER_NUM==2)
+            {
+                let Winner = document.querySelector("#Winner");
+                Winner.innerHTML = "Player 1";
+                WinnerOn();
+                isPaused=true;
+            }
+        }
+        players[1].snake.unshift([head[0]+players[1].yV,head[1]+players[1].xV]);
+    
+        }
     }
-    snake.unshift([head[0]+yV,head[1]+xV]);
-}
 
 function drawSnake(){
-    for ( let s of snake ){
+    for ( let s of players[0].snake){
         ctx.fillStyle = 'green';
         ctx.fillRect(s[1]*tileSize+1,s[0]*tileSize+1,tileSize-1,tileSize-1);
+    }
+    if(PLAYER_NUM==2){
+        for ( let s of players[1].snake ){
+            ctx.fillStyle = 'blue';
+            ctx.fillRect(s[1]*tileSize+1,s[0]*tileSize+1,tileSize-1,tileSize-1);
+        }
     }
 }
 
 function isOptimal(direction){
 
-    if ((head[0] < apple[0]) ){
+    if ((head[0] < players[0].apple[0]) ){
         if(direction.join("") === [1,0].join("")){return true;}
     }
-    if ((head[0] > apple[0]) ){
+    if ((head[0] > players[0].apple[0]) ){
         if(direction.join("") === [-1,0].join("")){return true;}
     }
-    if ((head[1] < apple[1]) ){
+    if ((head[1] < players[0].apple[1]) ){
         if(direction.join("") === [0,1].join("")){return true;}
     }
-    if ((head[1] > apple[1]) ){
+    if ((head[1] > players[0].apple[1]) ){
         if(direction.join("") === [0,-1].join("")){return true;}
     }
     return false;
@@ -68,7 +155,6 @@ function isConflictSnake(snakeBody,h,d){
 
 // Default logic to apple
 function autoDirection(){
-    head = snake[0];
     let subDirections=[];
     if (yV===0){ directions = [[0,1],[0,-1],[1,0],[-1,0]]; }
     else {  directions = [[1,0],[-1,0],[0,1],[0,-1]]; }
@@ -79,15 +165,15 @@ function autoDirection(){
         if (isConflictWall(head,dir)){
             continue;
         }
-        if (isConflictSnake(snake,head,dir)){ 
+        if (isConflictSnake(players[0].snake,head,dir)){ 
             isBlock+=1;
 
         }
         if(isBlock===0){
             subDirections.push([dir[0],dir[1]]);
             if (isOptimal(dir)) { 
-                yV = dir[0];
-                xV = dir[1];
+                players[0].yV = dir[0];
+                players[0].xV = dir[1];
                 return ; }
         }
         
@@ -98,14 +184,11 @@ function autoDirection(){
     let minWeight=MEDIUM*2;
     for ( sub of subDirections){
 
-        if ( minWeight>Math.abs(apple[0]-(head[0]+sub[0]))+Math.abs(apple[1]-(head[1]+sub[1]))){
-            minWeight = Math.abs(apple[0]-(head[1]+sub[1]))+Math.abs(apple[1]-(head[1]+sub[1]));
-            yV = sub[0];
-            xV = sub[1];
+        if ( minWeight>Math.abs(players[0].apple[0]-(head[0]+sub[0]))+Math.abs(players[0].apple[1]-(head[1]+sub[1]))){
+            minWeight = Math.abs(players[0].apple[0]-(head[1]+sub[1]))+Math.abs(players[0].apple[1]-(head[1]+sub[1]));
+            players[0].yV = sub[0];
+            players[0].xV = sub[1];
         }
-    
-    // 돌아가는 방향에 벽이 있므면 다시 돌려주는 로직 필요 
-    
     }
 }
 

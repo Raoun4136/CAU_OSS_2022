@@ -7,12 +7,12 @@ function clearScreen(){
 }
 
 function countTileSize(){
-    tileSize = canvas.clientWidth/tileCount;
+    tileSize = canvas.clientHeight/tileCount;
 }
 
 function runningTime(){
     const now = new Date();
-    time = Math.floor((now-start)/1000);
+    time = Math.floor((now-start-pauseTime)/1000);
     score = time+eatApple*50;
 }
 function drawScore(){
@@ -28,6 +28,7 @@ function drawGame(){
         isSnakeChanged = false;
         drawApple();
         drawScore();
+        
     }
     setTimeout(drawGame, 1000/difficulty);
 }

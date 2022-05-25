@@ -3,43 +3,86 @@ document.body.addEventListener('keydown',keyDown);
 function keyDown(event){
     //keyboard left
     if(event.keyCode == 37){
-        if(xV == 1) return;
+        if(players[0].xV == 1) return;
         if(isSnakeChanged) return;
         isSnakeChanged = true;
-        xV = -1;
-        yV = 0;
+        players[0].xV = -1;
+        players[0].yV = 0;
     }
     //keyboard up
     if(event.keyCode == 38){
-        if(yV == 1) return;
+        if(players[0].yV == 1) return;
         if(isSnakeChanged) return;
         isSnakeChanged = true;
-        xV = 0;
-        yV = -1;
+        players[0].xV = 0;
+        players[0].yV = -1;
         
     }
     //keyboard right
     if(event.keyCode == 39){
-        if(xV == -1) return;
+        if(players[0].xV == -1) return;
         if(isSnakeChanged) return;
         isSnakeChanged = true;
-        xV = 1;
-        yV = 0;
+        players[0].xV = 1;
+        players[0].yV = 0;
     }
     //keyboard down
     if(event.keyCode == 40){
-        if(yV == -1) return;
+        if(players[0].yV == -1) return;
         if(isSnakeChanged) return;
         isSnakeChanged = true;
-        xV = 0;
-        yV = 1;
+        players[0].xV = 0;
+        players[0].yV = 1;
     }
+    //keyboard left
+    if(event.keyCode == 65){
+    if(PLAYER_NUM==2){        
+        if(players[1].xV == 1) return;
+        if(isSnakeChanged) return;
+        isSnakeChanged = true;
+        players[1].xV = -1;
+        players[1].yV = 0;
+    }
+    }
+    //keyboard up
+    if(event.keyCode == 87){
+    if(PLAYER_NUM==2){
+        if(players[1].yV == 1) return;
+        if(isSnakeChanged) return;
+        isSnakeChanged = true;
+        players[1].xV = 0;
+        players[1].yV = -1;
+        
+    }
+    }
+    //keyboard right
+    if(event.keyCode == 68){
+    if(PLAYER_NUM==2){
+        if(players[1].xV == -1) return;
+        if(isSnakeChanged) return;
+        isSnakeChanged = true;
+        players[1].xV = 1;
+        players[1].yV = 0;
+    }
+    }
+    //keyboard down
+    if(event.keyCode == 83){
+    if(PLAYER_NUM==2){
+        if(players[1].yV == -1) return;
+        if(isSnakeChanged) return;
+        isSnakeChanged = true;
+        players[1].xV = 0;
+        players[1].yV = 1;
+    }
+    }
+
     //keyboard P
     if(event.keyCode == 80){
         if(isGameOver) return;
         if(isGaming){ // Pause Game
             isGaming = false;
             isPaused = true;
+            pauseOnTime = new Date();
             gamePauseOn();
         }
         else{ // Resume Game
@@ -49,12 +92,13 @@ function keyDown(event){
             if(isPaused){
                 isPaused = false;
                 isGaming = true;
+                pauseOffTime = new Date();
+                pauseTime += (pauseOffTime - pauseOnTime);
                 gameOn();
                 return;
             }
             else{
             isSelect = true;
-            console.log("here");
             selectModeOn();            
             }
         }
@@ -65,6 +109,9 @@ function keyDown(event){
             if(!isStarted){
                 start = new Date(); // date update when game start
             }
+            PLAYER_NUM=1;
+            players[0] = new Player(snake_startPosition,0,-1,apple_startPosition);
+            setGameScreen();
             isSelect = false;
             isGaming = true;
             isStarted = true;
@@ -74,26 +121,38 @@ function keyDown(event){
         }
         
     }
+     //keyboard 2 (in Player mode select)
     if(event.keyCode == 50){
         if(isSelect){
             if(!isStarted){
-                start = new Date();
+                start = new Date(); // date update when game start
             }
+            PLAYER_NUM = 2;
+            setGameScreen();
+            players[0]= new Player([0,0],0,1,[-1,-1]);
+            players[1] = new Player([39,79],0,-1,[-2,-2]);
+            
             isSelect = false;
             isGaming = true;
             isStarted = true;
             isPlayer = true;
             isAuto = false;
-            var p1 = new Player(snake,0,-1);
-            var p2 = new Player(snake,0,1);
+            gameOn();
+            countTileSize();
+            createRandomApple(players[0]);
+            createRandomApple(players[1]);
         }
     }
+            
     //keyboard 3 ( in Auto Play mode select)
     if(event.keyCode == 51){
         if(isSelect){
             if(!isStarted){
                 start = new Date(); // date update when game start
             }
+            PLAYER_NUM=1;
+            setGameScreen();
+            players[0]= new Player(snake_startPosition,0,-1,apple_startPosition);
             isSelect = false;
             isGaming = true;
             isStarted = true;
@@ -101,18 +160,19 @@ function keyDown(event){
             gameOn();
         }
     }
+
+            
+    //keyboard M
+    if(event.keyCode == 77){
+        if(isPaused)
+            window.location.reload();
+    }
     //keyboard ESC
     if(event.keyCode == 27){
         //EXIT
-        isStarted = false;
-        isSaving = false;
-        isGameOver = false;
-        isLoading = false;
-        isRanking = false;
-        resetOptions();
-        drawScore();
-        gameInterfaceOn();
-        clearScreen();
+        var confirmflag = confirm("Are you want to exit?");
+        if(confirmflag)
+            window.close();
     }
     // keyboard S
     if(event.keyCode == 83){

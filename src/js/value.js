@@ -1,6 +1,21 @@
 //GAME SCREEN
-const canvas = document.getElementById("game");
-const ctx = canvas.getContext("2d");
+var canvas = document.getElementById("game");
+var ctx = canvas.getContext("2d");
+
+function setGameScreen(){
+    if(PLAYER_NUM==1)
+    {
+        canvas = document.getElementById("game");
+        ctx = canvas.getContext("2d");
+    }
+
+    if(PLAYER_NUM==2)
+    {
+        canvas = document.getElementById("game_for2p");
+        ctx = canvas.getContext("2d");
+    }
+}
+
 
 //DIFFICULTY
 const HARD = 15;
@@ -15,30 +30,29 @@ const LARGE = 60;
 
 let difficulty = 30;
 let tileCount = MEDIUM;
-let tileSize = canvas.clientWidth/tileCount;
+let tileSize = canvas.clientHeight/tileCount;
 let initial_x = Math.floor(Math.random()*(40));
 let initial_y= Math.floor(Math.random()*(40));
 while(initial_x===Math.round(tileCount/2)&&initial_y===Math.round(tileCount/2)){
     initial_x= Math.floor(Math.random()*(40));
     initial_y= Math.floor(Math.random()*(40));
 }
-let apple = [Math.floor(tileCount/2)+10,Math.floor(tileCount/2)];
-let snake = [[Math.floor(tileCount/2),Math.floor(tileCount/2)]];
 
-//DIRECTION
-let xV = 0;
-let yV = -1;
+let apple_startPosition = [initial_y,initial_x];
+let snake_startPosition = [Math.floor(tileCount/2),Math.floor(tileCount/2)];
 let directions = [[1,0],[-1,0],[0,1],[0,-1]];
+
 //CONTROL GAME
 let isGaming = false;
 let isPaused = false;
+let PLAYER_NUM = 1;
 
 let time = 0;
 let score = 0;
 let eatApple = 0;
 
 let start = new Date();
-
+let pauseTime = 0;
 //save
 let save_x = 0;
 //rank

@@ -15,6 +15,7 @@
     </div>
     <div id="game_screen">
         <canvas id="game" width="800" height="800" class="interface hide"></canvas>
+        <canvas id="game_for2p" width="1600" height="800" class="interface_for2p hide"></canvas>
     </div>
     <div id="game_interface" class="interface">
         <p class ="subject">SNAKE GAME</p>
@@ -55,6 +56,7 @@
             <p class ="txt_interface txt_left"><span>RESUME</span><span>[P]</span></p>
             <p class ="txt_interface txt_left"><span>RESTART</span><span>[R]</span></p>
             <p class ="txt_interface txt_left save"><span>SAVE</span><span>[S]</span></p>
+            <p class ="txt_interface txt_left"><span>MAIN</span><span>[M]</span></p>
             <p class ="txt_interface txt_left"><span>EXIT</span><span>[ESC]</span></p>
         </div>
         <hr class = "txt_hr">
@@ -118,8 +120,17 @@
         <hr class = "txt_hr">
         <p class ="txt_interface txt_foot">PRESS ESC TO EXIT</p>
     </div>
+    <div id="2_PlayerMode_Winner" class="interface hide">
+        <p class ="subject">GAME OVER</p>
+        <p class ="txt_interface">Winner is  <span id="Winner"></span></p>
+        <p class ="txt_interface"></span></span></p>
+        
+        <p class ="txt_interface txt_foot">PRESS M TO GO MAIN</p>
+        <p class ="txt_interface txt_foot">PRESS ESC TO EXIT</p>
+    </div>
     <span id="pause_info">Press P to Pause Game</span>
     <script src="./src/js/value.js"></script>
+    <script src="./src/js/player.js"></script>
     <script src="./src/js/screen.js"></script>
     <script src="./src/js/ranking.js"></script>
     <script src="./src/js/divToggle.js"></script>

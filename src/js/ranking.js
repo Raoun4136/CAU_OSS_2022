@@ -9,14 +9,14 @@ function storeRanking(){
     localStorage.setItem("rankData"+i,JSON.stringify({
         name : document.querySelector('#rank_name').querySelector('input').value, 
         score : score, 
-        snake : snake, 
-        apple : apple, 
+        snake : players[0].snake, 
+        apple : players[0].apple, 
         eatApple : eatApple,
         day : start.toLocaleDateString(),
         datetime : start.toLocaleTimeString(),
         time: parseInt(time)+parseInt(loadTime),
-        xV : xV,
-        yV: yV
+        xV : players[0].xV,
+        yV: players[0].yV
     }));
     rank_x++;
 }
