@@ -51,8 +51,7 @@ function keyDown(event){
         if(isSnakeChanged) return;
         isSnakeChanged = true;
         players[1].xV = 0;
-        players[1].yV = -1;
-        
+        players[1].yV = -1;   
     }
     }
     //keyboard right
@@ -137,6 +136,7 @@ function keyDown(event){
             countTileSize();
             createRandomApple(players[0]);
             createRandomApple(players[1]);
+            
         }
     }
     //keyboard M
@@ -199,8 +199,18 @@ function keyDown(event){
     if(event.keyCode == 82){
         if(!isStarted) return;
         if(isGameOver) return;
+        if(isPaused)
+        {
+        isPaused=false;
         resetOptions();
         isGaming = true;
         gameOn();
+        if(PLAYER_NUM==2)
+        {
+            countTileSize();
+            createRandomApple(players[0]);
+            createRandomApple(players[1]);
+        }
+        }
     }
 }
