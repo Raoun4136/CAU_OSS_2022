@@ -16,6 +16,7 @@ function gameOn(){
     {
         document.getElementById("game").classList.remove("hide");
         document.getElementById("game_for2p").classList.add("hide");
+        document.getElementById("game_score").classList.remove("hide");
     }
     if(PLAYER_NUM==2)
     {
