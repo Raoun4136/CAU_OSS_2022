@@ -141,24 +141,36 @@ function drawSnake() {
 function autoChange() {
 	//AUTO MODE
 	let isRight = players[0].apple[1] - head[1];
-	console.log(isRight);
 	let isDown = players[0].apple[0] - head[0];
-	if (isRight > 0) {
-		//apple이 오른쪽에 있을때
-		players[0].xV = 1;
-		players[0].yV = 0;
-	} else if (isRight < 0) {
-		players[0].xV = -1;
-		players[0].yV = 0;
+	if (Math.abs(isRight) - Math.abs(isDown) > 0) {
+		//x distance > y distance
+		if (isRight > 0) {
+			//apple.x > head.x --- RIGHT
+
+			players[0].xV = 1;
+			players[0].yV = 0;
+		} else if (isRight < 0) {
+			//apple.x < head.x --- LEFT
+			players[0].xV = -1;
+			players[0].yV = 0;
+		}
 	} else {
+		//x distance <= y distance
 		if (isDown > 0) {
+			//apple.x > head.x --- DOWN
 			players[0].xV = 0;
 			players[0].yV = 1;
 		} else {
+			//apple.x < head.x --- UP
 			players[0].xV = 0;
 			players[0].yV = -1;
 		}
 	}
 	console.log(`snake : ${players[0].snake}`);
 	console.log(`apple  : ${players[0].apple}`);
+}
+
+function AutoBlocked(isRight, isDown) {
+	players[0].xV = -1;
+	players[0].yV = 0;
 }
