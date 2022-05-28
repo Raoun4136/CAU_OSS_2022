@@ -136,7 +136,6 @@ function keyDown(event){
             countTileSize();
             createRandomApple(players[0]);
             createRandomApple(players[1]);
-            
         }
     }
     //keyboard M
@@ -169,27 +168,27 @@ function keyDown(event){
 
     // keyboard L
     if(event.keyCode == 76){
-        if(isStarted) return;
-        if(isGameOver) return;
         if(isLoading){ // Back to interface
             isLoading = false;
+            isSelect = true;
             gameInterfaceOn();
         }
-        else{ // Load game
+       else if(isSelect)
+       {
+         // Load game
             isLoading = true;
+            isSelect = false;
             gameLoadOn();
         }
     }
 
     //keyboard K
     if(event.keyCode == 75){
-        if(isStarted) return;
-        if(isGameOver) return;
         if(isRanking){ // Back to interface
             isRanking = false;
             gameInterfaceOn();
         }
-        else{ // View Ranking
+        else if(isSelect){ // View Ranking
             isRanking = true;
             gameRankingOn();
         }

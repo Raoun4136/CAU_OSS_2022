@@ -70,6 +70,6 @@ let isSaving = false;
 let isGameOver = false;
 let isLoading = false;
 let isRanking = false;
-let isSelect = false;
+let isSelect = true;
 
 let isSnakeChanged = false;
