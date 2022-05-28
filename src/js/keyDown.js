@@ -105,6 +105,7 @@ function keyDown(event){
     }
     //keyboard 3 (play Auto mode)
     if(event.keyCode == 51){
+        isAuto = true;
         PLAYER_NUM=0;
         players[0] = new Player(snake_startPosition,0,-1,apple_startPosition);
         setGameScreen();

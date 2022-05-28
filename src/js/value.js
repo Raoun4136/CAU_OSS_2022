@@ -52,6 +52,7 @@ let snake_startPosition = [Math.floor(tileCount/2),Math.floor(tileCount/2)];
 //CONTROL GAME
 let isGaming = false;
 let isPaused = false;
+let isAuto = false;
 let PLAYER_NUM = 1;
 
 let time = 0;
