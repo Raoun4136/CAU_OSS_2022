@@ -153,6 +153,49 @@ function isConflictSnake(snakeBody,h,d){
     return false;
 }
 
+function isVisited(h,d,visited){
+    for ( let v of visited){
+        if((h[0]+d[0])===v[0]&&(h[1]+d[1])===v[1]){
+            return true;
+        }
+    }
+    return false;
+
+}
+
+function dfs(head,subDirections){
+    let minWeight=MEDIUM*2;
+    for ( let sub of subDirections){
+        //bfs로 가중치
+        let subPath=1;
+        let subDfs=[[head[0]+sub[0],head[1]+sub[1]]];
+        let visited = [...subDfs[0]];
+        while(subDfs.length!=0 ){
+            let n = subDfs.length;
+            for ( let i = 0; i < n; i++){
+                let node = subDfs.shift();
+                if(node[0]===apple[0] && node[1]===apple[1]){
+                    return ;
+                }
+                for ( let dir of directions){
+                    if(isConflictSnake(snake,head,dir) || isConflictWall(head,dir)|| isVisited(head,dir,visited)){
+                        continue;
+                    }
+                    visited.push([node[0]+dir[0],node[1]+dir[1]]);
+                    subDfs.push([node[0]+dir[0],node[1]+dir[1]]);
+                }
+            }
+            console.log(subDfs);
+            subPath+=1;
+        }
+        if ( minWeight > subPath) {
+            minWeight = subPath;
+            players[0].yV = sub[0];
+            players[0].xV = sub[1];
+        }
+    }
+}
+
 // Default logic to apple
 function autoDirection(){
     let subDirections=[];
@@ -179,17 +222,18 @@ function autoDirection(){
         
     }
     
+    dfs(head,subDirections);
     
     // block 가중치 반영
-    let minWeight=MEDIUM*2;
-    for ( sub of subDirections){
+    // let minWeight=MEDIUM*2;
+    // for ( sub of subDirections){
 
-        if ( minWeight>Math.abs(players[0].apple[0]-(head[0]+sub[0]))+Math.abs(players[0].apple[1]-(head[1]+sub[1]))){
-            minWeight = Math.abs(players[0].apple[0]-(head[1]+sub[1]))+Math.abs(players[0].apple[1]-(head[1]+sub[1]));
-            players[0].yV = sub[0];
-            players[0].xV = sub[1];
-        }
-    }
+    //     if ( minWeight>Math.abs(players[0].apple[0]-(head[0]+sub[0]))+Math.abs(players[0].apple[1]-(head[1]+sub[1]))){
+    //         minWeight = Math.abs(players[0].apple[0]-(head[1]+sub[1]))+Math.abs(players[0].apple[1]-(head[1]+sub[1]));
+    //         players[0].yV = sub[0];
+    //         players[0].xV = sub[1];
+    //     }
+    // }
 }
 
 function testApple(){
