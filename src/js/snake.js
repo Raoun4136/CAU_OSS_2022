@@ -142,35 +142,93 @@ function autoChange() {
 	//AUTO MODE
 	let isRight = players[0].apple[1] - head[1];
 	let isDown = players[0].apple[0] - head[0];
+	let ableXY = [];
+	addAbleXY(ableXY);
+	console.log(ableXY);
 	if (Math.abs(isRight) - Math.abs(isDown) > 0) {
 		//x distance > y distance
 		if (isRight > 0) {
 			//apple.x > head.x --- RIGHT
-
-			players[0].xV = 1;
-			players[0].yV = 0;
+			if (isAble(1, 0)) {
+				players[0].xV = 1;
+				players[0].yV = 0;
+			} else {
+				RandomChange(ableXY);
+			}
 		} else if (isRight < 0) {
 			//apple.x < head.x --- LEFT
-			players[0].xV = -1;
-			players[0].yV = 0;
+			if (isAble(-1, 0)) {
+				players[0].xV = -1;
+				players[0].yV = 0;
+			} else {
+				RandomChange(ableXY);
+			}
 		}
 	} else {
 		//x distance <= y distance
 		if (isDown > 0) {
 			//apple.x > head.x --- DOWN
-			players[0].xV = 0;
-			players[0].yV = 1;
+			if (isAble(0, 1)) {
+				players[0].xV = 0;
+				players[0].yV = 1;
+			} else {
+				RandomChange(ableXY);
+			}
 		} else {
 			//apple.x < head.x --- UP
-			players[0].xV = 0;
-			players[0].yV = -1;
+			if (isAble(0, -1)) {
+				players[0].xV = 0;
+				players[0].yV = -1;
+			} else {
+				RandomChange(ableXY);
+			}
 		}
 	}
 	console.log(`snake : ${players[0].snake}`);
 	console.log(`apple  : ${players[0].apple}`);
 }
 
-function AutoBlocked(isRight, isDown) {
-	players[0].xV = -1;
-	players[0].yV = 0;
+//랜덤 전에 down, right쪽으로 가야됨.
+function RandomChange(ableXY) {
+	let randNum = Math.floor(Math.random() * ableXY.length);
+	console.log(`randNum = ${randNum}`);
+	console.log(`ableXY = ${ableXY}`);
+	console.log(`ableXY[randNum] = ${ableXY[randNum]}`);
+	if (ableXY[randNum]) {
+		players[0].xV = ableXY[randNum][0];
+		players[0].yV = ableXY[randNum][1];
+	}
+}
+
+function isAble(x, y) {
+	//갈 곳이 벽인지, 내 스네이크인지
+	for (let s of players[0].snake) {
+		if (head[0] + y == s[0] && head[1] + x == s[1]) {
+			return false;
+		}
+	}
+	if (
+		head[0] + y < 0 ||
+		head[0] + y >= canvas.clientHeight / tileSize ||
+		head[1] + x < 0 ||
+		head[1] + x >= canvas.clientWidth / tileSize
+	) {
+		return false;
+	}
+	return true;
+}
+
+function addAbleXY(ableXY) {
+	if (isAble(1, 0)) {
+		ableXY.push([1, 0]);
+	}
+	if (isAble(-1, 0)) {
+		ableXY.push([-1, 0]);
+	}
+	if (isAble(0, 1)) {
+		ableXY.push([0, 1]);
+	}
+	if (isAble(0, -1)) {
+		ableXY.push([0, -1]);
+	}
 }
