@@ -23,6 +23,10 @@ function drawGame(){
     if(isGaming){
         clearScreen();
         runningTime();
+        if(isAuto)
+        {
+            auto();
+        }
         changeSnakePosition();
         drawSnake();
         isSnakeChanged = false;

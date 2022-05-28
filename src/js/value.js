@@ -3,6 +3,11 @@ var canvas = document.getElementById("game");
 var ctx = canvas.getContext("2d");
 
 function setGameScreen(){
+    if(PLAYER_NUM == 0)
+    {
+        canvas = document.getElementById("game_forAuto");
+        ctx = canvas.getContext("2d");
+    }
     if(PLAYER_NUM==1)
     {
         canvas = document.getElementById("game");
@@ -47,6 +52,7 @@ let snake_startPosition = [Math.floor(tileCount/2),Math.floor(tileCount/2)];
 //CONTROL GAME
 let isGaming = false;
 let isPaused = false;
+let isAuto = false;
 let PLAYER_NUM = 1;
 
 let time = 0;

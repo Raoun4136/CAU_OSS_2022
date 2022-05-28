@@ -2,7 +2,7 @@ function changeSnakePosition(){
 
     head = players[0].snake[0];
     let isConflict = 0;
-    if(PLAYER_NUM==1)
+    if(PLAYER_NUM==1 || PLAYER_NUM==0)
     {
     if ( ((head[0]+players[0].yV)!=players[0].apple[0])||((head[1]+players[0].xV)!=players[0].apple[1])){    
         players[0].snake.pop();
@@ -46,7 +46,7 @@ function changeSnakePosition(){
     }
 
     if (isConflict==1 || ((head[0]+players[0].yV)<0)||((head[0]+players[0].yV)>=(canvas.clientHeight/tileSize))||((head[1]+players[0].xV)<0)||((head[1]+players[0].xV)>=(canvas.clientWidth/tileSize))){
-        if(PLAYER_NUM==1){
+        if(PLAYER_NUM==1 || PLAYER_NUM==0){
             gameOver();
         }
         if(PLAYER_NUM==2)
@@ -89,7 +89,7 @@ function changeSnakePosition(){
         }
     }
     if (isConflict==1 || ((head[0]+players[1].yV)<0)||((head[0]+players[1].yV)>=(canvas.clientHeight/tileSize))||((head[1]+players[1].xV)<0)||((head[1]+players[1].xV)>=(canvas.clientWidth/tileSize))){
-        if(PLAYER_NUM==1){
+        if(PLAYER_NUM==1 || PLAYER_NUM==0){
             gameOver();
         }
         if(PLAYER_NUM==2)
