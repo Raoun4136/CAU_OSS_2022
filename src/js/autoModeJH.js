@@ -6,13 +6,28 @@ function auto() {
     {
         // up
         if (autoSnake[0][0]> autoApple[0]) {
+
             console.log("up")
             moveUp()
+            if (players[0].xV == 0 && players[0].yV == 1)
+            {
+                if(autoSnake[0][1] >= 20)
+                    moveLeft();
+                else
+                    moveRight();
+            }
         }
         // down
         else if (autoSnake[0][0] <= autoApple[0]) {
             console.log("down")
             moveDown()
+            if (players[0].xV == 0 && players[0].yV == -1)
+            {
+                if(autoSnake[0][1] >= 20)
+                    moveLeft();
+                else
+                    moveRight();
+            }
         }
     }
     else
@@ -22,12 +37,26 @@ function auto() {
         {
             console.log("right")
             moveRight();
+            if (players[0].xV == -1 && players[0].yV == 0)
+            {
+                if(autoSnake[0][0] >= 20)
+                    moveUp();
+                else
+                    moveDown();
+            }
         }
         //left
         else
         {
             console.log("left")
             moveLeft();
+            if (players[0].xV == 1 && players[0].yV == 0)
+            {
+                if(autoSnake[0][0] >= 20)
+                    moveUp();
+                else
+                    moveDown();
+            }
         }
     }
 
