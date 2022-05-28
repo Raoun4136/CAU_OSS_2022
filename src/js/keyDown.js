@@ -103,6 +103,16 @@ function keyDown(event){
             }
         }
     }
+    //keyboard 3 (play Auto mode)
+    if(event.keyCode == 51){
+        PLAYER_NUM=0;
+        players[0] = new Player(snake_startPosition,0,-1,apple_startPosition);
+        setGameScreen();
+        isGaming = true;
+        isStarted = true;
+        gameOn();
+        auto();
+    }
     //keyboard 1 (in Player mode select)
     if(event.keyCode == 49){
         if(isSelect){

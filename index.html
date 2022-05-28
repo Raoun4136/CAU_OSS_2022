@@ -16,12 +16,14 @@
     <div id="game_screen">
         <canvas id="game" width="800" height="800" class="interface hide"></canvas>
         <canvas id="game_for2p" width="1600" height="800" class="interface_for2p hide"></canvas>
+        <canvas id="game_forAuto" width="800" height="800" class="interface hide"></canvas>
     </div>
     <div id="game_interface" class="interface">
         <p class ="subject">SNAKE GAME</p>
         <hr class = "txt_hr">
         <div class ="txt_div">
             <p class ="txt_interface txt_left"><span>PLAY</span><span>[P]</span></p>
+            <p class ="txt_interface txt_left"><span>AUTO_MODE</span><span>[3]</span></p>
             <p class ="txt_interface txt_left"><span>LOAD</span><span>[L]</span></p>
             <p class ="txt_interface txt_left"><span>RANKING</span><span>[K]</span></p>
             <p class ="txt_interface txt_left"><span>EXIT</span><span>[ESC]</span></p>
@@ -128,6 +130,7 @@
         <p class ="txt_interface txt_foot">PRESS ESC TO EXIT</p>
     </div>
     <span id="pause_info">Press P to Pause Game</span>
+    <script src="./src/js/autoModeJH.js"></script>
     <script src="./src/js/value.js"></script>
     <script src="./src/js/player.js"></script>
     <script src="./src/js/screen.js"></script>
