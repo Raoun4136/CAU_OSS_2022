@@ -3,15 +3,16 @@ function gameOn(){
     if(PLAYER_NUM==1)
     {
         document.getElementById("game").classList.remove("hide");
-        document.getElementById("game_for2p").classList.add("hide");
+        document.getElementById("game_for_2p").classList.add("hide");
         document.getElementById("game_score").classList.remove("hide");
     }
     if(PLAYER_NUM==2)
     {
         document.getElementById("game").classList.add("hide");
-        document.getElementById("game_for2p").classList.remove("hide");
+        document.getElementById("game_for_2p").classList.remove("hide");
     }
     document.getElementById("game_pause").classList.add("hide");
+    document.getElementById("game_pause_for_2p").classList.add("hide");
     document.getElementById("game_interface").classList.add("hide");
     document.getElementById("game_load").classList.add("hide");
     document.getElementById("game_save").classList.add("hide");
@@ -22,8 +23,9 @@ function gameOn(){
 
 function gameInterfaceOn(){
     document.getElementById("game").classList.add("hide");
-    document.getElementById("game_for2p").classList.add("hide");
+    document.getElementById("game_for_2p").classList.add("hide");
     document.getElementById("game_pause").classList.add("hide");
+    document.getElementById("game_pause_for_2p").classList.add("hide");
     document.getElementById("game_interface").classList.remove("hide");
     document.getElementById("game_load").classList.add("hide");
     document.getElementById("game_save").classList.add("hide");
@@ -33,9 +35,19 @@ function gameInterfaceOn(){
 }
 
 function gamePauseOn(){
+
+    if(PLAYER_NUM==1)
+    {
+        document.getElementById("game_pause").classList.remove("hide");
+        document.getElementById("game_pause_for_2p").classList.add("hide");
+    }
+    if(PLAYER_NUM==2)
+    {
+        document.getElementById("game_pause").classList.add("hide");
+        document.getElementById("game_pause_for_2p").classList.remove("hide");
+    }
     document.getElementById("game").classList.add("hide");
-    document.getElementById("game_for2p").classList.add("hide");
-    document.getElementById("game_pause").classList.remove("hide");
+    document.getElementById("game_for_2p").classList.add("hide");
     document.getElementById("game_interface").classList.add("hide");
     document.getElementById("game_load").classList.add("hide");
     document.getElementById("game_save").classList.add("hide");
@@ -46,8 +58,9 @@ function gamePauseOn(){
 
 function gameLoadOn(){
     document.getElementById("game").classList.add("hide");
-    document.getElementById("game_for2p").classList.add("hide");
+    document.getElementById("game_for_2p").classList.add("hide");
     document.getElementById("game_pause").classList.add("hide");
+    document.getElementById("game_pause_for_2p").classList.add("hide");
     document.getElementById("game_interface").classList.add("hide");
     document.getElementById("game_load").classList.remove("hide");
     document.getElementById("game_save").classList.add("hide");
@@ -59,8 +72,9 @@ function gameLoadOn(){
 
 function gameSaveOn(){
     document.getElementById("game").classList.add("hide");
-    document.getElementById("game_for2p").classList.add("hide");
+    document.getElementById("game_for_2p").classList.add("hide");
     document.getElementById("game_pause").classList.add("hide");
+    document.getElementById("game_pause_for_2p").classList.add("hide");
     document.getElementById("game_interface").classList.add("hide");
     document.getElementById("game_load").classList.add("hide");
     document.getElementById("game_save").classList.remove("hide");
@@ -70,8 +84,9 @@ function gameSaveOn(){
 }
 function gameRankingOn(){
     document.getElementById("game").classList.add("hide");
-    document.getElementById("game_for2p").classList.add("hide");
+    document.getElementById("game_for_2p").classList.add("hide");
     document.getElementById("game_pause").classList.add("hide");
+    document.getElementById("game_pause_for_2p").classList.add("hide");
     document.getElementById("game_interface").classList.add("hide");
     document.getElementById("game_load").classList.add("hide");
     document.getElementById("game_save").classList.add("hide");
@@ -82,8 +97,9 @@ function gameRankingOn(){
 }
 function gameOverOn(){
     document.getElementById("game").classList.add("hide");
-    document.getElementById("game_for2p").classList.add("hide");
+    document.getElementById("game_for_2p").classList.add("hide");
     document.getElementById("game_pause").classList.add("hide");
+    document.getElementById("game_pause_for_2p").classList.add("hide");
     document.getElementById("game_interface").classList.add("hide");
     document.getElementById("game_load").classList.add("hide");
     document.getElementById("game_save").classList.add("hide");
@@ -94,8 +110,9 @@ function gameOverOn(){
 
 function WinnerOn(){
     document.getElementById("game").classList.add("hide");
-    document.getElementById("game_for2p").classList.add("hide");
+    document.getElementById("game_for_2p").classList.add("hide");
     document.getElementById("game_pause").classList.add("hide");
+    document.getElementById("game_pause_for_2p").classList.add("hide");
     document.getElementById("game_interface").classList.add("hide");
     document.getElementById("game_load").classList.add("hide");
     document.getElementById("game_save").classList.add("hide");

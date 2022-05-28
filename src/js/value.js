@@ -11,7 +11,7 @@ function setGameScreen(){
 
     if(PLAYER_NUM==2)
     {
-        canvas = document.getElementById("game_for2p");
+        canvas = document.getElementById("game_for_2p");
         ctx = canvas.getContext("2d");
     }
 }
