@@ -51,8 +51,7 @@ function keyDown(event){
         if(isSnakeChanged) return;
         isSnakeChanged = true;
         players[1].xV = 0;
-        players[1].yV = -1;
-        
+        players[1].yV = -1;   
     }
     }
     //keyboard right
@@ -169,27 +168,27 @@ function keyDown(event){
 
     // keyboard L
     if(event.keyCode == 76){
-        if(isStarted) return;
-        if(isGameOver) return;
         if(isLoading){ // Back to interface
             isLoading = false;
+            isSelect = true;
             gameInterfaceOn();
         }
-        else{ // Load game
+       else if(isSelect)
+       {
+         // Load game
             isLoading = true;
+            isSelect = false;
             gameLoadOn();
         }
     }
 
     //keyboard K
     if(event.keyCode == 75){
-        if(isStarted) return;
-        if(isGameOver) return;
         if(isRanking){ // Back to interface
             isRanking = false;
             gameInterfaceOn();
         }
-        else{ // View Ranking
+        else if(isSelect){ // View Ranking
             isRanking = true;
             gameRankingOn();
         }
@@ -199,8 +198,18 @@ function keyDown(event){
     if(event.keyCode == 82){
         if(!isStarted) return;
         if(isGameOver) return;
+        if(isPaused)
+        {
+        isPaused=false;
         resetOptions();
         isGaming = true;
         gameOn();
+        if(PLAYER_NUM==2)
+        {
+            countTileSize();
+            createRandomApple(players[0]);
+            createRandomApple(players[1]);
+        }
+        }
     }
 }
