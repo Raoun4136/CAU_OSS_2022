@@ -174,11 +174,11 @@ function dfs(head,subDirections){
             let n = subDfs.length;
             for ( let i = 0; i < n; i++){
                 let node = subDfs.shift();
-                if(node[0]===apple[0] && node[1]===apple[1]){
+                if(node[0]===players[0].apple[0] && node[1]===players[0].apple[1]){
                     return ;
                 }
                 for ( let dir of directions){
-                    if(isConflictSnake(snake,node,dir) || isConflictWall(node,dir)|| isVisited(node,dir,visited)){
+                    if(isConflictSnake(players[0].snake,node,dir) || isConflictWall(node,dir)|| isVisited(node,dir,visited)){
                         continue;
                     }
                     visited.push([node[0]+dir[0],node[1]+dir[1]]);
