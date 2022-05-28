@@ -152,16 +152,44 @@ function autoChange() {
 			if (isAble(1, 0)) {
 				players[0].xV = 1;
 				players[0].yV = 0;
+			} else if (isDown > 0) {
+				//apple.x > head.x --- DOWN
+				if (isAble(0, 1)) {
+					players[0].xV = 0;
+					players[0].yV = 1;
+				} else {
+					RandomChange(ableXY);
+				}
 			} else {
-				RandomChange(ableXY);
+				//apple.x < head.x --- UP
+				if (isAble(0, -1)) {
+					players[0].xV = 0;
+					players[0].yV = -1;
+				} else {
+					RandomChange(ableXY);
+				}
 			}
 		} else if (isRight < 0) {
 			//apple.x < head.x --- LEFT
 			if (isAble(-1, 0)) {
 				players[0].xV = -1;
 				players[0].yV = 0;
+			} else if (isDown > 0) {
+				//apple.x > head.x --- DOWN
+				if (isAble(0, 1)) {
+					players[0].xV = 0;
+					players[0].yV = 1;
+				} else {
+					RandomChange(ableXY);
+				}
 			} else {
-				RandomChange(ableXY);
+				//apple.x < head.x --- UP
+				if (isAble(0, -1)) {
+					players[0].xV = 0;
+					players[0].yV = -1;
+				} else {
+					RandomChange(ableXY);
+				}
 			}
 		}
 	} else {
@@ -171,16 +199,44 @@ function autoChange() {
 			if (isAble(0, 1)) {
 				players[0].xV = 0;
 				players[0].yV = 1;
+			} else if (isRight > 0) {
+				//apple.x > head.x --- RIGHT
+				if (isAble(1, 0)) {
+					players[0].xV = 1;
+					players[0].yV = 0;
+				} else {
+					RandomChange(ableXY);
+				}
 			} else {
-				RandomChange(ableXY);
+				//apple.x < head.x --- LEFT
+				if (isAble(-1, 0)) {
+					players[0].xV = -1;
+					players[0].yV = 0;
+				} else {
+					RandomChange(ableXY);
+				}
 			}
 		} else {
 			//apple.x < head.x --- UP
 			if (isAble(0, -1)) {
 				players[0].xV = 0;
 				players[0].yV = -1;
+			} else if (isRight > 0) {
+				//apple.x > head.x --- RIGHT
+				if (isAble(1, 0)) {
+					players[0].xV = 1;
+					players[0].yV = 0;
+				} else {
+					RandomChange(ableXY);
+				}
 			} else {
-				RandomChange(ableXY);
+				//apple.x < head.x --- LEFT
+				if (isAble(-1, 0)) {
+					players[0].xV = -1;
+					players[0].yV = 0;
+				} else {
+					RandomChange(ableXY);
+				}
 			}
 		}
 	}
@@ -188,7 +244,6 @@ function autoChange() {
 	console.log(`apple  : ${players[0].apple}`);
 }
 
-//랜덤 전에 down, right쪽으로 가야됨.
 function RandomChange(ableXY) {
 	let randNum = Math.floor(Math.random() * ableXY.length);
 	console.log(`randNum = ${randNum}`);
