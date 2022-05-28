@@ -4,7 +4,7 @@ function gameOn(){
     {
         document.getElementById("game_forAuto").classList.remove("hide");
         document.getElementById("game").classList.add("hide");
-        document.getElementById("game_for2p").classList.add("hide");
+        document.getElementById("game_for_2p").classList.add("hide");
     }
     if(PLAYER_NUM==1)
     {
@@ -19,6 +19,7 @@ function gameOn(){
         document.getElementById("game").classList.add("hide");
         document.getElementById("game_for_2p").classList.remove("hide");
     }
+    
     document.getElementById("game_pause").classList.add("hide");
     document.getElementById("game_pause_for_2p").classList.add("hide");
     document.getElementById("game_interface").classList.add("hide");
@@ -50,7 +51,7 @@ function gamePauseOn(){
         document.getElementById("game_pause").classList.remove("hide");
         document.getElementById("game_pause_for_2p").classList.add("hide");
     }
-    if(PLAYER_NUM==2)
+    if(PLAYER_NUM==2||PLAYER_NUM==0)
     {
         document.getElementById("game_pause").classList.add("hide");
         document.getElementById("game_pause_for_2p").classList.remove("hide");
