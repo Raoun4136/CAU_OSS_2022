@@ -2,20 +2,17 @@
 var canvas = document.getElementById("game");
 var ctx = canvas.getContext("2d");
 
-function setGameScreen(){
-    if(PLAYER_NUM==1)
-    {
-        canvas = document.getElementById("game");
-        ctx = canvas.getContext("2d");
-    }
+function setGameScreen() {
+	if (PLAYER_NUM == 1) {
+		canvas = document.getElementById("game");
+		ctx = canvas.getContext("2d");
+	}
 
-    if(PLAYER_NUM==2)
-    {
-        canvas = document.getElementById("game_for2p");
-        ctx = canvas.getContext("2d");
-    }
+	if (PLAYER_NUM == 2) {
+		canvas = document.getElementById("game_for2p");
+		ctx = canvas.getContext("2d");
+	}
 }
-
 
 //DIFFICULTY
 const HARD = 15;
@@ -28,21 +25,25 @@ const SMALL = 20;
 const MEDIUM = 40;
 const LARGE = 60;
 
-let difficulty = VERYEASY;
+let difficulty = NORMAL;
 let tileCount = MEDIUM;
-let tileSize = canvas.clientHeight/tileCount;
-let initial_x = Math.floor(Math.random()*(40));
-let initial_y= Math.floor(Math.random()*(40));
-while(initial_x===Math.round(tileCount/2)&&initial_y===Math.round(tileCount/2)){
-    initial_x= Math.floor(Math.random()*(40));
-    initial_y= Math.floor(Math.random()*(40));
+let tileSize = canvas.clientHeight / tileCount;
+let initial_x = Math.floor(Math.random() * 40);
+let initial_y = Math.floor(Math.random() * 40);
+while (
+	initial_x === Math.round(tileCount / 2) &&
+	initial_y === Math.round(tileCount / 2)
+) {
+	initial_x = Math.floor(Math.random() * 40);
+	initial_y = Math.floor(Math.random() * 40);
 }
-let apple_startPosition = [initial_y,initial_x];
-let snake_startPosition = [Math.floor(tileCount/2),Math.floor(tileCount/2)];
-
+let apple_startPosition = [initial_y, initial_x];
+let snake_startPosition = [
+	Math.floor(tileCount / 2),
+	Math.floor(tileCount / 2),
+];
 
 //DIRECTION
-
 
 //CONTROL GAME
 let isGaming = false;
