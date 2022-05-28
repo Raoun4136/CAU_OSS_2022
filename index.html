@@ -10,7 +10,7 @@
 </head>
 <body>
     
-    <div id="game_score" class = "hide">
+    <div id="game_score">
         score : <span id="txt_score"></span>
     </div>
     <div id="game_screen">
@@ -114,13 +114,22 @@
             <input class ="input_btn" type="submit" value="SAVE" id="rank_btn" />
         </form>
         <hr class = "txt_hr">
+        <p class ="txt_interface txt_foot">PRESS M TO GO MAIN</p>
+        <p class ="txt_interface txt_foot">PRESS ESC TO EXIT</p>
+    </div>
+    <div id="auto_game_over" class="interface hide">
+        <p class ="subject">GAME OVER</p>
+        <hr class = "txt_hr">
+        <p class ="txt_interface">your score : <span id="auto_gameOver_score"></span></p>
+        <hr class = "txt_hr">
+        <p class ="txt_interface txt_foot">PRESS M TO GO MAIN</p>
         <p class ="txt_interface txt_foot">PRESS ESC TO EXIT</p>
     </div>
     <div id="2_PlayerMode_Winner" class="interface hide">
         <p class ="subject">GAME OVER</p>
+        <hr class = "txt_hr">
         <p class ="txt_interface">Winner is  <span id="Winner"></span></p>
-        <p class ="txt_interface"></span></span></p>
-        
+        <hr class = "txt_hr">
         <p class ="txt_interface txt_foot">PRESS M TO GO MAIN</p>
         <p class ="txt_interface txt_foot">PRESS ESC TO EXIT</p>
     </div>
