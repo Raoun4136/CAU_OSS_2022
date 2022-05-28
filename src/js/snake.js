@@ -153,9 +153,9 @@ function isConflictSnake(snakeBody,h,d){
     return false;
 }
 
-function isVisited(h,d,visited){
+function isVisited(node,d,visited){
     for ( let v of visited){
-        if((h[0]+d[0])===v[0]&&(h[1]+d[1])===v[1]){
+        if((node[0]+d[0])===node[0]&&(node[1]+d[1])===v[1]){
             return true;
         }
     }
@@ -178,7 +178,7 @@ function dfs(head,subDirections){
                     return ;
                 }
                 for ( let dir of directions){
-                    if(isConflictSnake(snake,head,dir) || isConflictWall(head,dir)|| isVisited(head,dir,visited)){
+                    if(isConflictSnake(snake,node,dir) || isConflictWall(node,dir)|| isVisited(node,dir,visited)){
                         continue;
                     }
                     visited.push([node[0]+dir[0],node[1]+dir[1]]);
