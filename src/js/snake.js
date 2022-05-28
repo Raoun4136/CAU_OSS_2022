@@ -155,7 +155,7 @@ function isConflictSnake(snakeBody,h,d){
 
 function isVisited(node,d,visited){
     for ( let v of visited){
-        if((node[0]+d[0])===node[0]&&(node[1]+d[1])===v[1]){
+        if((node[0]+d[0])===v[0]&&(node[1]+d[1])===v[1]){
             return true;
         }
     }
@@ -163,37 +163,34 @@ function isVisited(node,d,visited){
 
 }
 
-function dfs(head,subDirections){
+function dfs(head,sub){
     let minWeight=MEDIUM*2;
-    for ( let sub of subDirections){
+   
         //bfs로 가중치
-        let subPath=1;
-        let subDfs=[[head[0]+sub[0],head[1]+sub[1]]];
-        let visited = [...subDfs[0]];
-        while(subDfs.length!=0 ){
-            let n = subDfs.length;
-            for ( let i = 0; i < n; i++){
-                let node = subDfs.shift();
-                if(node[0]===players[0].apple[0] && node[1]===players[0].apple[1]){
-                    return ;
-                }
-                for ( let dir of directions){
-                    if(isConflictSnake(players[0].snake,node,dir) || isConflictWall(node,dir)|| isVisited(node,dir,visited)){
-                        continue;
-                    }
-                    visited.push([node[0]+dir[0],node[1]+dir[1]]);
-                    subDfs.push([node[0]+dir[0],node[1]+dir[1]]);
-                }
+    let subPath=1;
+    let subDfs=[[head[0]+sub[0],head[1]+sub[1]]];
+    let visited = [...subDfs[0]];
+    while(subDfs.length!=0 ){
+        let n = subDfs.length;
+        for ( let i = 0; i < n; i++){
+            let node = subDfs.shift();
+            if(node[0]===players[0].apple[0] && node[1]===players[0].apple[1]){
+                return subPath;
             }
-            console.log(subDfs);
-            subPath+=1;
+            for ( let dir of directions){
+                if(isConflictSnake(players[0].snake,node,dir) || isConflictWall(node,dir)|| isVisited(node,dir,visited)){
+                    continue;
+                }
+                visited.push([node[0]+dir[0],node[1]+dir[1]]);
+                subDfs.push([node[0]+dir[0],node[1]+dir[1]]);
+            }
         }
-        if ( minWeight > subPath) {
-            minWeight = subPath;
-            players[0].yV = sub[0];
-            players[0].xV = sub[1];
-        }
+        console.log(subDfs);
+        subPath+=1;
     }
+
+    // 사과를 발견하지 못하고 끝나는 경우
+    return MEDIUM*2;
 }
 
 // Default logic to apple
@@ -221,8 +218,15 @@ function autoDirection(){
         }
         
     }
-    
-    dfs(head,subDirections);
+    let asap = MEDIUM*2;
+    for ( let subDirection of subDirections){
+        let dfsPath=dfs(head,subDirection)
+        if (asap > dfsPath){
+            asap = dfsPath;
+            players[0].yV = subDirection[0];
+            players[0].xV = subDirection[1];
+        };
+    }
     
     // block 가중치 반영
     // let minWeight=MEDIUM*2;
