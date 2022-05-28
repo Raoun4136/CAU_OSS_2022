@@ -256,7 +256,7 @@ function RandomChange(ableXY) {
 }
 
 function isAble(x, y) {
-	//갈 곳이 벽인지, 내 스네이크인지
+	//is Conflict
 	for (let s of players[0].snake) {
 		if (head[0] + y == s[0] && head[1] + x == s[1]) {
 			return false;
