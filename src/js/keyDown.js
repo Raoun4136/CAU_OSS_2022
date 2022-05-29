@@ -2,8 +2,12 @@ document.body.addEventListener("keydown", keyDown);
 
 function keyDown(event) {
 
-    if (event.keyCode == 52) {
-		difficulty = 0;
+    if (event.keyCode == 37) {
+		if (players[0].xV == 1) return;
+		if (isSnakeChanged) return;
+		isSnakeChanged = true;
+		players[0].xV = -1;
+		players[0].yV = 0;
 	}
 	//keyboard left
 	if (event.keyCode == 37) {
