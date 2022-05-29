@@ -1,6 +1,10 @@
 document.body.addEventListener("keydown", keyDown);
 
 function keyDown(event) {
+
+    if (event.keyCode == 52) {
+		difficulty = 0;
+	}
 	//keyboard left
 	if (event.keyCode == 37) {
 		if (players[0].xV == 1) return;
@@ -152,6 +156,10 @@ function keyDown(event) {
 			PLAYER_NUM = 1;
 			setGameScreen();
 			players[0] = new Player(snake_startPosition, 0, -1, apple_startPosition);
+            for(let i;i<400;i++);
+            {
+                players[0]
+            }
 			isSelect = false;
 			isGaming = true;
 			isStarted = true;

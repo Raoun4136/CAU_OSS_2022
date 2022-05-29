@@ -14,13 +14,11 @@ function ifConflictCreateApple(apple_y, apple_x, list){
     while (i<list.length){
         if( apple_y===list[i][0] && apple_x===list[i][1]){
                 console.log("apple conflict",apple_y,apple_x);
-                apple_y = createApple(0,(canvas.clientHeight/tileSize)-1);
-                apple_x = createApple(0,(canvas.clientWidth/tileSize)-1);  
-                console.log(apple_y,apple_x);
-                i=0;
+                return 1;
         }
         i+=1
     }
+    return 0;
 }
 
 function createRandomApple(player){
@@ -32,7 +30,12 @@ function createRandomApple(player){
         apples.push(players[j].apple)
     }
     
-    ifConflictCreateApple(apple_y,apple_x,player.snake)
+    while(ifConflictCreateApple(apple_y,apple_x,player.snake))
+    {
+        apple_y = createApple(0,(canvas.clientHeight/tileSize)-1);
+        apple_x = createApple(0,(canvas.clientWidth/tileSize)-1);
+        console.log(apple_y,apple_x);
+    }
 
     if(is2Player){
         forConflict.push(players[0]);
