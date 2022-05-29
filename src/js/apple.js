@@ -10,7 +10,7 @@ function drawApple(){
 
 function ifConflictCreateApple(apple_y, apple_x, list){
     let i = 0;
-    console.log(list);
+    console.log("check conflict:",list);
     while (i<list.length){
         if( apple_y===list[i][0] && apple_x===list[i][1]){
                 console.log("apple conflict",apple_y,apple_x);
@@ -32,7 +32,7 @@ function createRandomApple(player){
         apples.push(players[j].apple)
     }
     
-    ifConflictCreateApple(apple_y,apple_x,player.snake)
+    ifConflictCreateApple(apple_y,apple_x,players[0].snake)
 
     if(is2Player){
         forConflict.push(players[0]);
