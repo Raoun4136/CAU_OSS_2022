@@ -10,37 +10,23 @@
 </head>
 <body>
     
-    <div id="game_score">
+    <div id="game_score" class = "hide">
         score : <span id="txt_score"></span>
     </div>
     <div id="game_screen">
         <canvas id="game" width="800" height="800" class="interface hide"></canvas>
-        <canvas id="game_for2p" width="1600" height="800" class="interface_for2p hide"></canvas>
+        <canvas id="game_for_2p" width="1600" height="800" class="interface_for_2p hide"></canvas>
     </div>
     <div id="game_interface" class="interface">
         <p class ="subject">SNAKE GAME</p>
         <hr class = "txt_hr">
         <div class ="txt_div">
-            <p class ="txt_interface txt_left"><span>PLAY</span><span>[P]</span></p>
+            <p class ="txt_interface txt_left"><span>SINGLE PLAY</span><span>[1]</span></p>
+            <p class ="txt_interface txt_left"><span>DUAL PLAY</span><span>[2]</span></p>
+            <p class ="txt_interface txt_left"><span>AUTO PLAY</span><span>[3]</span></p>
             <p class ="txt_interface txt_left"><span>LOAD</span><span>[L]</span></p>
             <p class ="txt_interface txt_left"><span>RANKING</span><span>[K]</span></p>
             <p class ="txt_interface txt_left"><span>EXIT</span><span>[ESC]</span></p>
-        </div>
-        <hr class = "txt_hr">
-        <!--
-            TODO copyright, up,right, spacebar
-            <p id ="copyright" class ="txt_interface">Press P to game</p>
-        -->
-        
-    </div>
-    <div id="game_select_playerMode_interface" class="interface hide">
-        <p class ="subject">SNAKE GAME</p>
-        <hr class = "txt_hr">
-        <div class ="txt_div">
-            <p class ="txt_interface txt_left"><span>1 PLAYER MODE</span><span>[1]</span></p>
-            <p class ="txt_interface txt_left"><span>2 PLAYER MODE</span><span>[2]</span></p>
-            <p class ="txt_interface txt_left"><span>Auto Play MODE</span><span>[3]</span></p>
-    
         </div>
         <hr class = "txt_hr">
         <!--
@@ -55,9 +41,19 @@
         <div class ="txt_div">
             <p class ="txt_interface txt_left"><span>RESUME</span><span>[P]</span></p>
             <p class ="txt_interface txt_left"><span>RESTART</span><span>[R]</span></p>
-            <p class ="txt_interface txt_left save"><span>SAVE</span><span>[S]</span></p>
+            <p class ="txt_interface txt_left"><span>SAVE</span><span>[S]</span></p>
             <p class ="txt_interface txt_left"><span>MAIN</span><span>[M]</span></p>
             <p class ="txt_interface txt_left"><span>EXIT</span><span>[ESC]</span></p>
+        </div>
+        <hr class = "txt_hr">
+    </div>
+    <div id="game_pause_for_2p" class="interface hide">
+        <p class ="subject">Paused</p>
+        <hr class = "txt_hr">
+        <div class ="txt_div">
+            <p class ="txt_interface txt_left"><span>RESUME</span><span>[P]</span></p>
+            <p class ="txt_interface txt_left"><span>RESTART</span><span>[R]</span></p>
+            <p class ="txt_interface txt_left"><span>MAIN</span><span>[M]</span></p>
         </div>
         <hr class = "txt_hr">
     </div>

@@ -11,7 +11,7 @@ function setGameScreen(){
 
     if(PLAYER_NUM==2)
     {
-        canvas = document.getElementById("game_for2p");
+        canvas = document.getElementById("game_for_2p");
         ctx = canvas.getContext("2d");
     }
 }
@@ -28,7 +28,7 @@ const SMALL = 20;
 const MEDIUM = 40;
 const LARGE = 60;
 
-let difficulty = 30;
+let difficulty = VERYEASY;
 let tileCount = MEDIUM;
 let tileSize = canvas.clientHeight/tileCount;
 let initial_x = Math.floor(Math.random()*(40));
@@ -68,9 +68,9 @@ let isSaving = false;
 let isGameOver = false;
 let isLoading = false;
 let isRanking = false;
-let isSelect = false;
 let isAuto = false;
 let is1Player = false;
 let is2Player = false;
+let isSelect = true;
 
 let isSnakeChanged = false;

@@ -1,5 +1,7 @@
 function changeSnakePosition(){
     head = players[0].snake[0];
+    let Winner = document.querySelector("#Winner");
+    WinnerDecided = 0;
     if (isAuto){
         autoDirection();
     }
@@ -55,9 +57,10 @@ function changeSnakePosition(){
             }
             if(PLAYER_NUM==2)
             {
-                let Winner = document.querySelector("#Winner");
                 Winner.innerHTML = "Player 2";
+                WinnerDecided = 1;
                 WinnerOn();
+                isGaming = false;
                 isPaused=true;
             }
         }
@@ -96,11 +99,11 @@ function changeSnakePosition(){
             if(PLAYER_NUM==1){
                 gameOver();
             }
-            if(PLAYER_NUM==2)
+            if(PLAYER_NUM==2&&WinnerDecided==0)
             {
-                let Winner = document.querySelector("#Winner");
                 Winner.innerHTML = "Player 1";
                 WinnerOn();
+                isGaming = false;
                 isPaused=true;
             }
         }
