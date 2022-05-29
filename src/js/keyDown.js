@@ -224,6 +224,7 @@ function keyDown(event){
 
     //keyboard R
     if(event.keyCode == 82){
+        if(!isPaused) return;
         if(!isStarted) return;
         if(isGameOver) return;
         resetOptions();
