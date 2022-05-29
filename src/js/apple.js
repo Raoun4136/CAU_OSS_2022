@@ -18,6 +18,7 @@ function ifConflictCreateApple(apple_y, apple_x, list){
                 apple_x = createApple(0,(canvas.clientWidth/tileSize)-1);  
                 console.log(apple_y,apple_x);
                 i=0;
+                continue
         }
         i+=1
     }
