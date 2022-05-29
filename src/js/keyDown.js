@@ -228,5 +228,10 @@ function keyDown(event) {
         isPaused = false;
         isGaming = true;
         gameOn();
+        if(PLAYER_NUM==2)
+        {
+            createRandomApple(players[0]);
+			createRandomApple(players[1]);
+        }
     }
 }

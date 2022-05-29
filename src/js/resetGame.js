@@ -17,8 +17,6 @@ function resetOptions(){
     {
         players[0]= new Player([0,0],0,1,[-1,-1]);
         players[1] = new Player([39,79],0,-1,[-2,-2]);  
-        players[0].apple = [createApple(1,39),createApple(1,39)];
-        players[1].apple = [createApple(1,39),createApple(1,39)];
     }
     //TODO make function to set option
     //TODO error for 1000ms drawGmae();
