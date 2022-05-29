@@ -18,6 +18,7 @@ function ifConflictCreateApple(apple_y, apple_x, list){
                 apple_x = createApple(0,(canvas.clientWidth/tileSize)-1);  
                 console.log(apple_y,apple_x);
                 i=0;
+                continue;
         }
         i+=1
     }
@@ -26,15 +27,16 @@ function ifConflictCreateApple(apple_y, apple_x, list){
 function createRandomApple(player){
     apple_y = createApple(0,(canvas.clientHeight/tileSize)-1);
     apple_x = createApple(0,(canvas.clientWidth/tileSize)-1);
-    let forConflict = [];
-    let apples = [];
-    for( let j=0; j<players.length;j++){
-        apples.push(players[j].apple)
-    }
     
     ifConflictCreateApple(apple_y,apple_x,players[0].snake)
 
     if(is2Player){
+        let forConflict = [];
+        let apples = [];
+        for( let j=0; j<players.length;j++){
+            apples.push(players[j].apple)
+        }
+        
         forConflict.push(players[0]);
         forConflict.push(players[1]);
         if(apples){
