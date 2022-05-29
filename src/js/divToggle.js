@@ -5,6 +5,7 @@ function gameOn(){
         document.getElementById("game_forAuto").classList.remove("hide");
         document.getElementById("game").classList.add("hide");
         document.getElementById("game_for_2p").classList.add("hide");
+        document.getElementById("game_score").classList.remove("hide");
     }
     if(PLAYER_NUM==1)
     {
