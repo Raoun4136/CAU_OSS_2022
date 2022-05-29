@@ -228,6 +228,7 @@ function keyDown(event){
         if(!isStarted) return;
         if(isGameOver) return;
         resetOptions();
+        isPaused = false;
         isGaming = true;
         gameOn();
     }
