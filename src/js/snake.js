@@ -166,19 +166,19 @@ function isVisited(node,d,visited){
 
 }
 
-function dfs(head,sub){
+function bfsDirection(head,sub){
     
-    let subDfs=[];
+    let subBfs=[];
     console.log(sub.length);
     for ( let j= 0; j<sub.length;j++){
-        subDfs.push([head[0]+sub[j][0],head[1]+sub[j][1],sub[j]]);
+        subBfs.push([head[0]+sub[j][0],head[1]+sub[j][1],sub[j]]);
     }
 
-    let visited = [...subDfs];
-    while(subDfs.length!=0 ){
-        let n = subDfs.length;
+    let visited = [...subBfs];
+    while(subBfs.length!=0 ){
+        let n = subBfs.length;
         for ( let i = 0; i < n; i++){
-            let node = subDfs.shift();
+            let node = subBfs.shift();
             if(node[0]===players[0].apple[0] && node[1]===players[0].apple[1]){
                 players[0].yV = node[2][0];
                 players[0].xV = node[2][1];
@@ -189,7 +189,7 @@ function dfs(head,sub){
                     continue;
                 }
                 visited.push([node[0]+dir[0],node[1]+dir[1],node[2]]);
-                subDfs.push([node[0]+dir[0],node[1]+dir[1],node[2]]);
+                subBfs.push([node[0]+dir[0],node[1]+dir[1],node[2]]);
             }
         }
     }
@@ -206,8 +206,7 @@ function dfs(head,sub){
 // Default logic to apple
 function autoDirection(){
     let subDirections=[];
-    if (players[0].yV===0){ directions = [[0,1],[0,-1],[1,0],[-1,0]]; }
-    else {  directions = [[1,0],[-1,0],[0,1],[0,-1]]; }
+    directions = [[0,1],[0,-1],[1,0],[-1,0]]; 
 
     // Search optimize direction
     for ( let dir of directions){
@@ -232,7 +231,7 @@ function autoDirection(){
     }
     players[0].yV=subDirections[0][0];
     players[0].xV=subDirections[0][1];
-    dfs(head,subDirections);
+    bfsDirection(head,subDirections);
 }
 
 function testApple(){
