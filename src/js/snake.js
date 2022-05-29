@@ -225,7 +225,7 @@ function autoDirection(){
         
     }
     //사방이 가로막힘
-    if(!subDirections){
+    if(subDirections.length===0){
         console.log("cant go");
         gameOver();
         return ;
