@@ -19,9 +19,7 @@ function resetOptions(){
         players[1] = new Player([39,79],0,-1,[-2,-2]);  
         createRandomApple(players[0]);
         createRandomApple(players[1]);
-
     }
     //TODO make function to set option
     //TODO error for 1000ms drawGmae();
-
 }
