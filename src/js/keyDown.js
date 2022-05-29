@@ -156,6 +156,7 @@ function keyDown(event){
             setGameScreen();
             players[0]= new Player(snake_startPosition,0,-1,apple_startPosition);
             isSelect = false;
+            isStarted = true;
             isGaming = true;
             is1Player = false;
             is2Player = false;
