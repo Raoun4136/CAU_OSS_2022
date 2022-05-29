@@ -16,9 +16,8 @@ function resetOptions(){
     if(PLAYER_NUM==2)
     {
         players[0]= new Player([0,0],0,1,[-1,-1]);
-        players[1] = new Player([39,79],0,-1,[-2,-2]);         
+        players[1] = new Player([39,79],0,-1,[-2,-2]);  
     }
     //TODO make function to set option
     //TODO error for 1000ms drawGmae();
-
 }

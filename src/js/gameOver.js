@@ -1,8 +1,8 @@
-function gameOver(){
-    gameOverOn();
-    isGaming = false;
-    isGameOver = true;
-    isAble = true;
-    let gameOver_score = document.querySelector("#gameOver_score");
-    gameOver_score.innerHTML = score;
+function gameOver() {
+	gameOverOn();
+	isGaming = false;
+	isGameOver = true;
+	isAble = true;
+	document.querySelector("#gameOver_score").innerHTML = score;
+	document.querySelector("#auto_gameOver_score").innerHTML = score;
 }
