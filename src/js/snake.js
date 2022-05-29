@@ -167,33 +167,42 @@ function isVisited(node,d,visited){
 }
 
 function dfs(head,sub){
-    let minWeight=MEDIUM*2;
-   
-        //bfs로 가중치
-    let subPath=1;
-    let subDfs=[[head[0]+sub[0],head[1]+sub[1]]];
-    let visited = [...subDfs[0]];
+    let subPath=0;
+    let subDfs=[];
+    console.log(sub.length);
+    // 굳이 3번 할 필요 업이 한번에, 어느 방향으로부터 시작됐는지 알 수 있으면 됨
+    for ( let j= 0; j<sub.length;j++){
+        subDfs.push([head[0]+sub[j][0],head[1]+sub[j][1],sub[j]]);
+    }
+
+    let visited = [...subDfs];
     while(subDfs.length!=0 ){
         let n = subDfs.length;
         for ( let i = 0; i < n; i++){
             let node = subDfs.shift();
             if(node[0]===players[0].apple[0] && node[1]===players[0].apple[1]){
-                return subPath;
+                players[0].yV = node[2][0];
+                players[0].xV = node[2][1];
+                return ; 
             }
             for ( let dir of directions){
                 if(isConflictSnake(players[0].snake,node,dir) || isConflictWall(node,dir)|| isVisited(node,dir,visited)){
                     continue;
                 }
-                visited.push([node[0]+dir[0],node[1]+dir[1]]);
-                subDfs.push([node[0]+dir[0],node[1]+dir[1]]);
+                visited.push([node[0]+dir[0],node[1]+dir[1],node[2]]);
+                subDfs.push([node[0]+dir[0],node[1]+dir[1],node[2]]);
             }
         }
-        console.log(subDfs);
+        console.log(visited);
         subPath+=1;
+
+       
     }
 
     // 사과를 발견하지 못하고 끝나는 경우
-    return MEDIUM*2;
+    // 빈칸이 존재한다면 진행,  subPath가 더 큰 쪽(== 공간이 더 많은) subDireciron 방향으로 진행
+
+    return ;
 }
 
 // Default logic to apple
@@ -214,33 +223,12 @@ function autoDirection(){
         }
         if(isBlock===0){
             subDirections.push([dir[0],dir[1]]);
-            if (isOptimal(dir)) { 
-                players[0].yV = dir[0];
-                players[0].xV = dir[1];
-                return ; }
         }
         
     }
-    let asap = MEDIUM*2;
-    for ( let subDirection of subDirections){
-        let dfsPath=dfs(head,subDirection)
-        if (asap > dfsPath){
-            asap = dfsPath;
-            players[0].yV = subDirection[0];
-            players[0].xV = subDirection[1];
-        };
-    }
-    
-    // block 가중치 반영
-    // let minWeight=MEDIUM*2;
-    // for ( sub of subDirections){
-
-    //     if ( minWeight>Math.abs(players[0].apple[0]-(head[0]+sub[0]))+Math.abs(players[0].apple[1]-(head[1]+sub[1]))){
-    //         minWeight = Math.abs(players[0].apple[0]-(head[1]+sub[1]))+Math.abs(players[0].apple[1]-(head[1]+sub[1]));
-    //         players[0].yV = sub[0];
-    //         players[0].xV = sub[1];
-    //     }
-    // }
+    yV=subDirections[0];
+    xV=subDirections[1];
+    dfs(head,subDirections);
 }
 
 function testApple(){
