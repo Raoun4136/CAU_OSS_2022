@@ -167,10 +167,9 @@ function isVisited(node,d,visited){
 }
 
 function dfs(head,sub){
-    let subPath=0;
+    
     let subDfs=[];
     console.log(sub.length);
-    // 굳이 3번 할 필요 업이 한번에, 어느 방향으로부터 시작됐는지 알 수 있으면 됨
     for ( let j= 0; j<sub.length;j++){
         subDfs.push([head[0]+sub[j][0],head[1]+sub[j][1],sub[j]]);
     }
@@ -193,15 +192,14 @@ function dfs(head,sub){
                 subDfs.push([node[0]+dir[0],node[1]+dir[1],node[2]]);
             }
         }
-        console.log(visited);
-        subPath+=1;
-
-       
     }
-
-    // 사과를 발견하지 못하고 끝나는 경우
+    // 사과에 도달할 수 없다고 판단하는 경우
     // 빈칸이 존재한다면 진행,  subPath가 더 큰 쪽(== 공간이 더 많은) subDireciron 방향으로 진행
-
+    // 마지막으로 visit한 위치가 가장 path가 길다.
+    lastVisit=visited.pop();
+    players[0].yV = lastVisit[2][0];
+    players[0].xV = lastVisit[2][1];
+    
     return ;
 }
 
@@ -226,8 +224,14 @@ function autoDirection(){
         }
         
     }
-    yV=subDirections[0];
-    xV=subDirections[1];
+    //사방이 가로막힘
+    if(!subDirections){
+        console.log("cant go");
+        gameOver();
+        return ;
+    }
+    players[0].yV=subDirections[0][0];
+    players[0].xV=subDirections[0][1];
     dfs(head,subDirections);
 }
 
