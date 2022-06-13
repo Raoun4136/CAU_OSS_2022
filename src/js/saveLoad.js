@@ -1,23 +1,22 @@
-document.querySelector("#save_name").addEventListener("submit",saveSnake);
-document.querySelector("#btn_resetSave").addEventListener("click",resetSaveData);
+document.querySelector("#save_name").addEventListener("submit", saveSnake);
+document.querySelector("#btn_resetSave").addEventListener("click", resetSaveData);
 
 
 
-function saveSnake()
-{
+function saveSnake() {
     let i = 0;
-    while(localStorage.getItem("saveData"+i)){
+    while (localStorage.getItem("saveData" + i)) {
         i++;
     }
-    localStorage.setItem("saveData"+((i+save_x)%5),JSON.stringify({
-        name : document.querySelector('#save_name').querySelector('input').value, 
-        score : score, 
-        snake : players[0].snake, 
-        apple : players[0].apple, 
-        eatApple : eatApple,
-        day : start.toLocaleDateString(),
-        datetime : start.toLocaleTimeString(),
-        time: parseInt(time)+parseInt(loadTime),
+    localStorage.setItem("saveData" + ((i + save_x) % 5), JSON.stringify({
+        name: document.querySelector('#save_name').querySelector('input').value,
+        score: score,
+        snake: players[0].snake,
+        apple: players[0].apple,
+        eatApple: eatApple,
+        day: start.toLocaleDateString(),
+        datetime: start.toLocaleTimeString(),
+        time: parseInt(time) + parseInt(loadTime),
         xV: players[0].xV,
         yV: players[0].yV
     }));
@@ -26,10 +25,10 @@ function saveSnake()
 
 function loadSnake() {
     resetDrawLoad();
-    let i =0;
-    for(i; i<5;i++){
-        if(!localStorage.getItem("saveData"+i)) continue;
-        let loadData = JSON.parse(localStorage.getItem("saveData"+i));
+    let i = 0;
+    for (i; i < 5; i++) {
+        if (!localStorage.getItem("saveData" + i)) continue;
+        let loadData = JSON.parse(localStorage.getItem("saveData" + i));
         let loadList = document.querySelector("#txt_load");
 
         let li = document.createElement("li");
@@ -41,9 +40,8 @@ function loadSnake() {
         let spanDateTime = document.createElement("span");
         let button = document.createElement("button");
 
-
-        li.id = "saveData"+i;
-        li.addEventListener("click",loadGame);
+        li.id = "saveData" + i;
+        li.addEventListener("click", loadGame);
 
         spanName.innerText = loadData.name;
         spanScore.innerText = loadData.score;
@@ -54,7 +52,7 @@ function loadSnake() {
 
         button.innerText = "❌";
         button.classList.add("btn_delete");
-        button.addEventListener("click",deleteSave);
+        button.addEventListener("click", deleteSave);
 
         //test console
         //console.log(loadData);
@@ -69,7 +67,7 @@ function loadSnake() {
     }
 }
 
-function resetDrawLoad(){
+function resetDrawLoad() {
     document.querySelector("#txt_load").remove();
 
     let div = document.createElement("div");
@@ -77,7 +75,7 @@ function resetDrawLoad(){
 
     div.id = "txt_load";
     ul.id = "load_list";
-    
+
     div.appendChild(ul);
     loadDiv.appendChild(div);
 
@@ -109,7 +107,7 @@ function resetDrawLoad(){
     rankList.appendChild(li);
 }
 
-function deleteSave(event){
+function deleteSave(event) {
     let li = event.target.parentElement;
     li.remove();
 
@@ -117,16 +115,16 @@ function deleteSave(event){
     loadSnake();
 }
 
-function resetSaveData(){
+function resetSaveData() {
     //TODO reset Save Data
     let i = 0;
-    for (i; i< 5; i++)
-        localStorage.removeItem("saveData"+i);
-    loadSnake();  
+    for (i; i < 5; i++)
+        localStorage.removeItem("saveData" + i);
+    loadSnake();
 }
 
-function loadGame(event){
-    if(!loadOption(event)) return;
+function loadGame(event) {
+    if (!loadOption(event)) return;
     clearScreen();
     isGaming = true;
     isStarted = true;
@@ -139,14 +137,17 @@ function loadGame(event){
     gameOn();
 }
 
-function loadOption(event){
+function loadOption(event) {
     let load = JSON.parse(localStorage.getItem(event.path[1].id));
-    if (load == null){
+    if (load == null) {
         load = JSON.parse(localStorage.getItem(event.path[0].id));
-        if(load == null){
+        if (load == null) {
             return 0;
         }
     }
+    document.querySelector('#save_name').querySelector('input').value = load.name;
+    document.querySelector('#rank_name').querySelector('input').value = load.name;
+
     players[0].apple = load.apple;
     players[0].snake = load.snake;
     eatApple = load.eatApple;
@@ -155,6 +156,6 @@ function loadOption(event){
     score = load.score;
     players[0].xV = load.xV;
     players[0].yV = load.yV;
-    
+
     return true;
 }
