@@ -82,3 +82,17 @@ let is2Player = false;
 let isSelect = true;
 
 let isSnakeChanged = false;
+
+const soundAppleEating = new Audio('sounds/apple-eating.mp3');
+const soundSnakeHissing = new Audio('sounds/snake-hissing.mp3');
+const soundDown = new Audio('sounds/down.mp3');
+const soundUp = new Audio('sounds/up.mp3');
+const soundLeft = new Audio('sounds/left.mp3');
+const soundRight = new Audio('sounds/right.mp3');
+const soundPause = new Audio('sounds/pause.mp3');
+const soundUnpause = new Audio('sounds/unpause.mp3');
+
+soundLeft.volume = 0.4;
+soundRight.volume = 0.4;
+soundDown.volume = 0.4;
+soundUp.volume = 0.4;
