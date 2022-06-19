@@ -5,4 +5,5 @@ function gameOver() {
 	isAble = true;
 	document.querySelector("#gameOver_score").innerHTML = score;
 	document.querySelector("#auto_gameOver_score").innerHTML = score;
+	playGameOverSound()
 }

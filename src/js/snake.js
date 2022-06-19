@@ -9,15 +9,16 @@ function changeSnakePosition(){
     let isConflict = 0;
     if(PLAYER_NUM==1)
     {
-    if ( ((head[0]+players[0].yV)!=players[0].apple[0])||((head[1]+players[0].xV)!=players[0].apple[1])){    
-        players[0].snake.pop();
-    }
-    else {
-        console.log("eat apple");
-        eatApple+=1;
-        //testApple();
-        createRandomApple(players[0]);
-    }
+        if ( ((head[0]+players[0].yV)!=players[0].apple[0])||((head[1]+players[0].xV)!=players[0].apple[1])){
+            players[0].snake.pop();
+        }
+        else {
+            console.log("eat apple");
+            eatApple+=1;
+            playAppleEatingSound()
+            //testApple();
+            createRandomApple(players[0]);
+        }
     }
     if(PLAYER_NUM==2)
     {

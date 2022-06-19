@@ -2,13 +2,6 @@ document.body.addEventListener("keydown", keyDown);
 
 function keyDown(event) {
 
-    if (event.keyCode == 37) {
-		if (players[0].xV == 1) return;
-		if (isSnakeChanged) return;
-		isSnakeChanged = true;
-		players[0].xV = -1;
-		players[0].yV = 0;
-	}
 	//keyboard left
 	if (event.keyCode == 37) {
 		if (players[0].xV == 1) return;
@@ -16,6 +9,7 @@ function keyDown(event) {
 		isSnakeChanged = true;
 		players[0].xV = -1;
 		players[0].yV = 0;
+		playLeftSound()
 	}
 	//keyboard up
 	if (event.keyCode == 38) {
@@ -24,6 +18,7 @@ function keyDown(event) {
 		isSnakeChanged = true;
 		players[0].xV = 0;
 		players[0].yV = -1;
+		playUpSound()
 	}
 	//keyboard right
 	if (event.keyCode == 39) {
@@ -32,6 +27,7 @@ function keyDown(event) {
 		isSnakeChanged = true;
 		players[0].xV = 1;
 		players[0].yV = 0;
+		playRightSound()
 	}
 	//keyboard down
 	if (event.keyCode == 40) {
@@ -40,6 +36,7 @@ function keyDown(event) {
 		isSnakeChanged = true;
 		players[0].xV = 0;
 		players[0].yV = 1;
+		playDownSound()
 	}
 	//keyboard left
 	if (event.keyCode == 65) {
@@ -49,6 +46,7 @@ function keyDown(event) {
 			isSnakeChanged = true;
 			players[1].xV = -1;
 			players[1].yV = 0;
+			playLeftSound()
 		}
 	}
 	//keyboard up
@@ -59,6 +57,7 @@ function keyDown(event) {
 			isSnakeChanged = true;
 			players[1].xV = 0;
 			players[1].yV = -1;
+			playUpSound()
 		}
 	}
 	//keyboard right
@@ -69,6 +68,7 @@ function keyDown(event) {
 			isSnakeChanged = true;
 			players[1].xV = 1;
 			players[1].yV = 0;
+			playRightSound()
 		}
 	}
 	//keyboard down
@@ -79,6 +79,7 @@ function keyDown(event) {
 			isSnakeChanged = true;
 			players[1].xV = 0;
 			players[1].yV = 1;
+			playDownSound()
 		}
 	}
 
@@ -91,6 +92,7 @@ function keyDown(event) {
 			isPaused = true;
 			pauseOnTime = new Date();
 			gamePauseOn();
+			playPauseSound()
 		} else {
 			// Resume Game
 			if (isSaving) return;
@@ -102,6 +104,7 @@ function keyDown(event) {
 				pauseOffTime = new Date();
 				pauseTime += pauseOffTime - pauseOnTime;
 				gameOn();
+				playUnpauseSound()
 				return;
 			} else {
 				isSelect = true;
