@@ -15,7 +15,7 @@ function changeSnakePosition(){
         else {
             console.log("eat apple");
             eatApple+=1;
-            soundAppleEating.play();
+            playAppleEatingSound()
             //testApple();
             createRandomApple(players[0]);
         }

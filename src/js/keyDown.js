@@ -9,7 +9,7 @@ function keyDown(event) {
 		isSnakeChanged = true;
 		players[0].xV = -1;
 		players[0].yV = 0;
-		soundLeft.play()
+		playLeftSound()
 	}
 	//keyboard up
 	if (event.keyCode == 38) {
@@ -18,7 +18,7 @@ function keyDown(event) {
 		isSnakeChanged = true;
 		players[0].xV = 0;
 		players[0].yV = -1;
-		soundUp.play()
+		playUpSound()
 	}
 	//keyboard right
 	if (event.keyCode == 39) {
@@ -27,7 +27,7 @@ function keyDown(event) {
 		isSnakeChanged = true;
 		players[0].xV = 1;
 		players[0].yV = 0;
-		soundRight.play()
+		playRightSound()
 	}
 	//keyboard down
 	if (event.keyCode == 40) {
@@ -36,7 +36,7 @@ function keyDown(event) {
 		isSnakeChanged = true;
 		players[0].xV = 0;
 		players[0].yV = 1;
-		soundDown.play()
+		playDownSound()
 	}
 	//keyboard left
 	if (event.keyCode == 65) {
@@ -46,7 +46,7 @@ function keyDown(event) {
 			isSnakeChanged = true;
 			players[1].xV = -1;
 			players[1].yV = 0;
-			soundLeft.play()
+			playLeftSound()
 		}
 	}
 	//keyboard up
@@ -57,7 +57,7 @@ function keyDown(event) {
 			isSnakeChanged = true;
 			players[1].xV = 0;
 			players[1].yV = -1;
-			soundUp.play()
+			playUpSound()
 		}
 	}
 	//keyboard right
@@ -68,7 +68,7 @@ function keyDown(event) {
 			isSnakeChanged = true;
 			players[1].xV = 1;
 			players[1].yV = 0;
-			soundRight.play()
+			playRightSound()
 		}
 	}
 	//keyboard down
@@ -79,7 +79,7 @@ function keyDown(event) {
 			isSnakeChanged = true;
 			players[1].xV = 0;
 			players[1].yV = 1;
-			soundDown.play()
+			playDownSound()
 		}
 	}
 
@@ -92,7 +92,7 @@ function keyDown(event) {
 			isPaused = true;
 			pauseOnTime = new Date();
 			gamePauseOn();
-			soundPause.play()
+			playPauseSound()
 		} else {
 			// Resume Game
 			if (isSaving) return;
@@ -104,7 +104,7 @@ function keyDown(event) {
 				pauseOffTime = new Date();
 				pauseTime += pauseOffTime - pauseOnTime;
 				gameOn();
-				soundUnpause.play()
+				playUnpauseSound()
 				return;
 			} else {
 				isSelect = true;
