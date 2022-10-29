@@ -38,7 +38,7 @@ $ git clone https://github.com/Raoun4136/CAU_OSS_2022.git
 
 # PLAY GAME
 
-https://cseosssnakegame.netlify.app/
+https://raoun4136.github.io/CAU_OSS_2022/
 
 # TREE
 
